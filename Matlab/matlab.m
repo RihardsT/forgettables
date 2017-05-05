@@ -31,3 +31,10 @@ end
     somevalue= <something>
     save(['GeneralPrefix' num2str(i) '.mat'],'somevalue')
   end
+
+
+% Linear index
+A = [ 1 2;
+      3 4]
+sub2ind(size(A),1,2) % Find the linear index. Line, col. 
+A(3) % == 2, same as A(1,2)
