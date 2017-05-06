@@ -6,6 +6,10 @@
 %% Comparators:
 %% print
 %% Variables:
+Struct{1} = something
+Struct.something
+
+
 %% if/else:
 
 %% Loops:
@@ -36,5 +40,5 @@ end
 % Linear index
 A = [ 1 2;
       3 4]
-sub2ind(size(A),1,2) % Find the linear index. Line, col. 
+sub2ind(size(A),1,2) % Find the linear index. Line, col.
 A(3) % == 2, same as A(1,2)
