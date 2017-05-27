@@ -1,0 +1,25 @@
+---
+- hosts: all
+  remote_user: rihards
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars:
+    users: # variable refered to in task with_items
+      - rihards
+  pre_tasks: # Set as pre_task, to run before everything else
+    - name: Add SSH key
+      authorized_key:
+        user: "{{ item }}" # The item from with_items
+        state: present
+        key: "{{ lookup('file', '../Secrets/SSH_Keys/key.pub') }}"
+      with_items: "{{ users }}"
+  tasks:
+    - name: Bash command
+        shell: pwd
+        args:
+          chdir: /srv/ # Change directory
+          executable: /bin/bash
+
+  roles: # Roles
+    - role_name_goes_here

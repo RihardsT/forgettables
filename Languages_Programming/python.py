@@ -25,7 +25,8 @@ print char, # , nozīmē, ka izprintēs bez \n
 print a, b
 #Python 3.* style
 print('{0} and {1}'.format('var1', 'var2'))
-
+# Python 3.6 String interpolation
+f'can_put_text_here {variable}'
 
 Variables:
 	name = value #value var būt jebkas. int, float, bool, array, string, obj
@@ -49,10 +50,11 @@ Variables:
 	dictionary = {'key':value, 'key2':value} # Hash in ruby
 	dictionary[key] = newValue
 	del dictionary[key]
-	dictionary.remove(key)
+	# dictionary.remove(key) # Python 2 ?
 	.items() #returns key/value pairs, not ordered
 	.keys()
 	.values()
+	.clear()
 
 if/elif/else
 if True:
@@ -106,6 +108,9 @@ bin(1) #returns binary representation of int #or vice versa ?
 oct()
 hex()
 int("number_in_string", base_of_that_number) #returns value of that in base 10
+
+set(list_in_here) # Returns unique elements
+map()
 
 Functions:
 def function_name(params):
@@ -195,3 +200,5 @@ from datetime import datetime
 	print '%s-%s-%s' % (now.year, now.month, now.day)
 
 from random import randint #Random int
+import random
+random.random() # float in range [0.0 1.0]
