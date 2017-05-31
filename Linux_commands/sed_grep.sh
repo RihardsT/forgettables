@@ -14,3 +14,11 @@ sed '/PATTERN/ d' FILE
 grep "^s[0-9].*" FILE
 # grep with OR \|
 grep "^s[0-9].*\|wave.*" actionLabel.txt
+
+
+# Remove newlines in file
+tr -d "\n\r" < input_filename
+# Replace newlines with \\n
+sed ':a;N;$!ba;s/\n/\\n/g' file
+# Replace newlines with \\n
+sed -z 's/\n/\\n/g' file
