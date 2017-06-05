@@ -9,6 +9,9 @@ sed -i '55,56 d' Dockerfile
 sed -i '$ d' Dockerfile
 # Delete lines containing a pattern. Can use !d to delete lines NOT containing pattern
 sed '/PATTERN/ d' FILE
+# Add text to beginnign of string
+sed -i 's/^/test /' FILE
+
 
 # Return the line with the match
 grep "^s[0-9].*" FILE
@@ -22,3 +25,5 @@ tr -d "\n\r" < input_filename
 sed ':a;N;$!ba;s/\n/\\n/g' file
 # Replace newlines with \\n
 sed -z 's/\n/\\n/g' file
+# Remove newlines, to create single line cert
+awk 1 ORS=''
