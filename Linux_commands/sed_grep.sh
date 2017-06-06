@@ -17,7 +17,8 @@ sed -i 's/^/test /' FILE
 grep "^s[0-9].*" FILE
 # grep with OR \|
 grep "^s[0-9].*\|wave.*" actionLabel.txt
-
+# inverse grep. Match anything that doesn't match a pattern
+grep -v "PATTERN" FILE
 
 # Remove newlines in file
 tr -d "\n\r" < input_filename
