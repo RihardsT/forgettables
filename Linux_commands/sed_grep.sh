@@ -28,3 +28,14 @@ sed ':a;N;$!ba;s/\n/\\n/g' file
 sed -z 's/\n/\\n/g' file
 # Remove newlines, to create single line cert
 awk 1 ORS=''
+
+# grep multiple lines. -P perl-regexp, -z substitute newline for null char, -o only matching.
+grep -Pzo "EXPRESSION" FILE
+
+# Delete lines with pattern
+sed '/PATTERN/ d' FILE
+
+# Append line after match
+sed  '/pattern/a Hello World' FILE
+# Append line before match
+sed  '/pattern/i Hello World' FILE

@@ -31,6 +31,7 @@ array << value #append value
 	my_hash = Hash.new("default return value") #atgriež default vērtību, ja izvēlas tukšu key.
 	# hash var definēt kā key: value. key: joprojām skaitas kā simbols :key
 	hash = { one: 1, two: 2}
+	hash.keys
 %w[this that too] # returns array of string. ["this", "that", "too"]
 Multi line string: https://www.commandercoriander.net/blog/2014/11/09/a-multiline-string-cheatsheet-for-ruby/
 
