@@ -55,6 +55,7 @@ Variables:
 	.keys()
 	.values()
 	.clear()
+	.replace() # replace char in string
 
 if/elif/else
 if True:
