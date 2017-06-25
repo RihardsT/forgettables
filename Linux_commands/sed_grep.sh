@@ -39,3 +39,14 @@ sed '/PATTERN/ d' FILE
 sed  '/pattern/a Hello World' FILE
 # Append line before match
 sed  '/pattern/i Hello World' FILE
+
+# Remove First N Characters Of Each Line
+cut -c 6-
+# Print Strings Between First and Last Characters
+cut -c 9-20
+# Print First N Characters Of Each Line
+cut -c 1-20
+# Remove Last Character Of Each Line
+rev file | cut -c 2- | rev
+# Remove Last N Characters Of Each Line
+rev file | cut -c 9- | rev

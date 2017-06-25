@@ -29,3 +29,6 @@ tar -xvzf FILENAME.tar.gz # -C /some/target/directory
 
 # Truncate a file
 truncate -s 0 FILE
+
+# find all files with that extension
+find $PWD -name *.json
