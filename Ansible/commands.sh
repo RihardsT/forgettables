@@ -1,6 +1,5 @@
 pyenv local 2.7.13 # Because ansible and molecule work better with python2
-pip install -U packaging
-pip install -U ansible
+pip install -U packaging; pip install -U ansible
 which ansible
 
 ansible-galaxy install --roles-path ./roles
@@ -20,3 +19,13 @@ ansible-playbook -i ./Inventory --limit backend --diff Playbook.yml
 
 # Run setup to get a list of all available ansible variables, like ansible_architecture
 ansible -i Inventory -m setup HOSTS
+
+# ansible-pull - Set nodes to periodically pull and apply config from repository
+https://github.com/ansible/ansible-examples/blob/master/language_features/ansible_pull.yml
+
+
+### Roles
+mkdir roles
+cd roles
+ansible-galaxy init common
+ansible-galaxy init apache

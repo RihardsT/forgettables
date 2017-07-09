@@ -1,0 +1,27 @@
+---
+- hosts: webservers
+  remote_user: vagrant
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: test connection
+      ping:
+    - name: ping as sudo
+      ping:
+      become_user: root
+      become_method: sudo
+      # notify: "restart web services" # Can notify
+    - name: run this command and ignore the result
+      shell: /usr/bin/echo "This"
+      ignore_errors: True
+      notify:
+        - restart memcached # handler name
+  handlers:
+    - name: restart memcached
+      service: name=memcached state=restarted
+      listen: "restart web services"
+      # Multiple handlers can list to a notify like this
+    - name: restart apache
+      service: name=apache state=restarted
+      listen: "restart web services"
