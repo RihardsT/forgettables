@@ -1,0 +1,21 @@
+.		match any char
+[]	character set	: [a-z]
+\w 	[a-zA-Z0-9]
+\d 
+\b 	word boundary :	\b\ok\b => ok = true, okie = false
+
++		match 1 or n times
+?		match 0 or 1 times
+*		match 0 or n times
+\ 	escape char 	: \.
+( )	return(capture) match group
+{ }	match count {min,max}
+
+(?:expr) non capture group
+Regular Expression:
+	/expression/operators
+
+i 	ignore case operator
+m 	multiline operator
+g 	global operator = match every occurence
+	Operators can be language specific. Check docs.

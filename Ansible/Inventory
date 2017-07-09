@@ -3,3 +3,8 @@ IP_GOES_HERE
 
 [production]
 IP_GOES_HERE
+
+# Variables can also go in inventory.
+# Her instruct ansible to use python3 on the target node, instead of python2
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

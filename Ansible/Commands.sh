@@ -13,4 +13,10 @@ ansible-galaxy install --roles-path ./roles
 # -e 'ansible_port=22' # Can set different ssh port
 
 export ANSIBLE_NOCOWS=1 # Skip the overly verbose cows
-ansible-playbook -i ./Inventory Playbook.yml --limit backend --diff
+# Skip the overly verbose cows, permanently. In my case, in bash_profile did the trick, not .bashrc
+echo "export ANSIBLE_NOCOWS=1" >> ~/.bash_profile
+
+ansible-playbook -i ./Inventory --limit backend --diff Playbook.yml
+
+# Run setup to get a list of all available ansible variables, like ansible_architecture
+ansible -i Inventory -m setup HOSTS
