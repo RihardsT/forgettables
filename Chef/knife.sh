@@ -12,9 +12,9 @@ knife data bag show DATA_BAG ITEM -F json --secret-file encrypted_data_bag_secre
 knife data bag from file DATA_BAG ITEM.json --secret-file encrypted_data_bag_secret --local-mode
 
 ######### knife search, return attributes
-knife search node "name:*" -a run_list
+knife search node "name:*" -a ipaddress
+-a run_list
 -a chef_environment
--a ipaddress
 -a platform_version
 
 ######### Set stuff

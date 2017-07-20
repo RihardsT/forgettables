@@ -75,8 +75,12 @@ git push origin HEAD --force	#praktiski izdzēš vēlākos commits
 git submodule add REPOSITORY_URL FOLDER_NAME
 git submodule update
 
-## Remove submodule
+### Remove submodule
 git submodule deinit
 # rm the submodule from .gitmodules
 git rm --cached path_to_submodule
 git commit
+
+### Pull latest versions of submodules 
+git submodule init
+git submodule update
