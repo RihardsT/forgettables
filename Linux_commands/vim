@@ -1,0 +1,16 @@
+:set hlsearch
+:set hlight
+:set number
+:set nonumber
+:3  #jump to line
+:%s/d/D/gc
+:%s/D/d/gc
+
+:.,$d  - delete to end of file, from current selection
+:1,.d  - delete to beginning of file
+x   - delete current character
+dw  - delete current word
+dd  - delete current line
+5dd - delete five lines
+d$  - delete to end of line
+d0  - delete to beginning of line

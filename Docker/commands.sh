@@ -19,3 +19,5 @@ https://lumogon.com/
 ##
 https://blog.docker.com/2017/06/announcing-docker-17-06-community-edition-ce/
 
+## Build in current dir
+docker build -t TAG .
