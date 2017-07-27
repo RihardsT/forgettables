@@ -81,6 +81,6 @@ git submodule deinit
 git rm --cached path_to_submodule
 git commit
 
-### Pull latest versions of submodules 
-git submodule init
-git submodule update
+### Pull latest versions of submodules
+git submodule init # Possibly required, hah
+git submodule update --recursive --remote # Checkout the latest from remote
