@@ -38,3 +38,6 @@ find $PWD -name *.json
 find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*"
 # Delete the found folders. I like this because you can see what gets deleted
 find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*" -exec rm -r "{}" \;
+
+
+lslbk --output NAME,SIZE,MOUNTPOINT,UUID
