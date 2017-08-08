@@ -22,8 +22,10 @@ grep -v "PATTERN" FILE
 
 # Remove newlines in file
 tr -d "\n\r" < input_filename
-# Replace newlines with \\n
+# Replace <LF> with \\n
 sed ':a;N;$!ba;s/\n/\\n/g' file
+# Replace <CR><LF> with \n
+sed ':a;N;$!ba;s/\r\n/\\n/g' filename
 # Replace newlines with \\n
 sed -z 's/\n/\\n/g' file
 # Remove newlines, to create single line cert
