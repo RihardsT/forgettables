@@ -1,3 +1,5 @@
+!! # This runs the last command in terminal. Bevare! Putting this in my git commit message, ruined my message. :D
+
 # NTP time sync at least on Centos
 sudo service ntpd stop; sudo ntpd -q; sudo service ntpd start
 
