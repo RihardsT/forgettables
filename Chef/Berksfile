@@ -1,0 +1,3 @@
+group :integration do
+  cookbook 'test_cookbook', path: 'test/test_cookbook'
+end
