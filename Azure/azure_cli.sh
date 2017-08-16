@@ -6,10 +6,10 @@ pip install -U azure
 
 # Azure Xpat CLI
 docker run --rm -it -v /d/:/d microsoft/azure-cli
-# Or just don't bother with that and go with docker
+# Or just don't bother with that and go with docker. Azure CLI 2
 docker run --rm -v ${PWD}:/d -it azuresdk/azure-cli-python
 
-######### Commands
+######### Commands for azure-cli-python. Azure CLI 2
 az login
 az account set --subscription SUBSCRIPTION_ID
 az group create -n "RESOURCE_GROUP" -l "REGION_NAME"
