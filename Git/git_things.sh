@@ -84,3 +84,7 @@ git commit
 ### Pull latest versions of submodules
 git submodule init # Possibly required, hah
 git submodule update --recursive --remote # Checkout the latest from remote
+
+
+### get hash of latest commit.
+git rev-parse --short HEAD

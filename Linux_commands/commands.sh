@@ -17,7 +17,7 @@ ln -s TARGET LINK_NAME
 unlink mySymLink
 
 # List Open ports and process that owns them
-sudo lsof -i
+sudo lsof -i # lsof = list open files. -i flag lists all network files
 sudo netstat -lptu | grep 8088
 sudo netstat -tulpn
 
@@ -56,6 +56,9 @@ ps -eo size,pid,user,command --sort -size | grep EXPRESSION | awk '{ hr=$1/1024 
 ps -eo size,pid,user,command --sort -size | awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=4 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }'
 ps -o stime,time $(pgrep EXPRESSION)
 ps -p $(pgrep EXPRESSION) -o etime=
+# Running processes as tree
+ps -ejH
+ps axjf
 
 # get file creation time - https://unix.stackexchange.com/questions/50177/birth-is-empty-on-ext4/50184#50184
 stat FILE # to get the inode
@@ -64,3 +67,17 @@ debugfs -R 'stat <INODE_HERE>' /dev/sdb1 # Keep the birds < >
 # Some commands that do something. TODO: Update these eventually with descriptions
 iostat
 sar
+
+# memory usage
+free -m
+# system monitor atop, htop
+top
+
+# kill process that's found by grep
+kill -15 $(ps aux | grep EXPRESSION | awk '{print $2}')
+# Kill sequence -15 -2 -1 -9. Basically never ever use -9
+kill -15 # if that doesn't do it, -2
+
+
+# share a single terminal between ssh'ed in users. Have to install something fir I bet
+screen -x shared

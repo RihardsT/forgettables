@@ -19,6 +19,8 @@ grep "^s[0-9].*" FILE
 grep "^s[0-9].*\|wave.*" actionLabel.txt
 # inverse grep. Match anything that doesn't match a pattern
 grep -v "PATTERN" FILE
+# show 2 lines before and 2 lines after match
+grep -B 2 -A 2 'PATTERN' FILE
 
 # Remove newlines in file
 tr -d "\n\r" < input_filename
@@ -52,3 +54,7 @@ cut -c 1-20
 rev file | cut -c 2- | rev
 # Remove Last N Characters Of Each Line
 rev file | cut -c 9- | rev
+
+
+# Find empty lines
+^(?:[\t ]*(?:\r?\n|\r))+
