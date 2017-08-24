@@ -86,3 +86,6 @@ kill -15 # if that doesn't do it, -2
 
 # share a single terminal between ssh'ed in users. Have to install something fir I bet
 screen -x shared
+
+# date. man date
+date +%Y-%m-%d-%H.%M.%S
