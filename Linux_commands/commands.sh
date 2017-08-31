@@ -89,3 +89,9 @@ screen -x shared
 
 # date. man date
 date +%Y-%m-%d-%H.%M.%S
+
+
+# Clam Antivirus
+sudo apt-get update && sudo apt-get install -y clamav
+clamscan -r / # recursive scan probably.
+clamscan -ro / # o to skip output of ok files
