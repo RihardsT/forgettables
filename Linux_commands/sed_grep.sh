@@ -15,7 +15,7 @@ sed -i 's/^/test /' FILE
 
 # Return the line with the match
 grep "^s[0-9].*" FILE
-# grep with OR \|
+# grep with OR \|. or statement | || I needed to find this once and I didn't find it easily
 grep "^s[0-9].*\|wave.*" actionLabel.txt
 # inverse grep. Match anything that doesn't match a pattern
 grep -v "PATTERN" FILE
