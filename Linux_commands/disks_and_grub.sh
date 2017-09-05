@@ -20,5 +20,15 @@ EOF
 mkfs.ext4 /dev/sdb1
 
 
-###
+########## Get UUID of partitions
 lsblk -o NAME,SIZE,MOUNTPOINT,UUID
+
+
+########## Set default grub entry
+# Get all the menuentries grub shows
+less /boot/grub/grub.cfg | grep menuentry
+# Edit the file and replace the default with a menuentry. Something like that.
+/etc/default/grub
+  GRUB_DEFAULT='Windows 10 (loader) (on /dev/sda1)'
+# Update grub, when file updated
+sudo update-grub
