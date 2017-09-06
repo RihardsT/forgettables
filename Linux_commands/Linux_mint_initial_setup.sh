@@ -22,3 +22,10 @@ sed -i 's/$ID/$ID_LIKE/g' amdgpu-pro-install
 
 ### Windows 10 stuff for dual boot
 # Control Panel -> Power Options -> Choose what the power buttons do
+
+
+# Git initial config
+git config --global push.default matching
+git config --global user.email "richitislv@gmail.com"
+git config --global user.name "Rihards Teteris"
+git config --global core.editor vim
