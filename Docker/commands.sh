@@ -1,7 +1,8 @@
 # Install docker
 sudo curl -fsSL https://get.docker.com/ | sh
 
-# Change where docker data (images, etc) will be stored. Historically this was easier, because graphdir dockerd option was not working.
+# Change where docker data (images, etc) will be stored.
+# Historically this was easier, because graphdir dockerd option was not working.
 ln -s PATH_TO_NEW_LOC /var/lib/docker
 
 # Remove containers with exited status. docker system/container prune is simpler
