@@ -41,3 +41,7 @@ pip2 install -U ansible docker molecule
 molecule init --driver docker
   # Add ansible: to molecule.yml
 molecule --help
+
+### Run with docker hopefully
+docker run -ti --rm williamyeh/ansible:alpine3-onbuild sh
+apk add --no-cache openssh-client
