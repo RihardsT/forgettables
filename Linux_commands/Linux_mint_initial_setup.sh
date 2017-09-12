@@ -4,7 +4,7 @@ sudo su
 apt-get update
 apt-get -y upgrade
 apt-get purge -y hexchat transmission-* pidgin* xplayer* rhythmbox*
-apt-get install -y vim git chromium-browser audacious vlc keepass2
+apt-get install -y vim git chromium-browser audacious vlc keepass2 psensor
 curl -fsSL https://get.docker.com/ | sh
 sudo usermod -aG docker rihards
 
@@ -15,6 +15,11 @@ mkdir /media/1TB
 mount /dev/sda5 /media/1TB
 UUID=SUBSTITUTE_WITH_YOUR_UUID_RIGHT_HERE_IF_YOU_WANT
 echo "UUID=${UUID} /media/1TB ntfs-3g defaults,permissions 0 0" >> /etc/fstab
+# I have another ext4 partition
+mkdir /media/ext
+mount /dev/sdb1 /media/ext
+UUID=6293ecdb-be2c-4e8d-b61f-6de1708a900e
+echo "UUID=${UUID} /media/ext ext4 defaults 0 0" >> /etc/fstab
 
 # Git initial config
 git config --global push.default matching
