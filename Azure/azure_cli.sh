@@ -5,7 +5,7 @@ curl -L https://aka.ms/InstallAzureCli | bash
 pip install -U azure
 
 # Azure Xpat CLI
-docker run --rm -it -v /d/:/d microsoft/azure-cli
+docker run --rm -it -v ${PWD}/:/d/ microsoft/azure-cli
 # Or just don't bother with that and go with docker. Azure CLI 2
 docker run --rm -v ${PWD}:/d -it azuresdk/azure-cli-python
 
