@@ -32,3 +32,13 @@ less /boot/grub/grub.cfg | grep menuentry
   GRUB_DEFAULT='Windows 10 (loader) (on /dev/sda1)'
 # Update grub, when file updated
 sudo update-grub
+
+########## Swap
+fallocate -l 4G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+swapon -s
+
+vim /etc/fstab
+  /mnt/swapfile   none    swap    sw    0   0
