@@ -1,0 +1,74 @@
+% Definē dokumenta tipu
+\documentclass[12pt]{report}
+
+% Importējam vajadzīgās pakotnes
+\usepackage{polyglossia} % Pakotne valodu lietošanai
+\usepackage{graphicx} % Pakotne attēlu lietošanai
+\setdefaultlanguage{latvian} % Iestatām noklusējum valodu
+
+\begin{document}
+\chapter{Lielā nodaļa}
+\section{Apakšnodaļa}
+\subsection{Apakšnodaļa apakšnodaļai}
+
+
+Testējam latviešu simbolus.
+
+\textit{slīpraksts}, 
+\textbf{treknraksts}, 
+\underline{pasvītrojums}.
+
+
+% Jauna rindkopa = 2 tukšas līnijas
+Šim vajadzētu būt jaunā rindkopā
+
+% Nenumurēts saraksts
+\begin{itemize}
+  \item Āboli
+  \item Burkāni
+  \item Sīpoli
+\end{itemize}
+% Sanumurēts sarakts
+\begin{enumerate}
+  \item Janvāris
+  \item Februāris
+\end{enumerate}
+
+\begin{equation} 
+  \frac{x}{y}
+  \right
+\end{equation}
+
+Nenumurēta formula jaunā rindā: $$c^2=a^2+b^2$$.
+Nenumurēta formula tajā pat rindā: $c^2=a^2+b^2$.
+
+% Attēlu ievietošana
+\begin{figure}[!ht] % [!ht] - liek bildi tieši tur, kur beidzas rindkopa
+  \centering
+  \includegraphics[width=0.8\textwidth]{https://latexbase.com/images/raptor.jpg}
+  \caption{Velociraptor no LaTeXBase}
+  \label{fig:velociraptor}
+\end{figure}
+
+Attēlā Nr. \ref{fig:velociraptor} redzams Velociraptors.
+
+% Tabulu veidošana LaTeX
+\begin{table}[!ht]
+  \begin{tabular}{|l|l}
+    % |, lai būtu iezīmēts režģis.
+    % l, lai teksts būtu pa kreisi
+    \hline
+    Pārtikas produkts & Daudzums (g) \\ % Atdala šūnas ar &. Rindiņu beidz ar \\
+    \hline
+    Šokolāde & 250 \\ \hline
+    Sviests & 250 \\ \hline
+    Milti & 50 \\ \hline
+    Cukurs & 250 \\ \hline
+  \end{tabular}
+  \caption{Šokolādes kūkas sastāvdaļas}
+  \label{tab:recepte}
+\end{table}
+
+Tabulā Nr. \ref{tab:recepte} ir redzamas kūkas sastāvdaļas.
+
+\end{document}
