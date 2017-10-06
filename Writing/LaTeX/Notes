@@ -1,2 +1,9 @@
 latexbase.com
 
+# Spellcheck:
+https://extensions.libreoffice.org/extensions/latviesu-valodas-pareizrakstibas-parbaudes-modulis
+# Lejupielādē vārdnīcu no šejienes
+http://dict.dv.lv/download.php?prj=lv
+wget dict.dv.lv/download/lv_LV-1.3.0.zip
+
+Pievieno .dic failu TeX Maker.
