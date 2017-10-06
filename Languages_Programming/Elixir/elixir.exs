@@ -101,7 +101,7 @@ end
 
 defmodule Sample.enum do
   def first([]), do: nil # Single line function
-  def first([head | _]),  do: head  
+  def first([head | _]),  do: head
   def first(list) when length(list) == 0, do: nil # Guard clauses
 end
 ### Guard clause type check functions
@@ -117,11 +117,11 @@ def add(list, val \\ 0) do # by default val is 0
 end
 
 ### Private Function with defp
-defp trace(string) do 
+defp trace(string) do
   IO.puts("The value was #{something}")
 end
 
-### Anonymous Functions
+### Anonymous Functions # like lambda functions
 Enum.map(list, fn(x) -> x*x end)
 Enum.reduce(list, 0, fn(x, acc) -> acc + x end)
 Enum.map(list, &(&1 * &1 )) # wit capture symbol &
@@ -138,9 +138,75 @@ end
 
 
 ########## if/else:
+def first(list) do
+  if(length(list) == 0) do
+    nil
+  else
+    hd(list)
+  end
+end
+# But as Elixir has pattern matching abilties, this if/else would be equal to:
+def first([]), do: nil
+def first([head | _]),  do: head
+
+if
+else
+unless # if not
+# There's no else if
+
+### Multiple conditions
+cond do
+  day == :Monday -> "M"
+  day == :Tuesday -> "Tu"
+  ...
+  true -> "Invalid day" # Default value
+end
+# Same could be achieved with pattern matching
+def day_abrev(:Monday), do: "M"
+def day_abrev(_), do: "Invalid day"
+
+### Case statement
+case day do
+  :Monday -> "M"
+  _ -> "Invalid day"
+end
+# Case statements can take advandate of pattern matching
+case date do
+  {1, _, _} -> "It's a new month"
+  {14, 12, _} -> "It's 14th of December. Congrats!"
+  # A guard clause here
+  {_, month, _} when month <= 12 -> "Nobody cares about this day"
+  {_, _, _} -> "There's up to 12 months."
+  # As soon as case is matched, Elixir will stop falling through
+  # So sequence is important here
+end
+
 
 ########## Loops:
+# Elixir doesn't have for or while. Thus you shall use recursion.
+def map([],_) do: []
+def map([hd | tl], f) do
+  [f.(hd) | map(tl, f)]
+end
+
+(100..1) # Range
+
+# Body recursion
+def length([]), do: 0
+def length([_, tail]),
+  do: 1 + length(tail)
+
+# Tail recursion - that's something to look at
+# Tail recursion is possible if last operation in function is recursion???
+# This avoids overflowing the stack.
+# Note that tail recursion would return data in reversed order.
+# So another reverse would be required, if correct order is required
 
 ########## Imports:
 import IO # imports, if you don't want to prepend IO for IO.puts for example
 import IO, only: [puts: 1] # import only specific functions from module
+
+
+########## Usefull stuff
+# Show how Elixir interprets our code
+quote do CODE_HERE end

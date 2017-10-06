@@ -31,3 +31,8 @@ docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 docker-machine start
 eval "$(docker-machine env --shell bash default)"
 docker ps
+
+
+
+### Allow access to hosts docker socket from within container
+-v /var/run/docker.sock:/var/run/docker.sock
