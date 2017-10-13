@@ -84,8 +84,14 @@ kill -15 $(ps aux | grep EXPRESSION | awk '{print $2}')
 kill -15 # if that doesn't do it, -2
 
 
-# share a single terminal between ssh'ed in users. Have to install something fir I bet
+# share a single terminal between ssh'ed in users. Have to install something first I bet
 screen -x shared
+
+### Run command in background
+nohup COMMAND & # One option
+screen # Check this out
+tmux # Also check this out. Multiple terminals from one screen
+
 
 # date. man date
 date +%Y-%m-%d-%H.%M.%S
