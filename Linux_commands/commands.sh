@@ -5,6 +5,9 @@ history -c # Clears history from ~/.bash_history file
 history -w # Writes current history to ~/.bash_history
 histroy -cw
 
+### Environment variables
+printenv
+
 # NTP time sync at least on Centos
 sudo service ntpd stop; sudo ntpd -q; sudo service ntpd start
 
