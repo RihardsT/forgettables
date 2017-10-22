@@ -36,6 +36,7 @@ wget https://go.microsoft.com/fwlink/?LinkID=760868 # Download VS Code
 # Because Linux Mint is like ubuntu
 sed -i 's/$ID/$ID_LIKE/g' amdgpu-pro-install
 ./amdgpu-pro-install
+sudo usermod -a -G video $LOGNAME
 
 ### Windows 10 stuff for dual boot
 # Control Panel -> Power Options -> Choose what the power buttons do
