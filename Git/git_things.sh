@@ -32,6 +32,10 @@ git remote add REMOTE_NAME REPOSITORY_URL
 git push -u origin master #remote nosaukums ir origin, default local branch name = master
 #-u pasaka git'am, lai atceros tos parametrus, lai nākamreiz var rakstīt git push un tas strādās.
 
+# Multiple remotes. Will push to all remotes added this way
+git remote set-url origin --push --add <a remote>
+git remote set-url origin --push --add <another remote>
+
 git fetch #gets latest remote version, but doesn't merge it in
 git pull origin master #novelk no repo jaunāko versiju #fetches and merges
 git diff HEAD #HEAD apzīmē mūsu jaunāko commit. diff izvadīs atšķirības.
