@@ -112,3 +112,14 @@ openssl req -x509 -newkey -nodes rsa:4096 -keyout KEY_FILE.key -out CERTIFICATE.
 # Check if hashes match between cert and key.
 openssl x509 -noout -modulus -in CERTIFICATE.crt | openssl md5
 openssl rsa -noout -modulus -in KEY_FILE.key | openssl md5
+
+
+### Sticky permissions to folders.
+# This will ensure that files created there will be deleteable, modifyable by the set group.
+# This is usefull, if root user is creating files there,
+# thus preventing application user from modifying the files.
+# No guarantees. Try this out.
+mkdir FOLDER
+chgrp GROUP_NAME FOLDER
+chmod g+wrxs FOLDER # s for sticky
+setfacl -d -m g::wrx FOLDER # -d default -m modify g::wrx group by defalt will have write, read, execute permissions
