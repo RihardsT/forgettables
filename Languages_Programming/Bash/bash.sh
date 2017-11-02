@@ -41,6 +41,8 @@ if [[ -n $1 ]] && [[ -r $1 ]] # File Exists and is readable
 if [ ${MYIP} != ${LASTIP} ] || [${MYWLANIP} != ${LASTIP}]
 then
   echo "yes"
+elif [ -z ${MYWLANIP} ]
+  echo "Oh hey. An elif example."
 else
   echo "nay"
 fi
