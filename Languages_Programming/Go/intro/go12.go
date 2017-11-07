@@ -32,6 +32,8 @@ func main() {
 
 	var s SitemapIndex
 	xml.Unmarshal(bytes, &s) // Into memory of s variable
-	fmt.Println(s.Locations)
-
+	// fmt.Println(s.Locations)
+	for _, Location := range s.Locations {
+		fmt.Printf("%s\n", Location)
+	}
 }

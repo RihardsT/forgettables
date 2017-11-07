@@ -71,6 +71,8 @@ git push --all origin
 git push --tags origin
 git push origin master --follow-tags
 
+git tag -a NAME
+
 # "Delete" some commits from the remote. Only on repo you work on single handedly.
 git reset --hard <Commit id>
 git push origin HEAD --force	#praktiski izdzēš vēlākos commits
