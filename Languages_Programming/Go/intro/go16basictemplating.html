@@ -1,3 +1,18 @@
 <h1>{{ .Title }}</h1>
 <!-- <h1>{{ .Titles }}</h1> -->
-<p>{{ .News }}</p>
+<!-- <p>{{ .News }}</p> -->
+
+<table>
+    <thead>
+      <th>Title</th>
+      <th>Keywords</th>
+    </thead>
+    <tbody>
+      {{ range $key, $value := .News}}
+        <tr>
+          <td>{{ $key }}</td>
+          <td>{{ $value.Keyword }}</td>
+        </tr>
+      {{ end }}
+    </tbody>
+</table>
