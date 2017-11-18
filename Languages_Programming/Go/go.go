@@ -1,16 +1,27 @@
+// Structure
+package main // All Go programs must have a main package
+// Every source file must be part of package?
+import "fmt" // Imports. import format for Println
+func main() { // main function is entry point for Go program
+  fmt.Println("Hello, World!")
+}
+
 // Comments
 
-Operators:
-Comparators:
+// Operators:
 
-print
+// Comparators:
 
-Variables:
+// print
+fmt.Println("Hello, World!")
 
-if/else:
+// Variables:
 
-Loops:
+// if/else:
 
-Functions:
+// Loops:
 
-Imports:
+// Functions:
+
+// Imports:
+import "fmt" // formatting import
