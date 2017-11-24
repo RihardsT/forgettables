@@ -10,3 +10,6 @@ yum list installed | grep EXPRESSION
 sudo rm -f /var/lib/rpm/__db*
 sudo rpm --rebuilddb
 sudo yum clean all
+
+# Install obsolete package
+yum --setopt=obsoletes=0 install PACKAGE-VERSION
