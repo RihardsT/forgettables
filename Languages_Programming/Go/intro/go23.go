@@ -8,6 +8,7 @@ import ("fmt"
 var wg sync.WaitGroup
 
 func foo(c chan int, someValue int) {
+  defer wg.Done()
   c <- someValue * 5 // <- channel operator. Sending value to a channel
 }
 
