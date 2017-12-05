@@ -53,6 +53,8 @@ find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*"
 # https://unix.stackexchange.com/questions/89925/how-to-delete-directories-based-on-find-output
 # Delete the found folders. I like this because you can see what gets deleted
 find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*" -exec rm -r "{}" \;
+### Delete files older than DAYS. +1 is the amount of days. Here 1 day
+find FOLDER -mtime +1 -exec rm -Rf -- {} \;
 
 # List attached disks and get some of their properties
 lslbk --output NAME,SIZE,MOUNTPOINT,UUID
@@ -113,6 +115,12 @@ openssl req -x509 -newkey -nodes rsa:4096 -keyout KEY_FILE.key -out CERTIFICATE.
 openssl x509 -noout -modulus -in CERTIFICATE.crt | openssl md5
 openssl rsa -noout -modulus -in KEY_FILE.key | openssl md5
 
+### Show sites SSL certificate
+openssl s_client -connect $ENDPOINT:443 -servername $ENDPOINT
+### Show SSL certificate expiration date
+openssl s_client -connect $ENDPOINT:443 -servername $ENDPOINT < /dev/null 2>&1 | openssl x509 -enddate -noout
+### Show SSL certificate file expiration date
+openssl x509 -enddate -noout -in FILE_NAME
 
 ### Sticky permissions to folders.
 # This will ensure that files created there will be deleteable, modifyable by the set group.
@@ -123,3 +131,6 @@ mkdir FOLDER
 chgrp GROUP_NAME FOLDER
 chmod g+wrxs FOLDER # s for sticky
 setfacl -d -m g::wrx FOLDER # -d default -m modify g::wrx group by defalt will have write, read, execute permissions
+
+### Disk speed test with dd. You might want to change the output file size, bs=1M
+dd if=/dev/zero of=/PLACE_ON_SPECIFIC_DISK bs=1G count=1 conv=fdatasync
