@@ -41,6 +41,8 @@ tar -cvzf FILE.tar.gz $(ls -d /var/log/* | grep -v /var/log/EXCLUDE_THIS) #Exclu
 # Untar
 tar -xvf FILENAME.tar # -C /some/target/directory
 tar -xvzf FILENAME.tar.gz # -C /some/target/directory
+# Show concents
+tar -tf FILENAME.tar # add v for verbose output
 
 # Truncate a file
 truncate -s 0 FILE
