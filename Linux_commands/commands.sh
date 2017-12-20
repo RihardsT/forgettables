@@ -57,6 +57,8 @@ find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*"
 find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*" -exec rm -r "{}" \;
 ### Delete files older than DAYS. +1 is the amount of days. Here 1 day
 find FOLDER -mtime +1 -exec rm -Rf -- {} \;
+### Find changed files - less than + greater than time
+find FOLDER -cmin -5
 
 # List attached disks and get some of their properties
 lslbk --output NAME,SIZE,MOUNTPOINT,UUID
