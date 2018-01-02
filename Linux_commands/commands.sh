@@ -114,7 +114,8 @@ clamscan -ro / # o to skip output of ok files
 
 ### Openssl
 # Generate self signed cert. -nodes flag to not require passkey
-openssl req -x509 -newkey -nodes rsa:4096 -keyout KEY_FILE.key -out CERTIFICATE.crt -days NUMBER_OF_DAYS
+openssl req -x509 -nodes -newkey rsa:4096 -keyout KEY_FILE.key -out CERTIFICATE.crt -days NUMBER_OF_DAYS
+
 # Check if hashes match between cert and key.
 openssl x509 -noout -modulus -in CERTIFICATE.crt | openssl md5
 openssl rsa -noout -modulus -in KEY_FILE.key | openssl md5
