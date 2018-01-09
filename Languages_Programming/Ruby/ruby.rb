@@ -375,7 +375,7 @@ system("commandhere")
 http://stackoverflow.com/questions/2232/calling-shell-commands-from-ruby
 
 
-Files:
+###################################### Files:
 http://stackoverflow.com/questions/5545068/what-are-all-the-common-ways-to-read-a-file-in-ruby/5546681#5546681
 IO.foreach("testfile") {|x| print "GOT ", x }
 File.foreach('testfile') {|x| print "GOT", x }
@@ -383,6 +383,8 @@ File.foreach('testfile') {|x| print "GOT", x }
 open('OUTFILE', 'a') { |f|
   f.puts "Hello, world."
 }
+
+File.basename(ABSOLUTE_PATH) # Gives plain filename
 
 Regex search file:
 https://stackoverflow.com/questions/6002868/finding-lines-in-a-text-file-matching-a-regular-expression#6003754
@@ -395,3 +397,6 @@ http://ruby-doc.org/core-2.3.0/IO.html#method-i-each_line
 
 List files in directory:
 Dir['/path/to/search/*']
+
+## Read file as string
+IO.read(filename)

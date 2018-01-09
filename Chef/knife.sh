@@ -51,3 +51,6 @@ knife exec -E "nodes.transform('name:NODE_NAME') {|n| n.normal_attrs['ATTRIBUTE'
 
 ######### Push jobs
 chef exec knife job start 'chef-client' NODE_EXPRESSION # node*
+
+######### Execute command on nodes. Seems like this will only work if chef-server can access those nodes
+knife ssh 'name:*' 'sudo chef-client' -x USER -a ipaddress # -P flag to ask for password
