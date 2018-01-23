@@ -32,6 +32,8 @@ ${#arrayName[*]} # Array size
 # man test # for expressions usable in if statements
 # -z to check if variable is empty.
 if [ -z ${MYWLANIP} ]; then echo "Yep"; fi
+# -z to check if output is empty.
+if [ -z "$(ls -a | grep stuff)" ]; then echo "Yep"; fi
 # -n to check if variable is not empty.
 if [ -n ${MYWLANIP} ]; then echo "Yep"; fi
 if [[ -n $1 ]] && [[ -r $1 ]] # File Exists and is readable

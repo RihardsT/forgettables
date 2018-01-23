@@ -139,3 +139,9 @@ setfacl -d -m g::wrx FOLDER # -d default -m modify g::wrx group by defalt will h
 
 ### Disk speed test with dd. You might want to change the output file size, bs=1M
 dd if=/dev/zero of=/PLACE_ON_SPECIFIC_DISK bs=1G count=1 conv=fdatasync
+
+### Quickly create a big file
+fallocate -l 10G FILE
+
+### Time tic toc. Show how long a command or script took to execute
+time COMMAND
