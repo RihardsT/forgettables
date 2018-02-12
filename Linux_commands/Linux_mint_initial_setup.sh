@@ -33,10 +33,16 @@ dpkg -i deb # Probably this works. Dunno
 wget https://go.microsoft.com/fwlink/?LinkID=760868 # Download VS Code
 
 ### AMD driver installation
+# https://askubuntu.com/questions/975277/cannot-extract-amdgpu-tar-xz
+# Download with wget and note the http as https give corrupt file
+wget --referer http://support.amd.com http://www2.ati.com/drivers/linux/ubuntu/amdgpu-pro-17.50-511655.tar.xz
 # Because Linux Mint is like ubuntu
 sed -i 's/$ID/$ID_LIKE/g' amdgpu-pro-install
 ./amdgpu-pro-install
 sudo usermod -a -G video $LOGNAME
+groups
+
+# Either way, drivers either on Cinnamon or on Linux Mint in general doesn't work with my RX470.
 
 ### Windows 10 stuff for dual boot
 # Control Panel -> Power Options -> Choose what the power buttons do
