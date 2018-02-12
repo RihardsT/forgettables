@@ -2,7 +2,19 @@
 # Simple pimple comments with #
 
 ######################## Print #################################################
-echo "This stuff"
+echo "This stuff" # -n flag to disable new line in terminal
+# echo special chars. Use echo with -e flag to interpret these. echo -e "Hi\nhi"
+\\ # backslash
+\a # alert
+\b # backspace
+\c # supress trailing newline
+\f # form feed
+\r # carriage return
+\t # horizontal tab
+\v # vertical tab
+\n # newline
+
+# Metachars: * ? [ ] ' " \ $ ; & ( ) | ^ < > new-line space tab
 
 ######################## Operators #############################################
 ! # Negate. [ ! false ]
@@ -78,6 +90,14 @@ ${#arrayName[*]} # Array size
 
 ${array_name[*]} # Get all array items at once
 ${array_name[@]}
+
+# Variable substitions
+${var}
+${var:="Default"} # If var is unset it will be set to default value here
+${var:-"Message if var is unset"} # If var is unset, will print message. Will not assign value
+${var:+"Message if var is set"} # If var is set. var value will not change
+${var:?"Error Message if var unset"} # If var is unset, prints stderr
+
 
 
 ######################## if else ##############################################
@@ -171,3 +191,11 @@ do
 done
 
 ######################## Functions #############################################
+function_name () {
+   # code
+   # return 2
+}
+
+######################## Files
+echo "This" > file # Write/overwrite a file
+echo "This" >> file # Append to a file
