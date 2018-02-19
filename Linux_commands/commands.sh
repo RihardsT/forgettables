@@ -145,3 +145,6 @@ fallocate -l 10G FILE
 
 ### Time tic toc. Show how long a command or script took to execute
 time COMMAND
+
+### Check limits for each process
+cat /proc/<PID>/limits
