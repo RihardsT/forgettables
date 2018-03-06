@@ -1,6 +1,12 @@
 ######################## Comments ##############################################
 # Simple pimple comments with #
 
+######################## Command chaining
+# A; B    Run A and then B, regardless of success of A
+# A && B  Run B if A succeeded
+# A || B  Run B if A failed
+# A &     Run A in background.
+
 ######################## Print #################################################
 echo "This stuff" # -n flag to disable new line in terminal
 # echo special chars. Use echo with -e flag to interpret these. echo -e "Hi\nhi"

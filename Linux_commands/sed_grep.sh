@@ -22,6 +22,10 @@ grep -v "PATTERN" FILE
 # show 2 lines before and 2 lines after match
 grep -B 2 -A 2 'PATTERN' FILE
 
+# grep ps aux without grep showing in results. Use [] lel
+ps aux | grep "[p]ython3"
+
+
 # Remove newlines in file
 tr -d "\n\r" < input_filename
 # Replace <LF> with \\n
