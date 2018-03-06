@@ -148,3 +148,6 @@ time COMMAND
 
 ### Check limits for each process
 cat /proc/<PID>/limits
+
+### yes to interactive promts. yes Y. Useful whenever
+yes STRING_HERE | COMMAND
