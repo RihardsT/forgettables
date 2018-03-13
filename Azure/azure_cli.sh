@@ -26,3 +26,11 @@ https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-
 
 ######### Linked templates
 https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates#complete-example
+
+
+### List available vm images
+az vm image list-skus -l westeurope -f CentOS -p OpenLogic
+
+### List vm sizes available
+az login
+az vm list-sizes -l westeurope

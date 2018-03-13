@@ -151,3 +151,8 @@ cat /proc/<PID>/limits
 
 ### yes to interactive promts. yes Y. Useful whenever
 yes STRING_HERE | COMMAND
+
+### Write multiline file from terminal. EOM is the delimiter
+cat > FILE <<- EOM
+FILE_CONTENTS_GO_RIGHT_HERE
+EOM
