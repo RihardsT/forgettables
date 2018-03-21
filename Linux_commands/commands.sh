@@ -32,7 +32,10 @@ sudo netstat -tulpn
 # Find what port program listens to by its PID
 ss -lpn | grep ",9329,"
 
-#create a tar
+### tar
+# -z pass to gzip utility
+# -k pass to bzip
+# create a tar
 tar -cvf FILENAME.tar TARGET
 tar --exclude='FILE_TO_EXCLUDE' -cvf FILENAME.tar TARGET
 # Create a tar.gz
@@ -43,6 +46,24 @@ tar -xvf FILENAME.tar # -C /some/target/directory
 tar -xvzf FILENAME.tar.gz # -C /some/target/directory
 # Show concents
 tar -tf FILENAME.tar # add v for verbose output
+
+# Show difference between existing files and archive
+tar -dvf FILENAME.tar.gz
+
+#
+gzip
+gunzip # or gzip -d
+
+### star. Check it out. It allows to extract specific files and other goodies
+# won't override that are newer on filesystem
+# Create with star
+star -c -f=FILENAME.tar FILE
+star -cz -f=FILENAME.tar FILE #-z pass through gzip
+# List files
+star -t -f=FILENAME.tar
+# Extract with star
+star -x -f=FILENAME.tar FILE #Optional file, to extract specific file
+
 
 # Truncate a file
 truncate -s 0 FILE

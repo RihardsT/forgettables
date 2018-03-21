@@ -3,9 +3,10 @@
 :set number
 :set nonumber
 :3  #jump to line
-:%s/d/D/gc
+:%s/d/D/gc # substitute?
 :%s/D/d/gc
 
+:0,$d  - delete whole file
 :.,$d  - delete to end of file, from current selection
 :1,.d  - delete to beginning of file
 x   - delete current character
@@ -14,3 +15,30 @@ dd  - delete current line
 5dd - delete five lines
 d$  - delete to end of line
 d0  - delete to beginning of line
+
+
+
+#### vi
+esc # go to command mode lel
+:q! # quit already
+:wq # write and exit
+
+
+yy # yank line = copy
+3yy # yank 3 lines. n + yy
+dd # cut line
+
+p # paste below cursor
+shift + p # paste above cursor
+u # undo
+
+shift + g # jump to end
+1 shift + g # jump to line n
+
+cw # change word, puts to insert mode
+cc # remove line, puts to insert mode
+
+:?PATTERN # search for PATTERN
+
+:%s/FIND/REPLACE # Substitute first instance of pattern in line
+:%s/FIND/REPLACE/g # Substitute all instances of pattern. Global

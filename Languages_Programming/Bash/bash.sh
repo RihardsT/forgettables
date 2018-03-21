@@ -201,7 +201,3 @@ function_name () {
    # code
    # return 2
 }
-
-######################## Files
-echo "This" > file # Write/overwrite a file
-echo "This" >> file # Append to a file
