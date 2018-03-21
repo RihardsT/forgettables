@@ -10,6 +10,11 @@ docker run --rm -ti -v $PWD:/tmp -w /tmp elixir:slim iex
 # Comments
 # Single line comment
 
+"""
+Multiline strings
+are between 3 double quote marks?
+"""
+
 # Functions:
 defmodule Account do # Functions must be inside a defmodule
   def investment_return(initial, interest) do
