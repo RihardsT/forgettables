@@ -61,3 +61,10 @@ end
 axis([-2 2 -2 2]) % x x y y % Limit the plot range
 scatter(x,y) % Scatter
 plot(x,y,'b.') %plot, lines by default, but with 'b.' will be blue dots
+
+
+%% Loop through files in directory
+files = dir('Images/*.tif');
+for file = files'
+    image = imread([file.folder,'/',file.name]);
+end
