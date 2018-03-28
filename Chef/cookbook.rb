@@ -4,5 +4,5 @@ begin
   res.cookbook "CURRENT_WRAPPER_COOKBOOK"
   res.source "TEMPLATE_NAME_IN_WRAPPER_COOKBOOK"
 rescue Chef::Exceptions::ResourceNotFound
-  Chef::Log.warn "File not found""
+  Chef::Log.warn "File not found"
 end

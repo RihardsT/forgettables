@@ -158,6 +158,33 @@ chgrp GROUP_NAME FOLDER
 chmod g+wrxs FOLDER # s for sticky
 setfacl -d -m g::wrx FOLDER # -d default -m modify g::wrx group by defalt will have write, read, execute permissions
 
+###
+# u - user/owner , g - group, o - other, - remove permissions, + add permissions
+# r - read, w - write, x - execute
+chmod ugo+X -R FOLDER # add execute permissions to folders only. X applies to folder. x also to files
+
+chown :GROUP FILE_OR_FOLDER
+
+#
+setuid # whenever user executes file, it will be executed as user who owns the file
+chmod u+s FILE_OR_FOLDER # set
+chmod 4500 FILE_OR_FOLDER # 4 setuid for user, 2 setuid for group, 6 for user and group
+# sticky bit - prevent unauthorized users to remove/rename file/folder.
+chmod +t FILE_OR_FOLDER
+chmod 1777 FILE_OR_FOLDER
+
+setgid
+
+
+### umask - mask privileges. Set default permissions for newly created files/folders
+# changing umask persists only for current session
+0022 #=output. masks nothing for user, masks write privileges for group and other
+umask 006 # mask permissions for other, for newly created files
+touch TESTFILE
+ls -lah TESTFILE
+# /etc/bashrc /etc/profile - edit umask here to update default permissions somewhat permanently
+
+
 ### Disk speed test with dd. You might want to change the output file size, bs=1M
 dd if=/dev/zero of=/PLACE_ON_SPECIFIC_DISK bs=1G count=1 conv=fdatasync
 
