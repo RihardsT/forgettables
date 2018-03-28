@@ -1,5 +1,7 @@
 Compiling:
 gcc program.c -o program-output
+Compile with docker:
+docker run --rm -v "$PWD":/d -w /d gcc:7 gcc -o myapp myapp.c
 
 //Comment
 /*Multiline comment */
