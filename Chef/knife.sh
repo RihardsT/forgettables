@@ -18,6 +18,7 @@ knife search node "name:*" -a ipaddress
 -a run_list
 -a chef_environment
 -a platform_version
+-a os_version # kernel version
 
 ######### Set stuff
 knife node run_list set NODE_NAME RUN_LIST_ITEM

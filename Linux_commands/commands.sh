@@ -17,6 +17,7 @@ scp -r -P 22 USER@SOURCE:/SOURCE_FILE_OR_DIR TARGET
 
 # Disk usage
 sudo du -sch | sort -h
+sudo du -sch --inodes
 df -h
 df -ih # show inode usage
 
@@ -80,6 +81,8 @@ find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*" -exec rm -r "{}" \;
 find FOLDER -mtime +1 -exec rm -Rf -- {} \;
 ### Find changed files - less than + greater than time
 find FOLDER -cmin -5
+# find files owned by USER
+find FOLDER -user USER -type f
 
 # List attached disks and get some of their properties
 lslbk --output NAME,SIZE,MOUNTPOINT,UUID
