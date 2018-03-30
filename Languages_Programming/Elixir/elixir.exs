@@ -83,6 +83,8 @@ _ # underscore for droppable variables.
 # Maps. Keys can be any type, values can be any type. Probably
   map = %{KEY => VALUE }
   map[KEY]
+  # Add new item to "existing" map. # Immutability => create new map
+  map = Map.put(map, KEY, VALUE )
 
 ########## Modules, Functions
 # Directives
