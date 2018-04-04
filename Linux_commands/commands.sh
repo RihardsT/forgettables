@@ -207,3 +207,12 @@ yes STRING_HERE | COMMAND
 cat > FILE <<- EOM
 FILE_CONTENTS_GO_RIGHT_HERE
 EOM
+
+
+##### Shutdown, reboot
+# Shutdown in 5 minutes
+shutdown -r +5 Message for other users on the machine
+shutdown -c # cancel reboot
+shutdown -r 00:00 # at hh:mm
+shutdown -H now # halt know
+shutdown -P now # poweroff

@@ -1,9 +1,10 @@
-mysql -u USER -h localhost -p # -p for password. If empty will ask to enter
+mysql -u USER -h localhost -p -D DATABASE_NAME # -p for password. If empty will ask to enter
 
 SHOW DATABASES;
 USE DATABASE_NAME
 SHOW TABLES;
 
+SHOW FULL PROCESSLIST;
 
 # Concat. This was usefull to find trailing whitespace
 select CONCAT(COLUMN_NAME,'Text') from TABLE_NAME;

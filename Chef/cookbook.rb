@@ -6,3 +6,12 @@ begin
 rescue Chef::Exceptions::ResourceNotFound
   Chef::Log.warn "File not found"
 end
+
+# Override stuff in wrapper cookbook
+begin
+  res = resources(package: "esl-erlang")
+  res.cookbook "CURRENT_WRAPPER_COOKBOOK"
+  res.source "TEMPLATE_NAME_IN_WRAPPER_COOKBOOK"
+rescue Chef::Exceptions::ResourceNotFound
+  Chef::Log.warn "File not found"
+end
