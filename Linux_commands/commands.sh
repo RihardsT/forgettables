@@ -84,6 +84,9 @@ find FOLDER -cmin -5
 # find files owned by USER
 find FOLDER -user USER -type f
 
+### Find files containing text
+grep -rl 'PATH' -e 'PATTERN' # -r recursive, -l show filename not result
+
 # List attached disks and get some of their properties
 lslbk --output NAME,SIZE,MOUNTPOINT,UUID
 
