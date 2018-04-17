@@ -28,8 +28,9 @@ lsblk -o NAME,SIZE,MOUNTPOINT,UUID
 # Get all the menuentries grub shows
 less /boot/grub/grub.cfg | grep menuentry
 # Edit the file and replace the default with a menuentry. Something like that.
-/etc/default/grub
+sudo vi /etc/default/grub
   GRUB_DEFAULT='Windows 10 (loader) (on /dev/sda1)'
+  GRUB_DEFAULT='Windows Boot Manager (on /dev/sdb2)'
 # Update grub, when file updated
 sudo update-grub
 

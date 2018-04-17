@@ -2,8 +2,8 @@
 
 sudo su
 apt-get update
-apt-get -y upgrade
 apt-get purge -y hexchat transmission-* pidgin* xplayer* rhythmbox*
+apt-get -y upgrade
 apt-get install -y vim git chromium-browser audacious vlc keepass2 psensor
 curl -fsSL https://get.docker.com/ | sh
 sudo usermod -aG docker rihards
@@ -30,7 +30,8 @@ git config --global core.editor vim
 cd /media/1TB
 wget https://atom.io/download/deb # Download Atom
 dpkg -i deb # Probably this works. Dunno
-wget https://go.microsoft.com/fwlink/?LinkID=760868 # Download VS Code
+wget -O vs_code.deb https://go.microsoft.com/fwlink/?LinkID=760868 # Download VS Code
+dpkg -i vs_code.deb
 
 ### AMD driver installation
 # https://askubuntu.com/questions/975277/cannot-extract-amdgpu-tar-xz
