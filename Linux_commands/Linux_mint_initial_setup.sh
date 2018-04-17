@@ -34,9 +34,18 @@ wget -O vs_code.deb https://go.microsoft.com/fwlink/?LinkID=760868 # Download VS
 dpkg -i vs_code.deb
 
 ### AMD driver installation
+# https://linuxconfig.org/getting-the-rx-480-running-with-amdgpu-on-linux
+# Read the awesome stuff given in this ppa:
+# https://launchpad.net/~paulo-miguel-dias/+archive/ubuntu/mesa
+sudo add-apt-repository ppa:paulo-miguel-dias/mesa
+sudo apt-get update
+sudo apt-get install -V mesa-opencl-icd
+sudo apt-get install libdrm-amdgpu1 libdrm2 xserver-xorg-video-amdgpu
+
 # https://askubuntu.com/questions/975277/cannot-extract-amdgpu-tar-xz
 # Download with wget and note the http as https give corrupt file
 wget --referer http://support.amd.com http://www2.ati.com/drivers/linux/ubuntu/amdgpu-pro-17.50-511655.tar.xz
+tar -xvf amdgpu-pro-17.50-511655.tar.xz
 # Because Linux Mint is like ubuntu
 sed -i 's/$ID/$ID_LIKE/g' amdgpu-pro-install
 ./amdgpu-pro-install
