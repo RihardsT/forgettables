@@ -4,3 +4,6 @@ pyenv install 3.5.2
 pyenv local 3.5.2
 
 pip install -U matplotlib
+
+
+pip install -r requirements.txt
