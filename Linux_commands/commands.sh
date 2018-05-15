@@ -101,6 +101,9 @@ ps -p $(pgrep EXPRESSION) -o etime=
 ps -ejH
 ps axjf
 
+pgrep -l PATTERN # ps with grep. lel
+pgrep -v -u root -l # find all processes that are not owned by root. -v is NOT for grep
+
 # get file creation time - https://unix.stackexchange.com/questions/50177/birth-is-empty-on-ext4/50184#50184
 stat FILE # to get the inode
 debugfs -R 'stat <INODE_HERE>' /dev/sdb1 # Keep the birds < >
@@ -118,7 +121,17 @@ top
 kill -15 $(ps aux | grep EXPRESSION | awk '{print $2}')
 # Kill sequence -15 -2 -1 -9. Basically never ever use -9
 kill -15 # if that doesn't do it, -2
+kill -l # list kill signals
+-1 # SIGHUP hang up. Reports to processes that terminal has hanged up/closed or such.
+-2 # SIGINT interrupt. Same as ctrl + c
+-9 # SIGKILL. Brutal. Only as absolute last resort.
+-15 # SIGTERM. Everyday typical work.
+-18 # SIGCONT Start process that was stopped by -19 ?
+-19 # SIGSTOP Stop process and allow it to be started again with
+-20 # SIGTSTP A SIGSTOP that can be ignored
 
+pkill PATTERN # grep kill process. default -15
+pkill -t pts/1 # kill processes from specific terminal
 
 # share a single terminal between ssh'ed in users. Have to install something first I bet
 screen -x shared

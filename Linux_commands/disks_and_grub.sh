@@ -43,3 +43,15 @@ swapon -s
 
 vim /etc/fstab
   /mnt/swapfile   none    swap    sw    0   0
+
+
+###### Edit grub stuff during boot.
+# Change root user password
+# boot and on grub choice menu press "e" for desirable OS version
+# at "linux16" line, go to end and add "rd.break", to enter initramfs debug. ctrl + x
+mount -oremount,rw /sysroot # remount the actual root drive as rw
+chroot /sysroot # change root to sysroot
+passwd root # change roots password
+touch /.autolabel # necessary for selinux to relabel files
+exit # go for reboot
+exit

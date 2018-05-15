@@ -66,7 +66,7 @@ expr $a + $b
 -ge # a greater or euqals b
 -le # a less or euqals b
 [ $a -eq $b ] # This is how to use them. Note the spaces
-[ $a == $b ] # check equality
+[ $a == $b ] # check equality. Works for strings
 [ $a != $b ]
 
 
