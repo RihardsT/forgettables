@@ -141,6 +141,10 @@ nohup COMMAND & # One option
 screen # Check this out
 tmux # Also check this out. Multiple terminals from one screen
 
+COMMAND & # & should be enough for running in background. Alive while terminal is alive?
+jobs # check what's running in background
+kill -SIGSTOP %1 # stop specific job
+kill -SIGCONT %1 # continue specific job
 
 # date. man date
 date +%Y-%m-%d-%H.%M.%S
