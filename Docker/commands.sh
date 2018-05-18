@@ -36,3 +36,12 @@ docker ps
 
 ### Allow access to hosts docker socket from within container
 -v /var/run/docker.sock:/var/run/docker.sock
+
+
+# Getting ssh: connect to host 172.17.x.x port 22: No route to host error?
+# Change bridge network ip range, so it doesn't overlap with your IP range
+sudo vi /etc/docker/daemon.json
+{
+  "bip": "172.26.0.1/16"
+}
+# Restart daemon after
