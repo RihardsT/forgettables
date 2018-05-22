@@ -36,7 +36,7 @@ ss -lpn | grep ",9329,"
 ### tar
 # -z pass to gzip utility
 # -k pass to bzip
-# create a tar
+# -c create a tar, -v verbose, -f filename of tar
 tar -cvf FILENAME.tar TARGET
 tar --exclude='FILE_TO_EXCLUDE' -cvf FILENAME.tar TARGET
 # Create a tar.gz
@@ -236,3 +236,8 @@ shutdown -c # cancel reboot
 shutdown -r 00:00 # at hh:mm
 shutdown -H now # halt know
 shutdown -P now # poweroff
+
+### Set process priority
+# -20 to 19. -20 = highest priority, 19 = lowest priority, very nice process
+nice -n 0 PROCESS # start process with niceness of 0
+renice -n 10 $(pgrep PATTERN) # change priority of multiple processes
