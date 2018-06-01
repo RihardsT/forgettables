@@ -10,4 +10,5 @@ systemctl set-default multi-user.target
 systemctl isolate multi-user.target
 systemctl isolate graphical.target
 
-###
+### boot stuff
+systemd-analyze blame # check what took how much time during boot

@@ -241,3 +241,6 @@ shutdown -P now # poweroff
 # -20 to 19. -20 = highest priority, 19 = lowest priority, very nice process
 nice -n 0 PROCESS # start process with niceness of 0
 renice -n 10 $(pgrep PATTERN) # change priority of multiple processes
+
+##
+cat /proc/cpuinfo

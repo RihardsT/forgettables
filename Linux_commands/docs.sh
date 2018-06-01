@@ -15,3 +15,6 @@ whatis APPLICATION # searches man page descriptions
 whereis APPLICATION # will also show doc location
 
 rpm -qd PACKAGE # query documentation in RPM
+
+### Logs
+journalctl -f # follow all the logs going through journal
