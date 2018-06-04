@@ -69,4 +69,24 @@ exit
 ### GPT disk creation
 gdisk /dev/DISK
 
+### LVM
+# Format disks as Linux LVM with gdisk:
+gdisk /dev/DISK1
+gdisk /dev/DISK2
+# Prepare physical volumes
+pvcreate /dev/DISK1 /dev/DISK2
+pvdisplay
+# create volume group
+vgcreate VOLUME_GROUP_NAME /dev/DISK1 /dev/DISK2
+# Create logical volume
+lvcreate -n LOGICAL_VOLUME_NAME -L SIZE VOLUME_GROUP_NAME
+# Display logical volumes
+lvdisplay
+# Then format the logical volume with mkfs
+mkfs.ext4 /dev/LOGICAL_VOLUME_NAME
+mount /dev/LOGICAL_VOLUME_NAME MOUNT_LOCATION
 
+# Remove LVM related stuff
+lvremove /dev/LOGICAL_VOLUME_NAME
+vgremove VOLUME_GROUP_NAME
+pvremove /dev/DISK1 /dev/DISK2
