@@ -62,3 +62,8 @@ rev file | cut -c 9- | rev
 
 # Find empty lines
 ^(?:[\t ]*(?:\r?\n|\r))+
+
+
+### awk
+# Output specific column from output
+awk '{print $1}'

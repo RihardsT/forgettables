@@ -4,9 +4,13 @@ mount --bind <LOCATION> tmpdir
 # Do your checking, then remove it
 umount tmpdir
 
+###
+mount /dev/DISK_PARTITION MOUNT_LOCATION
+
 ########## Format a disk
 # List attached disks
 fdisk -l
+# fdisk creates MBR disks, up to 4 primary partitions
 # Create a partition on a mounted disk. This is non interactive way for usually interactive command. Olol
 fdisk /dev/sdb <<EOF
 n
@@ -19,6 +23,10 @@ EOF
 # format the partition as ext4
 mkfs.ext4 /dev/sdb1
 
+### Show available partitions
+blkid
+###
+partprobe
 
 ########## Get UUID of partitions
 lsblk -o NAME,SIZE,MOUNTPOINT,UUID
@@ -55,3 +63,10 @@ passwd root # change roots password
 touch /.autolabel # necessary for selinux to relabel files
 exit # go for reboot
 exit
+
+
+
+### GPT disk creation
+gdisk /dev/DISK
+
+
