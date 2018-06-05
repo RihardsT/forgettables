@@ -148,7 +148,8 @@ kill -SIGCONT %1 # continue specific job
 
 # date. man date
 date +%Y-%m-%d-%H.%M.%S
-
+# what date was 30 days ago
+date -d "-30 days" # optional date format
 
 # Clam Antivirus
 sudo apt-get update && sudo apt-get install -y clamav

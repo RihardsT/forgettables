@@ -188,6 +188,11 @@ do
    fi
 done
 
+# Read file line by line
+while read line; do
+  echo $line
+done < FILE
+
 # until
 a=10
 until [ $a -lt 10 ] # Infinite loop because of condition

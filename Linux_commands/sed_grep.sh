@@ -21,6 +21,9 @@ grep "^s[0-9].*\|wave.*" actionLabel.txt
 grep -v "PATTERN" FILE
 # show 2 lines before and 2 lines after match
 grep -B 2 -A 2 'PATTERN' FILE
+# Output only after match. -o output only match, -P user perl, \K lookbehind.
+grep -oP "PATTERN_BEFORE\KPATTERN_TO_MATCH"
+
 
 # grep ps aux without grep showing in results. Use [] lel
 ps aux | grep "[p]ython3"
@@ -67,3 +70,8 @@ rev file | cut -c 9- | rev
 ### awk
 # Output specific column from output
 awk '{print $1}'
+
+# First the RS= in awk separates records by the empty lines.
+# Then in each record $0, newline and spaces are replaced with +,
+# so each enry takes single line in OUTPUT_FILE
+VARIABLE=($(awk -v RS= '{gsub(/\n| /,"+",$0); print $0 > "OUTPUT_FILE"}' INPUT_FILE))
