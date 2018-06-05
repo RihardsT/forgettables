@@ -23,6 +23,10 @@ grep -v "PATTERN" FILE
 grep -B 2 -A 2 'PATTERN' FILE
 # Output only after match. -o output only match, -P user perl, \K lookbehind.
 grep -oP "PATTERN_BEFORE\KPATTERN_TO_MATCH"
+# Output between matches.
+grep -oP "(?<=PATTERN_BEFORE)PATTERN(?=PATTERN_AFTER)"
+# (?<=PATTERN) == PATTERN\K lookbehind
+# (?=PATTER) look ahead
 
 
 # grep ps aux without grep showing in results. Use [] lel
