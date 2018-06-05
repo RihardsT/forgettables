@@ -52,6 +52,26 @@ swapon -s
 vim /etc/fstab
   /mnt/swapfile   none    swap    sw    0   0
 
+### /etc/fstab
+# FSCK_FLAG is check order. should be 1 for /, 2,3,4 for others.
+# 0 for those that don't need to be checked.
+# DUMP_FLAG = enable file system dumping?
+
+UUID=ID MOUNTPOINT FILESYSTEM MOUNT_OPTIONS DUMP_FLAG FSCK_FLAG
+# Mount with label
+LABEL=LABEL_NAME MOUNTPOINT FILESYSTEM MOUNT_OPTIONS DUMP_FLAG FSCK_FLAG
+
+mount -a # mount /etc/fstab
+
+########## Disk labels
+# Add label xfs file systems
+xfs_admin -L LABEL_NAME /dev/PARTITION
+# Show label on xfs
+xfs_admin -l /dev/PARTITION
+
+# Label ext partitions
+tune2fs -L LABEL_NAME /dev/PARTITION
+tune2fs -l /dev/PARTITION
 
 ###### Edit grub stuff during boot.
 # Change root user password
