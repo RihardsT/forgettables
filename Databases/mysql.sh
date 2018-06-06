@@ -5,6 +5,7 @@ USE DATABASE_NAME
 SHOW TABLES;
 
 SHOW FULL PROCESSLIST;
+SHOW VARIABLES; # show loaded system variables
 
 # Concat. This was usefull to find trailing whitespace
 select CONCAT(COLUMN_NAME,'Text') from TABLE_NAME;

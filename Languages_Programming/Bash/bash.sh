@@ -202,7 +202,9 @@ do
 done
 
 ######################## Functions #############################################
-function_name () {
+function FUNCTION_NAME {
    # code
+   # echo $1 # use first passed parameter
    # return 2
 }
+FUNCTION_NAME PARAMETER1

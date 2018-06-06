@@ -11,6 +11,8 @@ sed -i '$ d' Dockerfile
 sed '/PATTERN/ d' FILE
 # Add text to beginnign of string
 sed -i 's/^/test /' FILE
+# Remove line with pattern and number of lines after it
+sed -i -e '/PATTERN/,+2d' FILE
 
 
 # Return the line with the match
