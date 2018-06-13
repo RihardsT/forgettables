@@ -110,3 +110,13 @@ mount /dev/LOGICAL_VOLUME_NAME MOUNT_LOCATION
 lvremove /dev/LOGICAL_VOLUME_NAME
 vgremove VOLUME_GROUP_NAME
 pvremove /dev/DISK1 /dev/DISK2
+
+
+### Disk check
+# fsck can check unmounted partitions
+fsck /dev/PARTITION
+xfs_repair /dev/PARTITION # for xfs filesystem
+
+# Dump info
+dump2fs /dev/PARTITION
+xfs_info /dev/PARTITION # for xfs filesystem

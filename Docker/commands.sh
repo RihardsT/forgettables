@@ -7,6 +7,8 @@ ln -s PATH_TO_NEW_LOC /var/lib/docker
 
 # Remove containers with exited status. docker system/container prune is simpler
 docker rm $(docker ps -q -f status=exited)
+# Run any docker command on particular set of containers. choose which ones with grep, get ID with awk
+docker rm $(sudo docker ps --filter "status=exited" | grep "1. hours ago" | awk '{print $1}')
 # Remove exited containers, hanging volumes, etc.
 docker system prune -f
 
