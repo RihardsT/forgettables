@@ -9,3 +9,7 @@ foreach ($image in $ImageList) {
   $Output | Add-Member Date $image.ModifiedTime
   Write-Output $Output}
 }
+
+
+### Resource manager
+Add-AzureRmAccount

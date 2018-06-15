@@ -120,3 +120,20 @@ xfs_repair /dev/PARTITION # for xfs filesystem
 # Dump info
 dump2fs /dev/PARTITION
 xfs_info /dev/PARTITION # for xfs filesystem
+
+
+### Samba stuff
+yum install -y samba-client cifs-utils nfs-utils
+# List samba shares:
+smbclient -L SERVER_IP
+# Mount share
+mount -t cifs -o username=USERNAME //SERVER_IP/SHARE_NAME MOUNT_LOCATION
+mount -t nfs SERVER_IP:/SHARE_NAME MOUNT_LOCATION
+
+/etc/fstab:
+//SERVER_IP/SHARE_NAME MOUNT_LOCATION cifs username=USERNAME,password=PASSWORD 0 0
+SERVER_IP:/SHARE_NAME MOUNT_LOCATION nfs defaults 0 0
+
+# test that with
+umount MOUNT_LOCATION
+mount -a # mount /etc/fstab entries. Good for testing /etc/fstab.
