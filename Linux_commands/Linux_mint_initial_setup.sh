@@ -1,6 +1,7 @@
 # Initial linuxmint setup to my liking
 
 sudo su
+add-apt-repository ppa:git-core/ppa
 apt-get update
 apt-get purge -y hexchat transmission-* pidgin* xplayer* rhythmbox*
 apt-get -y upgrade
@@ -12,13 +13,12 @@ sudo usermod -aG docker rihards
 lsblk -o NAME,SIZE,MOUNTPOINT,UUID
 # Get your disks UUID
 mkdir /media/1TB
-mount /dev/sda5 /media/1TB
-UUID=SUBSTITUTE_WITH_YOUR_UUID_RIGHT_HERE_IF_YOU_WANT
-echo "UUID=${UUID} /media/1TB ntfs-3g defaults,permissions 0 0" >> /etc/fstab
+echo "/dev/sda5 /media/1TB ntfs-3g defaults,permissions 0 0" >> /etc/fstab
+mount -a
 # I have another ext4 partition
 mkdir /media/ext
 mount /dev/sdb1 /media/ext
-UUID=6293ecdb-be2c-4e8d-b61f-6de1708a900e
+UUID=SUBSTITUTE_WITH_YOUR_UUID_RIGHT_HERE_IF_YOU_WANT
 echo "UUID=${UUID} /media/ext ext4 defaults 0 0" >> /etc/fstab
 
 # Git initial config
@@ -28,8 +28,8 @@ git config --global user.name "Rihards Teteris"
 git config --global core.editor vim
 
 cd /media/1TB
-wget https://atom.io/download/deb # Download Atom
-dpkg -i deb # Probably this works. Dunno
+wget -O atom.deb https://atom.io/download/deb # Download Atom
+dpkg -i atom.deb
 wget -O vs_code.deb https://go.microsoft.com/fwlink/?LinkID=760868 # Download VS Code
 dpkg -i vs_code.deb
 
@@ -55,4 +55,4 @@ groups
 # Either way, drivers either on Cinnamon or on Linux Mint in general doesn't work with my RX470.
 
 ### Windows 10 stuff for dual boot
-# Control Panel -> Power Options -> Choose what the power buttons do
+# Control Panel -> Power Options -> Choose what the power buttons do -> Disable fast start-up
