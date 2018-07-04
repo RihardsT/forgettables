@@ -98,6 +98,10 @@ pvcreate /dev/DISK1 /dev/DISK2
 pvdisplay
 # create volume group
 vgcreate VOLUME_GROUP_NAME /dev/DISK1 /dev/DISK2
+# Extend volume group
+vgextend VOLUME_GROUP_NAME /dev/DISK3
+#
+vgdisplay
 # Create logical volume
 lvcreate -n LOGICAL_VOLUME_NAME -L SIZE VOLUME_GROUP_NAME
 # Display logical volumes
@@ -105,6 +109,16 @@ lvdisplay
 # Then format the logical volume with mkfs
 mkfs.ext4 /dev/LOGICAL_VOLUME_NAME
 mount /dev/LOGICAL_VOLUME_NAME MOUNT_LOCATION
+
+# Move data from one physical lvm disk to another, in the same volume group
+pvmove /dev/DISK1 # move away from DISK1
+vgreduce VOLUME_GROUP_NAME /dev/DISK1 # Remove physical disk from volume group
+
+# extend logical volume. can be +5G, +50%FREE and such
+lvextend -L 5G VOLUME_GROUP_NAME
+xfs_growfs MOUNT_LOCATION # for xfs filesystem
+resize2fs MOUNT_LOCATION # for ext
+
 
 # Remove LVM related stuff
 lvremove /dev/LOGICAL_VOLUME_NAME
