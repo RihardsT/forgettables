@@ -183,6 +183,26 @@ chgrp GROUP_NAME FOLDER
 chmod g+wrxs FOLDER # s for sticky
 setfacl -d -m g::wrx FOLDER # -d default -m modify g::wrx group by defalt will have write, read, execute permissions
 
+### ACL's - allow access to files even for users without belonging to specific group
+# + is shown in ls -l if there's extended (ACL) permissions
+getfacl
+# -m modify
+setfacl -m u:USER_ID_OR_NAME:rw FILE
+setfacl -m m::r FILE # Set mask
+setfacl -m m::- FILE # Remove all permissions with mask. -
+setfacl -m g::rwx FILE # Without user, works like chmod?
+# -d default -m modify - set default permissions on new files in subdirectories
+setfacl -d -m u:USER_ID_OR_NAME:rwx DIRECTORY
+getfacl DIRECTORY
+setfacl -m u:USER_ID_OR_NAME:rwx DIRECTORY # change the acl of existing folder
+setfacl -m u:USER_ID_OR_NAME:rwx,g:GROUP:rwx DIRECTORY # multiple permissions
+# Remove acls on folder. Check help
+setfacl --remove-default
+setfacl -x d:u:USER_ID_OR_NAME DIRECTORY # remove specific ACL. Here defaults
+setfacl -x u:USER_ID_OR_NAME DIRECTORY # remove specific ACL
+# Copy ACL to another file
+getfacl FILENAME1 | setfacl --set-file=- # - here means from stdin
+
 ###
 # u - user/owner , g - group, o - other, - remove permissions, + add permissions
 # r - read, w - write, x - execute
@@ -198,7 +218,10 @@ chmod 4500 FILE_OR_FOLDER # 4 setuid for user, 2 setuid for group, 6 for user an
 chmod +t FILE_OR_FOLDER
 chmod 1777 FILE_OR_FOLDER
 
+# Set that all files created in folder are created with specified group
 setgid
+chown :GROUP FOLDER
+chmod g+s FOLDER
 
 
 ### umask - mask privileges. Set default permissions for newly created files/folders
