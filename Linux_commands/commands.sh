@@ -270,7 +270,8 @@ renice -n 10 $(pgrep PATTERN) # change priority of multiple processes
 ##
 cat /proc/cpuinfo
 
-
+### Sudoers - passwordless
+USERNAME ALL=(ALL) NOPASSWD:ALL
 
 ### Get rid of extension. String slicing etc?
 https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html

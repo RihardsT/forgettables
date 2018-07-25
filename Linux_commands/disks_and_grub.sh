@@ -50,7 +50,7 @@ swapon /swapfile
 swapon -s
 
 vim /etc/fstab
-  /mnt/swapfile   none    swap    sw    0   0
+echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
 
 ### /etc/fstab
 # FSCK_FLAG is check order. should be 1 for /, 2,3,4 for others.
