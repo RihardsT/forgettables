@@ -29,6 +29,10 @@ ansible -i Inventory -m setup HOSTS
 # ansible-pull - Set nodes to periodically pull and apply config from repository
 https://github.com/ansible/ansible-examples/blob/master/language_features/ansible_pull.yml
 
+### Run against localhost (but still needs a hosts entry with localhost):
+ansible -i ./hosts --connection=local local -m ping # -m MODULE
+ansible -i ./hosts --connection=local local -m shell -a 'COMMAND'
+
 
 ### Roles
 mkdir roles

@@ -1,7 +1,9 @@
 # Debug chef-client run
 chef-client -l debug --force-logger
 # Query attribute value on node
-chef-shell -z; attributes_mode; node['attribute']
+sudo chef-shell -z;
+attributes_mode;
+node['attribute']
 
 
 # Not sure where I got this and for what purpose
