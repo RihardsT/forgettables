@@ -17,3 +17,10 @@ nmcli con down "CONNECTION_NAME"
 nmcli con up "CONNECTION_NAME"
 nmcli con mod "CONNECTION_NAME" connection.autoconnect yes # modify
 nmcli con del "CONNECTION_NAME"
+
+
+less /etc/resolv.conf
+
+hostnamectl set-hostname HOSTNAME
+exec bash
+hostnamectl status

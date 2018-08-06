@@ -13,3 +13,7 @@ sudo yum clean all
 
 # Install obsolete package
 yum --setopt=obsoletes=0 install PACKAGE-VERSION
+
+
+###
+rpm -qc PACKAGE # queue (-q) package configuration (-c) files
