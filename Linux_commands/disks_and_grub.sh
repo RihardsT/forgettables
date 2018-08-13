@@ -151,3 +151,9 @@ SERVER_IP:/SHARE_NAME MOUNT_LOCATION nfs defaults 0 0
 # test that with
 umount MOUNT_LOCATION
 mount -a # mount /etc/fstab entries. Good for testing /etc/fstab.
+
+
+
+
+### Boot logs - get into shell on boot and check boot logs, if you can. Dunno how
+dmesg | more

@@ -1,7 +1,3 @@
-:set hlsearch
-:set hlight
-:set number
-:set nonumber
 :3  #jump to line
 :%s/d/D/gc # substitute?
 :%s/D/d/gc
@@ -22,14 +18,16 @@ d0  - delete to beginning of line
 esc # go to command mode lel
 :q! # quit already
 :wq # write and exit
+:wq! # force save and exit
+:x # save and quit?
 
-
+yw # copy words
 yy # yank line = copy
 3yy # yank 3 lines. n + yy
 dd # cut line
 
-p # paste below cursor
-shift + p # paste above cursor
+p # paste below cursor or after
+shift + p # paste above cursor or before
 u # undo
 
 shift + g # jump to end
@@ -37,8 +35,37 @@ shift + g # jump to end
 
 cw # change word, puts to insert mode
 cc # remove line, puts to insert mode
+c$ # changes current line
+r # replace char under cursor
+R # replace chars until ESC
 
-:?PATTERN # search for PATTERN
 
+?PATTERN # backward search for PATTERN before cursor
+/PATTERN
+
+n # next occurence
+N # previous occurence
+
+:s/FIND/REPLACE # substites in current line. :%s supposedly should replace in whole file
 :%s/FIND/REPLACE # Substitute first instance of pattern in line
 :%s/FIND/REPLACE/g # Substitute all instances of pattern. Global
+
+# Inserting text
+i - start insert from current position
+I - jump to start of line and start insert
+a - moves cursor one char to right and starts insert
+A - jump to line end and start insert
+o - starts new line under current cursor position
+O - starts line above current cursor position
+
+
+
+######### vi set options
+# set it ~/.exrc file
+:set all # show available options
+:set # show currently set options
+
+:set hlsearch
+:set hlight
+:set number
+:set nonumber
