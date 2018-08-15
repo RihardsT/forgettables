@@ -24,3 +24,9 @@ less /etc/resolv.conf
 hostnamectl set-hostname HOSTNAME
 exec bash
 hostnamectl status
+
+# Check if network card is set to autostart on boot
+systemctl list-units | grep network.target
+systemctl list-dependencies multi-user.target | grep network
+less /etc/sysconfig/network-scripts/ifcfg-ens3
+# Do the nmcli con mod to set autoconnect

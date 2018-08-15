@@ -6,3 +6,8 @@ systemctl enable libvirtd
 systemctl start libvirtd
 
 virsh # commandline tool
+
+### Configure autostart on boot
+virsh
+  list --all
+  autostart VM_NAME
