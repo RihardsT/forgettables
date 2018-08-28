@@ -253,7 +253,10 @@ yes STRING_HERE | COMMAND
 cat > FILE <<- EOM
 FILE_CONTENTS_GO_RIGHT_HERE
 EOM
-
+# Use \EOM when the one above gives ": bad substition" error
+cat > FILE <<\EOM
+FILE_CONTENTS_GO_RIGHT_HERE_WITH_QUOTES_OR_WHATEVER
+EOM
 
 ##### Shutdown, reboot
 # Shutdown in 5 minutes
