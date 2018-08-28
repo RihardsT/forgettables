@@ -18,3 +18,5 @@ rpm -qd PACKAGE # query documentation in RPM
 
 ### Logs
 journalctl -f # follow all the logs going through journal
+
+journalctl -xeu UNIT | less

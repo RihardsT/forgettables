@@ -1,3 +1,8 @@
+### SSH through jumpnode jump-node
+ssh -A -t -l JUMPNODE_USER JUMPNODE_ADDRESS \
+ssh -A -t -l NODE_USER NODE_ADDRESS
+
+###
 ping IP
 tracepath IP
 treaceroute IP
