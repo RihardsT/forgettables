@@ -32,6 +32,14 @@ dpkg -i atom.deb
 wget -O vs_code.deb https://go.microsoft.com/fwlink/?LinkID=760868 # Download VS Code
 dpkg -i vs_code.deb
 
+### Use alternate DNS server
+# https://www.computerworlduk.com/security/best-free-dns-services-2018-3632790/
+# https://1.1.1.1/
+sudo vi /etc/resolv.conf
+nameserver 1.0.0.1
+
+ping -c 1 1.1.1.1 # ping to confirm DNS change
+
 ### AMD driver installation
 # https://linuxconfig.org/getting-the-rx-480-running-with-amdgpu-on-linux
 # Read the awesome stuff given in this ppa:
