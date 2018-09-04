@@ -17,8 +17,9 @@ echo "/dev/sdb1 /media/1TB ntfs-3g defaults,permissions 0 0" >> /etc/fstab
 mount -a
 # I have another ext4 partition
 mkdir /media/ext
-UUID=SUBSTITUTE_WITH_YOUR_UUID_RIGHT_HERE_IF_YOU_WANT
-echo "UUID=${UUID} /media/ext ext4 defaults 0 0" >> /etc/fstab
+echo "/dev/sdb9 /media/ext ext4 defaults 0 0" >> /etc/fstab
+mount -a
+
 
 # Git initial config
 git config --global push.default matching
