@@ -34,12 +34,16 @@ wget -O vs_code.deb https://go.microsoft.com/fwlink/?LinkID=760868 # Download VS
 dpkg -i vs_code.deb
 
 ### Use alternate DNS server
+# https://superuser.com/questions/677343/how-to-make-name-server-address-permanent-in-etc-resolv-conf#677414
 # https://www.computerworlduk.com/security/best-free-dns-services-2018-3632790/
 # https://1.1.1.1/
-sudo vi /etc/resolv.conf
-nameserver 1.0.0.1
+sudo mkdir -p /etc/resolvconf/resolv.conf.d
+echo "nameserver 1.0.0.1" | sudo tee /etc/resolvconf/resolv.conf.d/head
 
 ping -c 1 1.1.1.1 # ping to confirm DNS change
+
+### On laptop, disable sleep on lid closed
+echo "HandleLidSwitch=ignore" | sudo tee --append /etc/systemd/logind.conf
 
 ### AMD driver installation
 # https://linuxconfig.org/getting-the-rx-480-running-with-amdgpu-on-linux
