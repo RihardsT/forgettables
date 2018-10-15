@@ -27,7 +27,7 @@ echo "This stuff" # -n flag to disable new line in terminal
 && # AND operator. Same as -a
 || # OR operator. Same as -o
 
-= # String equality operatot. [ "abc" = "ad" ]. Also assignment for vars, lel
+= # String equality operator. [ "abc" = "ad" ]. Also assignment for vars, lel
 != # Not euqal [ $a = $b ]
 -z # If string is of size 0 [ -z "" ]; echo $?
 -n # # If string is not of size 0 [ -z " " ]; echo $?

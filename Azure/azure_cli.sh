@@ -34,3 +34,7 @@ az vm image list-skus -l westeurope -f CentOS -p OpenLogic
 ### List vm sizes available
 az login
 az vm list-sizes -l westeurope
+
+### Tags
+az vm update --resource-group RESOURCE_GROUP --name VM_NAME --set tags.TAG_NAME="TAG_VALUE"
+az vm update --resource-group RESOURCE_GROUP --name VM_NAME --remove tags.TAG_NAME

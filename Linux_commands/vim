@@ -46,6 +46,10 @@ R # replace chars until ESC
 n # next occurence
 N # previous occurence
 
+# Find word
+/WORD
+?WORD
+
 :s/FIND/REPLACE # substites in current line. :%s supposedly should replace in whole file
 :%s/FIND/REPLACE # Substitute first instance of pattern in line
 :%s/FIND/REPLACE/g # Substitute all instances of pattern. Global
