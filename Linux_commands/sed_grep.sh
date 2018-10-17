@@ -53,7 +53,8 @@ grep -Pzo "EXPRESSION" FILE
 sed '/PATTERN/ d' FILE
 
 # Append line after match
-sed  '/pattern/a Hello World' FILE
+sed '/pattern/a Hello World' FILE
+sed -i '/pattern/a\   Hello World' FILE # Including spaces
 # Append line before match
 sed  '/pattern/i Hello World' FILE
 
