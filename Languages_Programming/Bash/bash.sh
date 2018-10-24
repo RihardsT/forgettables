@@ -141,6 +141,11 @@ esac
 # continue breaks out of current iteration. Will skip code below continue to go to next iteration
 # break goes out whole loop
 
+for i in {1..10}
+do
+  echo $i
+done
+
 for i in "${arrayName[@]}"
 do
   echo $i
