@@ -157,3 +157,7 @@ mount -a # mount /etc/fstab entries. Good for testing /etc/fstab.
 
 ### Boot logs - get into shell on boot and check boot logs, if you can. Dunno how
 dmesg | more
+
+
+### mount iso
+mount -o loop ISO_FILE MOUNT_LOCATION

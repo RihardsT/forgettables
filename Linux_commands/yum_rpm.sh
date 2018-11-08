@@ -48,3 +48,21 @@ rpm -qd PACKAGE # query documentation in RPM
 
 yum localinstall PACKAGE # also takes care of dependencies an such
 # ^^ might be preferable, rather than rpm -i
+
+
+### Repositories
+# Edit the reposories in the folder
+/etc/yum.repos.d/
+
+yum repolist all # list also disabled repos
+
+yum-config-manager --disable REPO_ID
+
+
+### Local repo
+vi /etc/yum.repos.d/local.repo
+[local]
+name=Local Repo
+baseurl=file://LOCAL_REPO_LOCATION
+enabled=1
+gpgcheck=0
