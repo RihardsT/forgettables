@@ -66,3 +66,26 @@ name=Local Repo
 baseurl=file://LOCAL_REPO_LOCATION
 enabled=1
 gpgcheck=0
+
+
+### GPG keys
+yum-config-manager --add-repo REPO_URL
+# Get GPG key
+cd /etc/pki/rpm-gpg/
+wget GPG_KEY_FROM_REPO
+# get full path of the downloaded gpg key
+vi /etc/yum.repos.d/REPO
+  gpgcheck=1
+  gpgkey=file://FULL_PATH_TO_KEY
+
+
+### Kernel update
+uname -r # check kernel
+yum clean all # clean repositories
+yum list kernel
+
+yum install linux-firmware # dependency
+yumdownloader kernel
+rpm -ivh KERNEL_PACKAGE
+
+dracut # command to regenerate vmlinuz image for latest kernel if it's not there?

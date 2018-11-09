@@ -42,6 +42,10 @@ sudo vi /etc/default/grub
 # Update grub, when file updated
 sudo update-grub
 
+########## Set default kernel to boot into
+# 0, 1, 2... 0 is the newest.
+grub2-set-default 1
+
 ########## Swap
 fallocate -l 4G /swapfile
 chmod 600 /swapfile
