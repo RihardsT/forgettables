@@ -2,6 +2,9 @@
 ssh -A -t -l JUMPNODE_USER JUMPNODE_ADDRESS \
 ssh -A -t -l NODE_USER NODE_ADDRESS
 
+### SSH with password instead of key
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no USER@HOST
+
 ###
 ping IP
 tracepath IP

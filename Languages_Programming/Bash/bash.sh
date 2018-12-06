@@ -22,6 +22,9 @@ echo "This stuff" # -n flag to disable new line in terminal
 
 # Metachars: * ? [ ] ' " \ $ ; & ( ) | ^ < > new-line space tab
 
+# "Split" or get partial string, range of string
+echo ${STRING:0:2} # 0 - starting char, 2 - how many chars
+
 ######################## Operators #############################################
 ! # Negate. [ ! false ]
 && # AND operator. Same as -a
