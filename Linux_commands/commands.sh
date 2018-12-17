@@ -168,6 +168,7 @@ openssl x509 -noout -modulus -in CERTIFICATE.crt | openssl md5
 openssl rsa -noout -modulus -in KEY_FILE.key | openssl md5
 
 ### Show sites SSL certificate
+ENDPOINT=""
 openssl s_client -connect $ENDPOINT:443 -servername $ENDPOINT
 ### Show SSL certificate expiration date
 openssl s_client -connect $ENDPOINT:443 -servername $ENDPOINT < /dev/null 2>&1 | openssl x509 -enddate -noout

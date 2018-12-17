@@ -30,6 +30,17 @@ grep -oP "(?<=PATTERN_BEFORE)PATTERN(?=PATTERN_AFTER)"
 # (?<=PATTERN) == PATTERN\K lookbehind
 # (?=PATTER) look ahead
 
+# Not greedy match. ? to match the pattern only once. I was using it so: .+?
+#
+grep -oP "(?<=PATTERN_BEFORE)PATTERN?(?=PATTERN_AFTER)"
+
+# Repetition
+grep -oP "PATTERN+" # match at least once
+grep -oP "PATTERN*" # match or no match. Zero or all
+grep -oP "PATTERN?" # Match at most once.
+grep -oP "PATTERN{n}" # match at least n times
+grep -oP "PATTERN{n,m}" # match n to m times. {n,} to match n to inf
+
 
 # grep ps aux without grep showing in results. Use [] lel
 ps aux | grep "[p]ython3"
@@ -77,6 +88,9 @@ rev file | cut -c 9- | rev
 ### awk
 # Output specific column from output
 awk '{print $1}'
+
+# awk delimiter. Here a .
+awk -F'.' '{print $1}'
 
 # First the RS= in awk separates records by the empty lines.
 # Then in each record $0, newline and spaces are replaced with +,

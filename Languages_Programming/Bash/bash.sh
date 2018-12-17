@@ -24,6 +24,7 @@ echo "This stuff" # -n flag to disable new line in terminal
 
 # "Split" or get partial string, range of string
 echo ${STRING:0:2} # 0 - starting char, 2 - how many chars
+echo ${var::-2} # remove last 2 chars
 
 ######################## Operators #############################################
 ! # Negate. [ ! false ]
@@ -56,7 +57,7 @@ expr $a + $b
 -r FILE # if reeadable
 -w FILE # if writeable
 -x FILE # if executable
--s FILE # if size greather than 0
+-s FILE # if size greather than 0, if file is not empty
 -e FILE # if file exists
 
 
