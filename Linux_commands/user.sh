@@ -1,9 +1,6 @@
 # Create user without password
 adduser --disabled-password --gecos '' USERNAME # In the '' goes user description
 
-# Add user to group
-usermod -aG GROUP_NAME USERNAME
-
 # Show users info, like password expiration, etc
 chage -l USERNAME
 # Remove pwd/account limit: pass -1 to option. Ex: account expiration
@@ -28,8 +25,26 @@ less /etc/shadow
 1-200 # system users
 201-999 # users who use system processes, but don't own files, ex apache
 
-
-
 ### Defaults for new user creation?
 /etc/login.defs
 /etc/default/useradd
+
+
+### groups
+less /etc/group
+# Get groups members
+getent group USERNAME
+# get all users groups and their id's
+id USERNAME
+groups USERNAME
+# Set users primary group
+usermod -g GROUP_NAME USERNAME
+# Add user to additional group
+usermod -aG GROUP_NAME USERNAME
+
+# Modify group
+groupmod
+
+# login to group
+# i.e. files created after this will be created with group permissions
+newgrp GROUP_NAME
