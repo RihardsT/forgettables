@@ -39,7 +39,7 @@ id USERNAME
 groups USERNAME
 # Set users primary group
 usermod -g GROUP_NAME USERNAME
-# Add user to additional group
+# Add user to additional supplementary group
 usermod -aG GROUP_NAME USERNAME
 
 # Modify group
@@ -48,3 +48,8 @@ groupmod
 # login to group
 # i.e. files created after this will be created with group permissions
 newgrp GROUP_NAME
+
+
+### set-GID - new files created in the dir, will inherit dir's group ownership
+# Add "sticky" group permissions for folder
+chmod g+s DIRECTORY
