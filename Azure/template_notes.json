@@ -1,0 +1,3 @@
+{
+  "id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('PARAMETER_NAME'))]",
+}

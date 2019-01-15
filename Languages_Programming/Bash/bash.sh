@@ -32,7 +32,7 @@ echo ${var::-2} # remove last 2 chars
 || # OR operator. Same as -o
 
 = # String equality operator. [ "abc" = "ad" ]. Also assignment for vars, lel
-!= # Not euqal [ $a = $b ]
+!= # Not equal [ $a = $b ]
 -z # If string is of size 0 [ -z "" ]; echo $?
 -n # # If string is not of size 0 [ -z " " ]; echo $?
 [ $a ] # Same as -n ? Checks if string is not empty
