@@ -283,3 +283,13 @@ USERNAME ALL=(ALL) NOPASSWD:ALL
 https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 FILE="FILENAME"
 echo "${FILE%%EXT}"
+
+
+### SSH
+
+# copy ssh public key to server
+ssh-copy-id USER@IP
+
+# Add key for the session, so it doesn't ask passphrase for each ssh command
+ssh-agent bash
+ssh-add
