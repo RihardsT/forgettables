@@ -8,6 +8,17 @@ setenforce 1
 ### Default config
 /etc/selinux
 
+# ls with selinux context
+ls -Z
+# ps with selinux context
+ps auxZ | grep PATTERN
+# list available selinux contexts
+semanage fcontext -l
+# restore files context
+restorecon FILE
+# Files are automatically labeled on first selinux setup, or when forcing it:
+# Relabel files automatically on next reboot
+touch /.autorelabel
 
 # disable re-enable selinux to restore file contexts
 
