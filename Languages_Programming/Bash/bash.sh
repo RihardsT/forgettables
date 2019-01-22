@@ -94,6 +94,11 @@ $! # PID number of last bacground command
 # Would be nice, if I'd find a proper newline delimiter here
 subjects=( $(cat subjects| cut -d' ' -f1) )
 
+# string to array
+string="value value2 value"
+arr=($string)
+echo ${arr[0]}
+
 arrayName=(Value1 Value2 Value3 .. ValueN)
 ${arrayName[0]} # This is how to access the item
 ${#arrayName[*]} # Array size
