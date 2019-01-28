@@ -90,6 +90,11 @@ $? # Exit status of last command
 $$ # PID of current shell
 $! # PID number of last bacground command
 
+### Optional argument, parameter (pass args)
+${1:-DEFAULT_VALUE_HERE} # if parameter is unset or null, will use default val
+${1-DEFAULT_VALUE_HERE} # if parameter is unset, will use default val
+[ "${1}" = "" ] # Check if argument is empty string. Same for unset and null QQ
+
 # Get file into array. Line by line. Without the cut, array[0] is the whole file
 # Would be nice, if I'd find a proper newline delimiter here
 subjects=( $(cat subjects| cut -d' ' -f1) )

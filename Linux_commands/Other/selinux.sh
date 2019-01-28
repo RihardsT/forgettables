@@ -37,3 +37,19 @@ restorecon -Rv FOLDER
 semanage fcontext -l | grep FOLDER
 semagage fcontext -d '/FOLDER(/.*)?'
 restorecon -Rv FOLDER
+
+
+### Boolean values
+# List boolean values
+getsebool -a
+semanage boolean -l
+# set bool for session
+setsebool BOOL_NAME on
+# set it permamently, with -P flag
+setsebool -P BOOL_NAME on
+
+### Troubleshoot selinux bools
+# install
+yum install -y setroubleshoot-server
+# troubleshoot selinux bool errors. This will show some suggested fixes too
+sealert -a /var/log/audit/audit.log
