@@ -1,0 +1,4 @@
+# TODO: find out how atom saves these user settings.
+
+# Default to LF
+Settings -> Packages -> line-ending-selector

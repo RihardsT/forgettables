@@ -88,7 +88,10 @@ rev file | cut -c 9- | rev
 ### awk
 # Output specific column from output
 awk '{print $1}'
-
+# Output last column
+awk '{print $(NF)}'
+# 2 columns before last
+awk '{print $(NF-2)}'
 # awk delimiter. Here a .
 awk -F'.' '{print $1}'
 
