@@ -86,6 +86,8 @@ rev file | cut -c 9- | rev
 
 
 ### awk
+# Pattern matching and output column
+awk '/PATTERN/ {print $1}'
 # Output specific column from output
 awk '{print $1}'
 # Output last column

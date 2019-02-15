@@ -9,7 +9,9 @@ histroy -cw
 printenv
 
 # NTP time sync at least on Centos
-sudo service ntpd stop; sudo ntpd -q; sudo service ntpd start
+sudo service ntpd stop && sudo ntpd -q; sudo service ntpd start
+# checkout -g flag to set time immediately and -d flag for debug
+sudo ntpd -gq
 
 # Example: copy from remote server to local.
 # -r for recursive = folders
