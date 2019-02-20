@@ -1,4 +1,5 @@
-ssh-keygen -t rsa -b 4096 -C "EMAIL"
+ssh-keygen -t ed25519 -C "EMAIL"
+# ssh-keygen -t rsa -b 4096 -C "EMAIL"
 eval "$(ssh-agent -s)"; ssh-add ~/.ssh/gitlab
 
 git config --global user.email "EMAIL"

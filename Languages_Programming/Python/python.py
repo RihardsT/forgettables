@@ -72,7 +72,7 @@ if True: #code
 'Yes' if fruit == 'Apple' else 'No' #value_when_true if condition else value_when_false
 
 
-	for, for/else // while, while/else
+####for, for/else // while, while/else
 for var in list_name:
 	#code #Šādi ejot cauri list nevar mainīt vērtības
 else:
@@ -204,3 +204,8 @@ from datetime import datetime
 from random import randint #Random int
 import random
 random.random() # float in range [0.0 1.0]
+
+### Run system command
+# https://docs.python.org/3/library/subprocess.html
+import subprocess
+subprocess.run(["COMMAND", "ARGUMENT"])

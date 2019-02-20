@@ -1,6 +1,6 @@
 show data_directory;
 
-psql -U postgres -h localhost
+psql -U postgres -h localhost DB_NAME
 \list # List db's
 \connect DB # connect to db, same as \c
 \dt # list db tables
