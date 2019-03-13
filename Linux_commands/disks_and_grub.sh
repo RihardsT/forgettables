@@ -54,7 +54,6 @@ swapon /swapfile
 swapon -s
 
 echo "/swapfile   none    swap    sw    0   0" | sudo tee --append /etc/fstab
-# vim /etc/fstab
 
 ### /etc/fstab
 # FSCK_FLAG is check order. should be 1 for /, 2,3,4 for others.
@@ -78,7 +77,7 @@ tune2fs -L LABEL_NAME /dev/PARTITION
 tune2fs -l /dev/PARTITION
 
 ###### Edit grub stuff during boot.
-# Change root user password
+## Change root user password
 # boot and on grub choice menu press "e" for desirable OS version
 # at "linux16" line, go to end and add "rd.break", to enter initramfs debug. ctrl + x
 mount -oremount,rw /sysroot # remount the actual root drive as rw
@@ -87,8 +86,11 @@ passwd root # change roots password
 touch /.autolabel # necessary for selinux to relabel files
 exit # go for reboot
 exit
-
-
+## Enter rescue mode
+# boot and on grub choice menu press "e"
+# at "linux16" line, go to end of line, append systemd target:
+systemd.unit=rescue.target
+# continue boot with ctrl + x
 
 ### GPT disk creation
 gdisk /dev/DISK
