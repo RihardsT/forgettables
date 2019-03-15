@@ -12,3 +12,8 @@ select CONCAT(COLUMN_NAME,'Text') from TABLE_NAME;
 
 # Update value in table, where it matches...
 UPDATE TABLE_NAME SET COLUMN_NAME = 'VALUE' WHERE OTHER_COLUMN_NAME = 'MATCHING_VALUE';
+
+
+
+### Create DB
+CREATE DATABASE db_name;

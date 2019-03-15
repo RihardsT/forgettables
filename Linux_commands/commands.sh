@@ -9,7 +9,7 @@ histroy -cw
 printenv
 
 # NTP time sync at least on Centos
-sudo service ntpd stop && sudo ntpd -q; sudo service ntpd start
+sudo service ntpd stop && sudo ntpd -q && sudo service ntpd start
 # checkout -g flag to set time immediately and -d flag for debug
 sudo ntpd -gq
 
@@ -104,6 +104,9 @@ ps -p $(pgrep EXPRESSION) -o etime=
 # Running processes as tree
 ps -ejH
 ps axjf
+
+# Process age
+ps -p PID -o etime -h
 
 pgrep -l PATTERN # ps with grep. lel
 pgrep -v -u root -l # find all processes that are not owned by root. -v is NOT for grep
