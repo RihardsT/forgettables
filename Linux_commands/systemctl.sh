@@ -1,7 +1,15 @@
 ### /etc/systemd/system
 
-### Get current target
+### Targets
+# Get current target
 systemctl get-default
+# List active targets, --all for all targets
+systemctl list-units --type=target # --all
+
+### Units
+# List available unit types
+systemctl -t help
+
 
 ### Set default boot target
 systemctl set-default multi-user.target
