@@ -144,7 +144,8 @@ pkill -t pts/1 # kill processes from specific terminal
 screen -x shared
 
 ### Run command in background
-nohup COMMAND & # One option
+nohup COMMAND & # One option. Very good. This will keep the process running even when closing terminal.
+# Also logs by default in nohup.out file. Great!
 screen # Check this out
 tmux # Also check this out. Multiple terminals from one screen
 
@@ -298,3 +299,9 @@ ssh-copy-id USER@IP
 # Add key for the session, so it doesn't ask passphrase for each ssh command
 ssh-agent bash
 ssh-add
+
+
+### Logger
+logger "Write something to system logs"
+# Log can be seen then in journalctl
+journalctl -f
