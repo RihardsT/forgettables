@@ -38,6 +38,11 @@ Account.investment_return(1000, 0.0001) # Call Functions like this. Module.funct
 
 ########## Comparators:
 
+# Regex
+=~ ~r/PATTERN/
+=~ ~r|PATTERN|
+# Different delimiters
+
 ########## print
   IO.puts "Typical string with #{string_interpolation}"
 
