@@ -54,6 +54,8 @@ swapon /swapfile
 swapon -s
 
 echo "/swapfile   none    swap    sw    0   0" | sudo tee --append /etc/fstab
+# enable swap that are in /etc/fstab
+swapon -a
 
 ### /etc/fstab
 # FSCK_FLAG is check order. should be 1 for /, 2,3,4 for others.
