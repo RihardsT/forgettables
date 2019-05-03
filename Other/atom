@@ -3,7 +3,7 @@
 # Default to LF
 Settings -> Packages -> line-ending-selector
 
-# Increase inotify, also for VS Code. Didn't lead to improvement for me. QQ
+# Increase inotify, also for VS Code. Didn't lead to improvement for me on Atom.
 echo "fs.inotify.max_user_watches=524288" | sudo tee /etc/sysctl.d/99-vscode-inotify.conf
 sudo sysctl -p
 echo "524288" | sudo tee /proc/sys/fs/inotify/max_user_watches

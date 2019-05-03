@@ -2,4 +2,25 @@
     "editor.minimap.enabled": false,
     "editor.rulers": [80],
     "editor.wordWrap": "on",
+    "files.insertFinalNewline": true,
+    "window.zoomLevel": -1,
 }
+// ctrl + shift + p -> Preferences: Open User Settings
+// click {} on top right, to open Settings JSON.
+
+// ctrl + shift + p -> Preferences: Open Keyboard Shortcuts
+[
+{ "key": "ctrl+alt+1", "command": "workbench.action.terminal.focusAtIndex1"},
+{ "key": "ctrl+alt+2", "command": "workbench.action.terminal.focusAtIndex2"},
+{ "key": "ctrl+alt+3", "command": "workbench.action.terminal.focusAtIndex3"},
+{ "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
+{ "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" },
+{ "key": "ctrl+shift+d",   "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly" },
+]
+
+
+///// keybindings
+// ctrl+` // show terminal
+// ctrl+shift+` // new terminal
+// ctrl+\ // split/duplicate view
