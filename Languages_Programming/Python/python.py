@@ -28,6 +28,9 @@ print a, b
 print('{0} and {1}'.format('var1', 'var2'))
 # Python 3.6 String interpolation
 f'can_put_text_here {variable}'
+# print array contents without brackets
+print(*array, sep=', ')
+
 
 Variables:
 	name = value #value var būt jebkas. int, float, bool, array, string, obj

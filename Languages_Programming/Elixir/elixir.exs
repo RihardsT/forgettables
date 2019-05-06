@@ -36,6 +36,9 @@ Account.investment_return(1000, 0.0001) # Call Functions like this. Module.funct
 # Operators that can be used in guard clauses:
 == != === !== > >= < <= and or not + - * / <> in
 
+# Ternary simulation
+if true, do: "true", else: "false"
+
 ########## Comparators:
 
 # Regex
