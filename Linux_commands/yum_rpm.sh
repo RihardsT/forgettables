@@ -29,6 +29,22 @@ yum remove PACKAGE
 yum list all
 yum clean all # clean cache
 
+### Groups
+yum group list
+yum group list hidden # show all groups?
+yum group info "GROUP NAME"
+yum group install "GROUP NAME"
+yum group remove "GROUP NAME"
+
+### history
+yum history
+yum history info N
+yum history undo N # remove installed packages in the run
+
+### Cleanup
+package-cleanup --leaves # list of unused libraries
+package-cleanup --leaves --all # list of all unusued packages, some you want to keep
+yum autoremove # remove unused packages
 
 
 ### RPM
