@@ -169,7 +169,15 @@ class PartTimeEmployee(Employee):
 milton = PartTimeEmployee("Milton")
 print milton.full_time_wage(10)
 
-FileInput/Output
+############## FileInput/Output
+### with is the prefered way how to deal with files. This takes care of open/close
+# read line by line
+with open("output.txt", "r") as f:
+    for line in f:
+		pass
+### Open multiple files
+with open('file1', 'w') as file1, open('file2', 'w') as file2:
+	pass
 f = open("output.txt", "w")
 #modes: "w" write only, "r" read only, "r+" read and write, "a" append
 f.write("Data to be written")
@@ -208,6 +216,17 @@ from random import randint #Random int
 import random
 random.random() # float in range [0.0 1.0]
 
+### string to date
+import datetime
+datetime.strptime(date_string, format)
+# Get date month ago
+time_now = datetime.datetime.utcnow()
+time_30_days_ago = time_now - datetime.timedelta(days=30)
+### compare dates. Replace tzinfo with None, if getting error:
+# TypeError: can't compare offset-naive and offset-aware datetimes
+some_date.replace(tzinfo=None) < time_30_days_ago
+
+######
 ### Run system command
 # https://docs.python.org/3/library/subprocess.html
 import subprocess
