@@ -71,9 +71,10 @@ yum localinstall PACKAGE # also takes care of dependencies an such
 /etc/yum.repos.d/
 
 yum repolist all # list also disabled repos
-
+yum repolist # show enabled repos
+yum-config-manager --add-repo=REPO_URL
 yum-config-manager --disable REPO_ID
-
+rm /etc/yum.repos.d/REPO_FILE # Delete repository
 
 ### Local repo
 vi /etc/yum.repos.d/local.repo

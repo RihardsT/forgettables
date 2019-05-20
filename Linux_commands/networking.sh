@@ -21,11 +21,11 @@ nmcli con add help # help
 nmcli con add con-name "CONNECTION_NAME" autoconnect yes type ethernet ifname eth1 # double tab forr autocomplete
 ip route
 nmcli con add con-name "CONNECTION_NAME" type ethernet ifname eth1 ip4 10.0.0.16 gw4 10.0.0.1 # create static connection
+nmcli con add "CONNECTION_NAME" +ipv4.dns 1.1.1.1
 nmcli con down "CONNECTION_NAME"
 nmcli con up "CONNECTION_NAME"
 nmcli con mod "CONNECTION_NAME" connection.autoconnect yes # modify
 nmcli con del "CONNECTION_NAME"
-
 
 less /etc/resolv.conf
 
