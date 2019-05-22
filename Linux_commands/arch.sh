@@ -19,3 +19,8 @@ makepkg -cs
 sudo pacman -U PACKAGE.tar.gz
 
 ### Use helpers? yaourt or yay?
+yay -S PACKAGE # Install package
+yay -Rs package # Remove package
+yay EXPRESSION # Search for package and then choose from returned list
+yay -Syu # Update packages
+yay -Yc # Clean
