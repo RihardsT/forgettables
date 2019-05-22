@@ -102,7 +102,7 @@ source /etc/bash_completion.d/git
 # newer versions?
 source /usr/share/bash-completion/completions/git
 # make it permanent
-echo "source /usr/share/bash-completion/completions/git" >> /root/.bashrc
+echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
 
 ### Use LF line endings
 git config --global core.autocrlf false
