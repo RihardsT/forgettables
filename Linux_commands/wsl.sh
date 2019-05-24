@@ -2,4 +2,4 @@
 ln -s /mnt/d /d
 
 ######### Arch
-pacman -S git python vim openssh wget
+pacman -S git python python-pip vim openssh wget

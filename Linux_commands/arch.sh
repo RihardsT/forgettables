@@ -5,7 +5,8 @@ pacman -S PACKAGE_NAME
 # Update all packages
 pacman -Syu
 
-
+# Search for package
+pacman -Ss PACKAGE
 
 ##### Update CA certs
 sudo trust extract-compat
