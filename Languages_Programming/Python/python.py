@@ -43,7 +43,7 @@ Variables:
 	name = input('Enter something')
 	list = [var1, var2]	# Array
 	list[0] = changeVal
-	list[1:9:2] #list slicing [start:stop:step] [3:] [:2] [::2] / [::-1] #reverse
+	list[1:9:2] #list slicing [start:stop:step] [3:] [:2] [::2] / [::-1] #reverse #string slice, split
 	list.append(var) .insert(1,var) #.insert(position, var)
 	.sort() .index(var) #animals.index("bat") => returns index of bat
 	.pop(index) #Izņem no list un atgriež vērtību
@@ -173,6 +173,7 @@ print milton.full_time_wage(10)
 ### with is the prefered way how to deal with files. This takes care of open/close
 # read line by line
 with open("output.txt", "r") as f:
+	contents = f.read()
     for line in f:
 		pass
 ### Open multiple files
@@ -218,7 +219,8 @@ random.random() # float in range [0.0 1.0]
 
 ### string to date
 import datetime
-datetime.strptime(date_string, format)
+datetime.datetime.strptime(date_string, format)
+# Format reference: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
 # Get date month ago
 time_now = datetime.datetime.utcnow()
 time_30_days_ago = time_now - datetime.timedelta(days=30)
