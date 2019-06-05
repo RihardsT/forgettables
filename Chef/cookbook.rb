@@ -8,3 +8,7 @@ begin
 rescue Chef::Exceptions::ResourceNotFound
   Chef::Log.warn "File not found"
 end
+
+
+puts "########## PUTS ########## puts outputs if you use real chef-client. Usefull with --skip-cookbook-sync"
+Chef::Log.warn "########## WARN ########## Chef log work better in kitchen though"
