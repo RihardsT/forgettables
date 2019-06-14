@@ -169,3 +169,19 @@ dmesg | more
 
 ### mount iso
 mount -o loop ISO_FILE MOUNT_LOCATION
+
+
+
+
+### Fix boot after installing windows over top
+# On windows, with Secure boot enabled, run in admin CMD
+bcdedit /set {bootmgr} path \EFI\ubuntu\shimx64.efi
+# On windows, without Secure boot enabled, run in admin CMD
+bcdedit /set {bootmgr} path \EFI\ubuntu\grubx64.efi
+
+# Otherwise try to replace
+mv /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi /boot/efi/EFI/Microsoft/Boot/bootmgfw_windows.efi
+cp /boot/efi/EFI/ubuntu/grubx64.efi /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi
+# edit /boot/grub/grub.cfg menuentry and replace bootmgfw with bootmgfw_windows
+sudo sed -i 's#/EFI/Microsoft/Boot/bootmgfw.efi#/EFI/Microsoft/Boot/bootmgfw_windows.efi#g' /boot/grub/grub.cfg
+# That should work.
