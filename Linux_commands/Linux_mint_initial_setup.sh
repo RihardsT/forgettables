@@ -68,3 +68,12 @@ groups
 
 ### Windows 10 stuff for dual boot
 # Control Panel -> Power Options -> Choose what the power buttons do -> Disable fast start-up
+
+
+
+
+##### Audio hack for my broken audio jack
+sudo apt-get install alsa-tools-gui
+hdajackretask
+# "Black Mic, Right side" Override to Line Out(Front)
+# If Audacious is playing, restart it, or go to Output -> Audio Settings, click output plugin
