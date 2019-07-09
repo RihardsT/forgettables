@@ -300,6 +300,10 @@ ssh-copy-id USER@IP
 ssh-agent bash
 ssh-add
 
+# List loaded keys
+ssh-add -l
+# Load keys
+echo "IdentityFile ~/.ssh/KEYNAME" >> ~/.ssh/config
 
 ### Logger
 logger "Write something to system logs"
