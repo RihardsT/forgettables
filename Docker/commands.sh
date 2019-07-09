@@ -30,17 +30,8 @@ docker build -t TAG .
 ## Tag existing image
 docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 
-
-## Docker machine
-docker-machine start
-eval "$(docker-machine env --shell bash default)"
-docker ps
-
-
-
 ### Allow access to hosts docker socket from within container
 -v /var/run/docker.sock:/var/run/docker.sock
-
 
 # Getting ssh: connect to host 172.17.x.x port 22: No route to host error?
 # Change bridge network ip range, so it doesn't overlap with your IP range

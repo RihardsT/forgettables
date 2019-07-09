@@ -1,0 +1,15 @@
+# Start CMD
+
+diskpart
+create vdisk file=c:\DISK_NAME.vhd maximum=1024
+select vdisk file=c:\DISK_NAME.vhd
+attach vdisk
+detail vdisk
+convert mbr
+create partition primary
+format fs=ntfs label=DISK_NAME quick
+assign letter=d
+
+diskpart
+select vdisk file=c:\DISK_NAME.vhd
+detach vdisk
