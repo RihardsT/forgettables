@@ -1,3 +1,6 @@
+chef generate cookbook COOKBOOK_NAME -b
+
+
 # Override template in wrapper cookbook
 begin
   res = resources(template: "FULL_PATH_TO_FILE_ON_OS_AFTER_CHEF_RUN")
