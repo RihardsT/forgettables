@@ -55,3 +55,10 @@ chef exec knife job start 'chef-client' NODE_EXPRESSION # node*
 
 ######### Execute command on nodes. Seems like this will only work if chef-server can access those nodes
 knife ssh 'name:*' 'sudo chef-client' -x USER -a ipaddress # -P flag to ask for password
+
+######### Find out package versions using jq
+knife node list > temp_nodes
+while read line; do
+  echo $line
+  knife node show $line -l -F json | jq '{node: .name, ver: .automatic.packages.PACKAGE.version}' >> package_versions.json
+done < temp_nodes

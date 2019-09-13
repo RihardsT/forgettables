@@ -85,6 +85,10 @@ rev file | cut -c 9- | rev
 ^(?:[\t ]*(?:\r?\n|\r))+
 
 
+# Change uppercase to lowercase
+tr '[:upper:]' '[:lower:]' < FILE
+
+
 ### awk
 # Pattern matching and output column
 awk '/PATTERN/ {print $1}'
