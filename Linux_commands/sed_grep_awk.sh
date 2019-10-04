@@ -66,6 +66,16 @@ sed '/PATTERN/ d' FILE
 # Append line after match
 sed '/pattern/a Hello World' FILE
 sed -i '/pattern/a\   Hello World' FILE # Including spaces
+# Append multiple lines after match. a\ and then \a for line breaks.
+sed '/pattern/a\
+LINE1\
+LINE2' FILE
+# Append multiple lines after match with different delimiter
+# Finds pattern, then in substitute matches the whole line with .*
+# & selects the matched line, \ for line break, append new lines.
+sed '/PATTERN/s#.*#&\
+LINE1\
+LINE2#' sed_test.txt
 # Append line before match
 sed  '/pattern/i Hello World' FILE
 
