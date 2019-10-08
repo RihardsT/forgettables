@@ -14,3 +14,9 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 ##### Copy files
 kubectl cp NAMESPACE/POD_NAME:/FOLDER/FILE_NAME ./FILE_NAME
+
+##### Restart container
+# Kill the containers root process, to "force" restart
+kubectl exec -ti POD -- sh -c 'kill 1'
+# Scale down and up
+kubectl scale deployment NAME --replicas=0 -n service
