@@ -19,6 +19,11 @@ mount -a
 mkdir /media/ext
 echo "/dev/sdb9 /media/ext ext4 defaults 0 0" >> /etc/fstab
 mount -a
+#
+mkdir /Code
+echo "/dev/sda8 /Code ext4 defaults 0 0" >> /etc/fstab
+mount -a
+chown rihards:rihards /Code
 
 
 # Git initial config

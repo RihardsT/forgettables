@@ -8,9 +8,10 @@ pip install -U matplotlib
 
 pip install -r requirements.txt
 
+### Install with python pip, when you've broken OS pip somehow
+sudo python3 -m pip install PACKAGE
 
-
-##### Virutal environment
+##### Virtual environment
 sudo pip install -U virtualenv
 
 
