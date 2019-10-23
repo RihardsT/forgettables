@@ -122,8 +122,11 @@ mount /dev/LOGICAL_VOLUME_NAME MOUNT_LOCATION
 pvmove /dev/DISK1 # move away from DISK1
 vgreduce VOLUME_GROUP_NAME /dev/DISK1 # Remove physical disk from volume group
 
-# extend logical volume. can be +5G, +50%FREE and such
+# extend logical volume. can be -l+5G, -l+50%FREE and such
+# -l+5GB to extend by 5G
+# -L 5G to extend to total of 5G
 lvextend -L 5G VOLUME_GROUP_NAME
+lvextend -l+50%FREE VOLUME_GROUP_NAME
 xfs_growfs MOUNT_LOCATION # for xfs filesystem
 resize2fs MOUNT_LOCATION # for ext
 
