@@ -13,7 +13,7 @@ tad nāk useris un komanda
 
 visiem tiem skaitļiem var ari likt, lai vairākas reizes tas būtu
 piem minūtēm - 15,45 - izpildīs 2x stundā
-*/4 - 4x stundā
+*/4 - katras 4 minūtes
 5-10 - 5min pēc kārtas
 
 */STEP # executes per step, calculated from start.

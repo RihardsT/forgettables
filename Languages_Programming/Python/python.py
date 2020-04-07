@@ -210,9 +210,9 @@ everything = dir(math) # Sets everything to a list of things from math
 print everything       # Prints 'em all!
 
 from datetime import datetime
-	print datetime.now()
-	now = datetime.now()
-	print '%s-%s-%s' % (now.year, now.month, now.day)
+print(datetime.now())
+now = datetime.now()
+print('{0}-{1}-{2}'.format(now.year, now.month, now.day))
 
 from random import randint #Random int
 import random

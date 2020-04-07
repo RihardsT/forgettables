@@ -21,9 +21,11 @@ echo "/dev/sdb9 /media/ext ext4 defaults 0 0" >> /etc/fstab
 mount -a
 #
 mkdir /Code
-echo "/dev/sda8 /Code ext4 defaults 0 0" >> /etc/fstab
+mkdir /home/rihards/Code
+echo "/dev/sda8 /Code ext4 defaults 0 0" | sudo tee -a /etc/fstab
 mount -a
 chown rihards:rihards /Code
+ln -s /Code /home/rihards/Code
 
 
 # Git initial config
