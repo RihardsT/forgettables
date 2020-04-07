@@ -136,6 +136,18 @@ lvremove /dev/LOGICAL_VOLUME_NAME
 vgremove VOLUME_GROUP_NAME
 pvremove /dev/DISK1 /dev/DISK2
 
+##### LVM add new disk and move data from old disk to it. Replace disk basically
+pvcreate /dev/DISK2
+pvs # show volumes
+# Add new disk's PV to VG
+vgextend VOLUME_GROUP_NAME /dev/DISK2
+# Move data from old disk to new one
+pvmove /dev/DISK1 /dev/DISK2
+# Remove the old disk from VG
+vgreduce VOLUME_GROUP_NAME /dev/DISK1
+# Resize LV if the new disk is larger than old one. If required.
+lvextend --resizefs -l +100%FREE /dev/LOGICAL_VOLUME_NAME
+
 
 ### Disk check
 # fsck can check unmounted partitions
