@@ -242,7 +242,12 @@ ls -lah TESTFILE
 
 
 ### Disk speed test with dd. You might want to change the output file size, bs=1M
+# Write speed test
 dd if=/dev/zero of=/PLACE_ON_SPECIFIC_DISK bs=1G count=1 conv=fdatasync
+# Latency test
+dd if=/dev/zero of=/PLACE_ON_SPECIFIC_DISK bs=512 count=1000 oflag=dsync
+# oflag=dsync -- To get rid of caching for more precise results
+
 
 ### Quickly create a big file
 fallocate -l 10G FILE
