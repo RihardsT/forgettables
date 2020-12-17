@@ -6,8 +6,14 @@ apt-get purge -y hexchat transmission-* pidgin* xplayer* rhythmbox*
 apt-get update
 apt-get -y upgrade
 apt-get install -y vim git chromium-browser audacious vlc keepass2 psensor
-curl -fsSL https://get.docker.com/ | sh
-sudo usermod -aG docker rihards
+# curl -fsSL https://get.docker.com/ | sh
+# sudo usermod -aG docker rihards
+# Podman
+VERSION_ID=20.04
+echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
+sudo apt-get update -qq
+sudo apt-get -qq -y install podman
 
 ### Automount a disk
 lsblk -o NAME,SIZE,MOUNTPOINT,UUID
@@ -17,7 +23,7 @@ echo "/dev/sdb1 /media/1TB ntfs-3g defaults,permissions 0 0" >> /etc/fstab
 mount -a
 # I have another ext4 partition
 mkdir /media/ext
-echo "/dev/sdb9 /media/ext ext4 defaults 0 0" >> /etc/fstab
+echo "/dev/sdb2 /media/data ext4 defaults 0 0" >> /etc/fstab
 mount -a
 #
 mkdir /Code

@@ -20,6 +20,15 @@
         args:
           chdir: /srv/ # Change directory
           executable: /bin/bash
-
+      # Include a "recipe"
+    - include: ./tasks/monitor.yml
+      when: ansible_facts['hostname'] is match("elastic.*")
+      # when: "elastic" in ansible_facts['hostname']
+      # when: ansible_facts['hostname'].startswith('elastic')
+    - debug:
+        msg: "Message: {{ item }}"
+      with_items:
+      - 1
+      - 2
   roles: # Roles
     - role_name_goes_here

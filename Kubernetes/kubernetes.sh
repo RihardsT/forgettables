@@ -20,3 +20,7 @@ kubectl cp NAMESPACE/POD_NAME:/FOLDER/FILE_NAME ./FILE_NAME
 kubectl exec -ti POD -- sh -c 'kill 1'
 # Scale down and up
 kubectl scale deployment NAME --replicas=0 -n service
+
+
+##### Remove failed/evicted containers
+kubectl -n NAMESPACE delete pods --field-selector=status.phase=Failed

@@ -12,6 +12,9 @@ pip install -r requirements.txt
 sudo python3 -m pip install PACKAGE
 # Install to user, to have the executables available easily, easier than ^^
 pip install --user matplotlib
+# Remember to set path for bins to be usable
+export PATH="${PATH}:$(python3 -c 'import site; print(site.USER_BASE)')/bin"
+
 
 ##### Virtual environment
 sudo pip install -U virtualenv

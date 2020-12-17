@@ -23,6 +23,18 @@ EOF
 # format the partition as ext4
 mkfs.ext4 /dev/sdb1
 
+#### Extend partition
+fdisk /dev/sda # /dev/sda2
+p # list partitions
+d
+2
+n
+p
+2
+
+
+w
+
 ### Show available partitions
 blkid
 ###
@@ -195,8 +207,9 @@ bcdedit /set {bootmgr} path \EFI\ubuntu\shimx64.efi
 bcdedit /set {bootmgr} path \EFI\ubuntu\grubx64.efi
 
 # Otherwise try to replace
+sudo su
 mv /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi /boot/efi/EFI/Microsoft/Boot/bootmgfw_windows.efi
 cp /boot/efi/EFI/ubuntu/grubx64.efi /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi
-# edit /boot/grub/grub.cfg menuentry and replace bootmgfw with bootmgfw_windows
-sudo sed -i 's#/EFI/Microsoft/Boot/bootmgfw.efi#/EFI/Microsoft/Boot/bootmgfw_windows.efi#g' /boot/grub/grub.cfg
+sed -i 's#/EFI/Microsoft/Boot/bootmgfw.efi#/EFI/Microsoft/Boot/bootmgfw_windows.efi#g' /boot/grub/grub.cfg
 # That should work.
+# After Linux kernel updates sed command is enough. After windows updates do all 3 of them.
