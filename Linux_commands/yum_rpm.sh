@@ -28,6 +28,7 @@ yum update PACKAGE
 yum remove PACKAGE
 yum list all
 yum clean all # clean cache
+yum list PACKAGE* # show available packages - search basically
 
 ### Groups
 yum group list

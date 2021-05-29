@@ -33,6 +33,10 @@ https://github.com/ansible/ansible-examples/blob/master/language_features/ansibl
 ansible -i ./hosts --connection=local local -m ping # -m MODULE
 ansible -i ./hosts --connection=local local -m shell -a 'COMMAND'
 
+##### Get node facts, attributes
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_vars_facts.html
+ansible -i Inventory IP_OR_HOSTNAME -m ansible.builtin.setup
+
 
 ### Roles
 mkdir roles
