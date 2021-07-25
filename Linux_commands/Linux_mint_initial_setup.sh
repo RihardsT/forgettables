@@ -21,6 +21,9 @@ lsblk -o NAME,SIZE,MOUNTPOINT,UUID
 mkdir /media/1TB
 echo "/dev/sdb1 /media/1TB ntfs-3g defaults,permissions 0 0" >> /etc/fstab
 mount -a
+
+/dev/sdb1 /media/1TB ntfs-3g defaults,lazytime,uid=1000,gid=1000,dmask=007,fmask=117,big_writes,nofail,x-systemd.requires=multi-user.target,auto
+
 # I have another ext4 partition
 mkdir /media/ext
 echo "/dev/sdb2 /media/data ext4 defaults 0 0" >> /etc/fstab

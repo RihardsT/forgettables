@@ -314,3 +314,10 @@ echo "IdentityFile ~/.ssh/KEYNAME" >> ~/.ssh/config
 logger "Write something to system logs"
 # Log can be seen then in journalctl
 journalctl -f
+# Delete old journal
+sudo journalctl --rotate
+sudo journalctl --vacuum-time=2d
+# Configure journalctl
+vi /etc/systemd/journald.conf
+  SystemMaxUse=100M
+sudo systemctl restart systemd-journald
