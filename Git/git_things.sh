@@ -1,4 +1,5 @@
-ssh-keygen -t ed25519 -C "EMAIL"
+ssh-keygen -t ed25519 -C $(cat /etc/hostname)
+cat ~/.ssh/id_ed25519.pub
 # ssh-keygen -t rsa -b 4096 -C "EMAIL"
 eval "$(ssh-agent -s)"; ssh-add ~/.ssh/KEYNAME
 # To load key automatically on bash open?
