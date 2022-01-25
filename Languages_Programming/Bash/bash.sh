@@ -1,3 +1,6 @@
+# Shebang
+#!/bin/bash
+
 ######################## Comments ##############################################
 # Simple pimple comments with #
 
@@ -142,7 +145,8 @@ else
 fi
 # If string equals a string
 if [ $(uname -m) = "x86_64" ]; then echo "Yep"; fi
-
+# If string contains substring
+if [[ $VAR == *SUBSTRING* ]]; then echo "Yep"; fi
 
 # case
 case word in

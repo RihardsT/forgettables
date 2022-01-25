@@ -8,6 +8,9 @@ histroy -cw
 ### Environment variables
 printenv
 
+# Time drifted away so much, that even NTP wont sync?
+# Set the time via date MMDDhhmmYYYY
+date 011216432021
 # NTP time sync at least on Centos
 sudo service ntpd stop && sudo ntpd -q && sudo service ntpd start
 # checkout -g flag to set time immediately and -d flag for debug
@@ -82,6 +85,11 @@ find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*"
 find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*" -exec rm -r "{}" \;
 ### Delete files older than DAYS. +1 is the amount of days. Here 1 day
 find FOLDER -mtime +1 -exec rm -Rf -- {} \;
+### Delete files older than days
+find FOLDER -type f -mtime +1
+find FOLDER -name "EXPRESSION" -type f -mtime +1
+
+find FOLDER -type f -mtime +1 -delete
 ### Find changed files - less than + greater than time
 find FOLDER -cmin -5
 # find files owned by USER
@@ -90,6 +98,7 @@ find FOLDER -user USER -type f
 ### Find files containing text
 grep -rl 'PATH' -e 'PATTERN' # -r recursive, -l show filename not result
 grep -rl 'PATH' --include='FILENAME_PATTERN' -e 'PATTERN' # --include only search in files matching pattern
+find . -name "*" | xargs grep 'PATTERN'
 
 # List attached disks and get some of their properties
 lslbk --output NAME,SIZE,MOUNTPOINT,UUID
@@ -180,6 +189,11 @@ openssl s_client -connect $ENDPOINT:443 -servername $ENDPOINT
 openssl s_client -connect $ENDPOINT:443 -servername $ENDPOINT < /dev/null 2>&1 | openssl x509 -enddate -noout
 ### Show SSL certificate file expiration date
 openssl x509 -enddate -noout -in FILE_NAME
+### Show other stuff too
+openssl x509 -text -in FILE_NAME
+
+# p12 cert stuff
+openssl pkcs12 -nokeys -in FILE_NAME | openssl x509 -text
 
 ### Sticky permissions to folders.
 # This will ensure that files created there will be deleteable, modifyable by the set group.
@@ -294,7 +308,9 @@ USERNAME ALL=(ALL) NOPASSWD:ALL
 https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 FILE="FILENAME"
 echo "${FILE%%EXT}"
-
+echo "${FILE%%.jar}"
+EXTENSION=".jar"
+echo "${FILE%%${EXTENSON}}"
 
 ### SSH
 

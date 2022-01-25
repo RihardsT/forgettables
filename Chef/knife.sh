@@ -20,12 +20,17 @@ knife search node "name:*" -a ipaddress
 -a platform_version
 -a os_version # kernel version
 
+knife search node "policy_name:POLICY AND policy_group:ENVIRONMENT" -a ipaddress
+knife search node "(policy_name:POLICY OR policy_name:POLICY) AND policy_group:ENVIRONMENT" -a ipaddress
+
 ######### Set stuff
 knife node run_list set NODE_NAME RUN_LIST_ITEM
 knife node environment_set NODE_NAME ENVIRONMENT_NAME
 
 knife node run_list remove NODE_NAME 'role[ROLE_NAME], recipe[RECIPE]'
 knife node run_list add NODE_NAME 'role[ROLE_NAME], recipe[RECIPE]'
+
+knife node policy set NODE POLICY_GROUP POLICY_NAME
 
 ######### Edit node attributes
 knife node edit

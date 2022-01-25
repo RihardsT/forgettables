@@ -15,3 +15,13 @@ end
 
 puts "########## PUTS ########## puts outputs if you use real chef-client. Usefull with --skip-cookbook-sync"
 Chef::Log.warn "########## WARN ########## Chef log work better in kitchen though"
+
+
+### Save node attributes in Kitchen
+ruby_block "Save node attributes" do
+  block do
+    if Dir::exist?('/tmp/kitchen')
+      IO.write("/tmp/kitchen/chef_node.json", node.to_json)
+    end
+  end
+end

@@ -7,6 +7,8 @@ sed -i 's#FROM #FROM armhf/#g' Dockerfile
 sed -i '55,56 d' Dockerfile
 # Remove last line in file
 sed -i '$ d' Dockerfile
+# Delete first two lines
+sed -i '1,2 d' Dockerfile
 # Delete lines containing a pattern. Can use !d to delete lines NOT containing pattern
 sed '/PATTERN/ d' FILE
 # Add text to beginnign of string
@@ -113,5 +115,5 @@ awk -F'.' '{print $1}'
 
 # First the RS= in awk separates records by the empty lines.
 # Then in each record $0, newline and spaces are replaced with +,
-# so each enry takes single line in OUTPUT_FILE
+# so each entry takes single line in OUTPUT_FILE
 VARIABLE=($(awk -v RS= '{gsub(/\n| /,"+",$0); print $0 > "OUTPUT_FILE"}' INPUT_FILE))
