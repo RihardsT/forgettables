@@ -95,13 +95,13 @@ find FOLDER -cmin -5
 # find files owned by USER
 find FOLDER -user USER -type f
 
+# Delete old files/folders, but keep 4 newest
+ls -t PATH | sed -e '1,4d' | xargs rm -rf
+
 ### Find files containing text
 grep -rl 'PATH' -e 'PATTERN' # -r recursive, -l show filename not result
 grep -rl 'PATH' --include='FILENAME_PATTERN' -e 'PATTERN' # --include only search in files matching pattern
 find . -name "*" | xargs grep 'PATTERN'
-
-# List attached disks and get some of their properties
-lslbk --output NAME,SIZE,MOUNTPOINT,UUID
 
 # sort by memory usage can also try -rss
 ps aux --sort rss

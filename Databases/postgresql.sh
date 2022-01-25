@@ -37,3 +37,11 @@ psql -f DUMP_FILE postgres
 # Show size for specific DB \l+ is gread, because it's human readable
 \l+ DB_NAME
 select pg_database_size('DB_NAME');
+
+
+######### Upgrade
+### Nice and simple:
+# Dump from old version
+pg_dumpall -U USERNAME > DUMP_FILE
+# Upgrade to new version and then restore the dump
+psql -U USERNAME -d postgres -f DUMP_FILE

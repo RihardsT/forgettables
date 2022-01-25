@@ -41,7 +41,7 @@ blkid
 partprobe
 
 ########## Get UUID of partitions
-lsblk -o NAME,SIZE,MOUNTPOINT,UUID
+lsblk -o NAME,SIZE,MOUNTPOINT,UUID,FSTYPE
 
 
 ########## Set default grub entry

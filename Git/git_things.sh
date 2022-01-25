@@ -110,3 +110,6 @@ echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
 ### Use LF line endings
 git config --global core.autocrlf false
 git config core.autocrlf
+
+### Git to server with self-signed cert. Do not verify certs
+export GIT_SSL_NO_VERIFY=true
