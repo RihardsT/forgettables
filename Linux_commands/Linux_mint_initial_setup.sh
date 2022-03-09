@@ -15,6 +15,13 @@ curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/
 sudo apt-get update -qq
 sudo apt-get -qq -y install podman
 
+# Change Podman storage path
+mkdir -p /media/500GB/containers/run
+mkdir /media/500GB/containers/graph
+mkdir ~/.config/containers/
+vi ~/.config/containers/storage.conf
+# And take the file from Containers/podman_config.conf
+
 ### Automount a disk
 lsblk -o NAME,SIZE,MOUNTPOINT,UUID
 # Get your disks UUID
