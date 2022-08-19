@@ -11,3 +11,7 @@ jq -r '.OBJECT | map_values(keys)' JSON
 
 # Find paths to particular key
 jq -c 'paths | select(.[-1] == "KEY")' JSON
+
+### Select a matching object first by some match, then get stuff from it
+jq '.[] | select(.FIELD == PATTERN) | .FIELD'
+jq 'map(select(.FIELD == PATTERN)) | .FIELD'

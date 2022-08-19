@@ -13,3 +13,6 @@ apt-cache search keyword
 
 ### convert rpm or other packages to deb
 alien
+
+### List installed packages
+apt list --installed PACKAGE*

@@ -125,6 +125,7 @@ stat FILE # to get the inode
 debugfs -R 'stat <INODE_HERE>' /dev/sdb1 # Keep the birds < >
 
 # Some commands that do something. TODO: Update these eventually with descriptions
+# apt install sysstat
 iostat
 sar
 
