@@ -17,6 +17,7 @@ git branch -m OLD_BRANCH_NAME NEW_BRANCH_NAME
 
 cd /working_folder
 git init #initalize git repository in that folder
+git --bare init #initialize bare (remote) repository
 git status
 git add file_to_track.txt
 #veic izmaiņas failā.
