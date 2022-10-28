@@ -11,6 +11,8 @@ printenv
 # Time drifted away so much, that even NTP wont sync?
 # Set the time via date MMDDhhmmYYYY
 date 011216432021
+# Command to get date in that format
+date +%m%d%H%M%Y
 # NTP time sync at least on Centos
 sudo service ntpd stop && sudo ntpd -q && sudo service ntpd start
 # checkout -g flag to set time immediately and -d flag for debug
@@ -102,6 +104,8 @@ ls -t PATH | sed -e '1,4d' | xargs rm -rf
 grep -rl 'PATH' -e 'PATTERN' # -r recursive, -l show filename not result
 grep -rl 'PATH' --include='FILENAME_PATTERN' -e 'PATTERN' # --include only search in files matching pattern
 find . -name "*" | xargs grep 'PATTERN'
+# Trigger a command on files containing text
+grep -rl 'PATH' -e 'PATTERN' | xargs COMMAND -- {} \;
 
 # sort by memory usage can also try -rss
 ps aux --sort rss

@@ -22,3 +22,10 @@ Install-Module -Name Az -AllowClobber
 #
 Connect-AzAccount
 Enable-AzureRmAlias
+
+
+
+##### Kill
+# Get list of processes
+tasklist | select-string -pattern 'PROCESS_NAME'
+taskkill /f /PID PID_OF_THE_PROCESS

@@ -60,7 +60,10 @@ sed -z 's/\n/\\n/g' file
 awk 1 ORS=''
 
 # grep multiple lines. -P perl-regexp, -z substitute newline for null char, -o only matching.
-grep -Pzo "EXPRESSION" FILE
+# (?s) - to make . match chars and newlines
+grep -Pzo "(?s)EXPRESSION" FILE
+# awk multiple lines - nice and simple
+awk '/START/,/END_OF_PATTERN/' FILE
 
 # Delete lines with pattern
 sed '/PATTERN/ d' FILE
