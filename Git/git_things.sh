@@ -96,9 +96,11 @@ git commit
 git submodule init # Possibly required, hah
 git submodule update --recursive --remote # Checkout the latest from remote
 
-
 ### get hash of latest commit.
 git rev-parse --short HEAD
+
+### Count commits
+git rev-list --count BRANCH
 
 ### Bash completion
 # old versions?
@@ -114,3 +116,6 @@ git config core.autocrlf
 
 ### Git to server with self-signed cert. Do not verify certs
 export GIT_SSL_NO_VERIFY=true
+
+### Find a deleted file, knowing the full file path
+git log --summary --reverse -- PATH

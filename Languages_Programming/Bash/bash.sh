@@ -28,6 +28,7 @@ echo "This stuff" # -n flag to disable new line in terminal
 # "Split" or get partial string, range of string
 echo ${STRING:0:2} # 0 - starting char, 2 - how many chars
 echo ${var::-2} # remove last 2 chars
+echo ${var:4} # Starting from char 4 until end
 
 ######################## Operators #############################################
 ! # Negate. [ ! false ]
