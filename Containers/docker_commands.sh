@@ -40,3 +40,15 @@ sudo vi /etc/docker/daemon.json
   "bip": "172.26.0.1/16"
 }
 # Restart daemon after
+
+### Docker buildx with provenance
+https://docs.docker.com/build/buildkit/configure/
+sudo docker buildx create --use --bootstrap --name docker --driver docker-container
+sudo docker buildx build --sbom=true --provenance=true --push -t rihards/rihtest:alpine .
+sudo docker buildx build --sbom=true --provenance=mode=min,builder-id=rihards --push -t rihards/rihtest:alpine_min .
+# builder-id taken from https://github.com/moby/buildkit/blob/master/docs/attestations/slsa-provenance.md
+# inspect
+sudo docker buildx imagetools inspect rihards/rihtest:alpine --format "{{ json .SBOM.SPDX }}"
+sudo docker buildx imagetools inspect rihards/rihtest:alpine_min --format "{{ json .Provenance.SLSA }}"
+sudo docker buildx imagetools inspect rihards/rihtest:alpine \
+    --format '{{ range (index .Provenance.SLSA.metadata "https://mobyproject.org/buildkit@v1#metadata").source.infos }}{{ if eq .filename "Dockerfile" }}{{ .data }}{{ end }}{{ end }}' | base64 -d
