@@ -32,3 +32,20 @@
       - 2
   roles: # Roles
     - role_name_goes_here
+---
+# If else
+vars:
+  # This one should be put in one line, to prevent spaces around the output value
+  - disk_uuid_1TB: "{% if ansible_facts['devices']['sdb']['partitions']|length == 2 %}
+    {{ ansible_facts['devices']['sdb']['partitions']['sdb5']['uuid'] }}
+    {% else %}
+    {{ ansible_facts['devices']['sda']['partitions']['sda5']['uuid'] }}
+    {% endif %}"
+  # This one works great
+  - disk_uuid_data: "{{ ansible_facts['devices']['sda']['partitions']['sda1']['uuid']
+    if ansible_facts['devices']['sda']['partitions']|length == 3
+    else
+    ansible_facts['devices']['sdb']['partitions']['sdb1']['uuid'] }}"
+tasks:
+  - debug: msg="{{ disk_uuid_1TB }}"
+  - debug: msg="{{ disk_uuid_data }}"

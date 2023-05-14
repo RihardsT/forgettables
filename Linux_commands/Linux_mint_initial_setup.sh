@@ -26,20 +26,21 @@ vi ~/.config/containers/storage.conf
 lsblk -o NAME,SIZE,MOUNTPOINT,UUID
 # Get your disks UUID
 mkdir /media/1TB
-echo "/dev/sdb1 /media/1TB ntfs-3g defaults,permissions 0 0" >> /etc/fstab
+echo "/dev/sdb1 /media/1TB ntfs-3g defaults,permissions,nofail 0 0" >> /etc/fstab
 mount -a
 
 /dev/sdb1 /media/1TB ntfs-3g defaults,lazytime,uid=1000,gid=1000,dmask=007,fmask=117,big_writes,nofail,x-systemd.requires=multi-user.target,auto
 
 #
 mkdir /media/nvme
-echo "/dev/nvme0n1p5 /media/nvme ext4 defaults 0 0" >> /etc/fstab
+echo "/dev/nvme0n1p5 /media/nvme ext4 defaults,nofail 0 0" >> /etc/fstab
 mount -a
 
 # I have another ext4 partition
-mkdir /media/ext
-echo "/dev/sdb2 /media/data ext4 defaults 0 0" >> /etc/fstab
+mkdir /media/data
+echo "/dev/sdb2 /media/data ext4 defaults,nofail 0 0" >> /etc/fstab
 mount -a
+
 #
 mkdir /Code
 mkdir /home/rihards/Code
@@ -48,12 +49,12 @@ mount -a
 chown rihards:rihards /Code
 ln -s /Code /home/rihards/Code
 
-
 # Git initial config
 git config --global push.default matching
-git config --global user.email "richitislv@gmail.com"
-git config --global user.name "Rihards Teteris"
+git config --global user.email "rudenspavasaris@proton.me"
+git config --global user.name "Rihards"
 git config --global core.editor vim
+git config --global pull.ff only
 
 cd /media/1TB
 wget -O atom.deb https://atom.io/download/deb # Download Atom
