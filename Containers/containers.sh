@@ -18,8 +18,18 @@ sudo nerdctl rm -f buildkitd
 # Silly alias for Kubernetes
 tee -a .bashrc <<EOF
 alias nerk="sudo nerdctl -n k8s.io"
+alias nerdctl="sudo nerdctl"
 EOF
 
 #####
 https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md
 crictl
+
+### Easier with downloaded buildctl
+wget https://github.com/moby/buildkit/releases/download/v0.12.1/buildkit-v0.12.1.linux-amd64.tar.gz
+tar -xvzf buildkit-v0.12.1.linux-amd64.tar.gz bin/buildctl
+sudo cp bin/buildctl /usr/bin/buildctl
+
+nerdctl run -d --name buildkitd --privileged moby/buildkit:latest
+BUILD_IMAGE_NAME="NAME"
+sudo buildctl --addr=nerdctl-container://buildkitd build --frontend dockerfile.v0 --local context=. --local dockerfile=. --output type=docker,name=${BUILD_IMAGE_NAME} | nerdctl load

@@ -1,3 +1,5 @@
+# Use the Ansible approach instead!
+
 # Initial linuxmint setup to my liking
 
 sudo su
