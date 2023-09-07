@@ -200,6 +200,9 @@ openssl x509 -text -in FILE_NAME
 # p12 cert stuff
 openssl pkcs12 -nokeys -in FILE_NAME | openssl x509 -text
 
+### Show CSR stuff
+openssl req -noout -text -in FILE_NAME
+
 ### Sticky permissions to folders.
 # This will ensure that files created there will be deleteable, modifyable by the set group.
 # This is usefull, if root user is creating files there,

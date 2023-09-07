@@ -30,6 +30,13 @@ echo ${STRING:0:2} # 0 - starting char, 2 - how many chars
 echo ${var::-2} # remove last 2 chars
 echo ${var:4} # Starting from char 4 until end
 
+# "Split" string in two parts and assign each to a variable
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion
+SOURCE="this_that"
+echo ${SOURCE%_*} # this can be easily put in variable
+echo ${SOURCE#*_} # ${SOURCE#EXPRESSION}
+# It seems a bit weird, but can work
+
 ######################## Operators #############################################
 ! # Negate. [ ! false ]
 && # AND operator. Same as -a
@@ -157,7 +164,8 @@ esac
 
 ######################## Loops ################################################
 # Can use break and continue keywoards
-# continue breaks out of current iteration. Will skip code below continue to go to next iteration
+# continue breaks out of current iteration.
+# Will skip code below continue to go to next iteration
 # break goes out whole loop
 
 for i in {1..10}
@@ -216,6 +224,12 @@ done
 while read line; do
   echo $line
 done < FILE
+
+# Loop multiline string line by line
+echo "${MULTILINE_STRING}" | while read line; do
+  echo $line
+done
+
 
 # until
 a=10

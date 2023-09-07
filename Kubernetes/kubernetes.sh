@@ -20,7 +20,13 @@ kubectl cp NAMESPACE/POD_NAME:/FOLDER/FILE_NAME ./FILE_NAME
 kubectl exec -ti POD -- sh -c 'kill 1'
 # Scale down and up
 kubectl scale deployment NAME --replicas=0 -n NAMESPACE
+# Best one:
+kubectl rollout restart deployment NAME -n NAMESPACE
 
 
 ##### Remove failed/evicted containers
 kubectl -n NAMESPACE delete pods --field-selector=status.phase=Failed
+
+##### Switch namespace
+kubectl config set-context --current --namespace=NAMESPACE
+kubectl config view | grep namespace
