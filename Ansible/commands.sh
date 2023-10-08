@@ -13,10 +13,6 @@ ansible-galaxy install --roles-path ./roles -r requirements.yml #Or put required
 # --ask-pass # To ask for password when setting up pi
 # -e 'ansible_port=22' # Can set different ssh port
 
-export ANSIBLE_NOCOWS=1 # Skip the overly verbose cows
-# Skip the overly verbose cows, permanently. In my case, in bash_profile did the trick, not .bashrc
-echo "export ANSIBLE_NOCOWS=1" >> ~/.bash_profile
-
 ansible-playbook -i ./Inventory --limit backend --diff Playbook.yml
 # Pass environment variable, here set to use python3. Same can be done in Inventory file
 ansible-playbook -i ./Inventory -e 'ansible_python_interpreter=/usr/bin/python3' -u USER Playbook.yml

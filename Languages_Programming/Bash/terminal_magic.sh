@@ -18,3 +18,11 @@ command 2> /dev/null # redirect to nothing
 .bashrc # whenever entering interactive shell
 
 /etc/profile # Global. Whenever a user logins
+
+
+######################## Debug
+# Output each line of script
+set -x # Enable
+set +x # disable
+set -v # compare with the other yourself
+set +v
