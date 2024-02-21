@@ -140,7 +140,7 @@ if [ -z "$(ls -a | grep stuff)" ]; then echo "Yep"; fi
 # -n to check if variable is not empty.
 if [ -n ${MYWLANIP} ]; then echo "Yep"; fi
 if [[ -n $1 ]] && [[ -r $1 ]] # File Exists and is readable
-
+[[ -z ${VARIABLE}]] && echo "Hello"
 
 # if with OR
 if [ ${MYIP} != ${LASTIP} ] || [${MYWLANIP} != ${LASTIP}]
@@ -173,6 +173,7 @@ do
   echo $i
 done
 
+arrayName=($(COMMAND_WITH_OUTPUT_HERE))
 for i in "${arrayName[@]}"
 do
   echo $i

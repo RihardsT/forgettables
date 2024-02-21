@@ -15,3 +15,6 @@ jq -c 'paths | select(.[-1] == "KEY")' JSON
 ### Select a matching object first by some match, then get stuff from it
 jq '.[] | select(.FIELD == PATTERN) | .FIELD'
 jq 'map(select(.FIELD == PATTERN)) | .FIELD'
+
+# Find keys under specific key
+jq '.field | keys'

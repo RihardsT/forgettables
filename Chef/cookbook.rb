@@ -18,6 +18,7 @@ Chef::Log.warn "########## WARN ########## Chef log work better in kitchen thoug
 
 
 ### Save node attributes in Kitchen
+# These attributes could already be there at /tmp/kitchen/nodes/NODE
 ruby_block "Save node attributes" do
   block do
     if Dir::exist?('/tmp/kitchen')
