@@ -1,9 +1,0 @@
-cd
-touch .bashrc
-vim .bashrc
-  alias gs='git status'
-source .bashrc
-
-
-
-git config --global alias.lg 'log --graph --oneline --decorate'
