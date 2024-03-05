@@ -19,6 +19,7 @@ sudo nerdctl rm -f buildkitd
 tee -a .bashrc <<EOF
 alias nerk="sudo nerdctl -n k8s.io"
 alias nerdctl="sudo nerdctl"
+source <(/usr/local/bin/nerdctl completion bash)
 EOF
 
 #####
