@@ -29,6 +29,7 @@ echo "This stuff" # -n flag to disable new line in terminal
 echo ${STRING:0:2} # 0 - starting char, 2 - how many chars
 echo ${var::-2} # remove last 2 chars
 echo ${var:4} # Starting from char 4 until end
+echo ${var#PATTERN} # Output everything after pattern
 
 # "Split" string in two parts and assign each to a variable
 # https://www.gnu.org/software/bash/manual/bash.html#Shell-Parameter-Expansion
@@ -129,7 +130,11 @@ ${var:-"Message if var is unset"} # If var is unset, will print message. Will no
 ${var:+"Message if var is set"} # If var is set. var value will not change
 ${var:?"Error Message if var unset"} # If var is unset, prints stderr
 
-
+# Lowercase or upercase variables
+${var,} # lowercase first
+${var,} # lowercase all
+${var^} # uppercase first
+${var^^} # uppercase all
 
 ######################## if else ##############################################
 # man test # for expressions usable in if statements
@@ -141,6 +146,12 @@ if [ -z "$(ls -a | grep stuff)" ]; then echo "Yep"; fi
 if [ -n ${MYWLANIP} ]; then echo "Yep"; fi
 if [[ -n $1 ]] && [[ -r $1 ]] # File Exists and is readable
 [[ -z ${VARIABLE}]] && echo "Hello"
+
+# if true/false
+var=true
+if $var; then echo "Hello"; fi
+var=false
+if $var; then echo "Hello"; fi # will not output, as it's false.
 
 # if with OR
 if [ ${MYIP} != ${LASTIP} ] || [${MYWLANIP} != ${LASTIP}]
@@ -182,43 +193,43 @@ done
 echo "Array items:"
 for item in ${array[*]}
 do
-    printf "   %s\n" $item
+  printf "   %s\n" $item
 done
 
 echo "Array indexes:"
 for index in ${!array[*]}
 do
-    printf "   %d\n" $index
+  printf "   %d\n" $index
 done
 
 echo "Array items and indexes:"
 for index in ${!array[*]}
 do
-    printf "%4d: %s\n" $index ${array[$index]}
+  printf "%4d: %s\n" $index ${array[$index]}
 done
 
 # Example of continue keywoard
 NUMS="1 2 3 4 5 6 7"
 for NUM in $NUMS
 do
-   Q=`expr $NUM % 2`
-   if [ $Q -eq 0 ]
-   then
-      echo "Number is an even number!!"
-      continue
-   fi
-   echo "Found odd number"
+  Q=`expr $NUM % 2`
+  if [ $Q -eq 0 ]
+  then
+    echo "Number is an even number!!"
+    continue
+  fi
+  echo "Found odd number"
 done
 
 # While
 a=0
 while [ "$a" -lt 10 ]
 do
-   a=`expr $a + 1`
-   echo $a
-   if [ $a -eq 5 ]; then
-      break
-   fi
+  a=`expr $a + 1`
+  echo $a
+  if [ $a -eq 5 ]; then
+    break
+  fi
 done
 
 # Read file line by line
@@ -236,8 +247,8 @@ done
 a=10
 until [ $a -lt 10 ] # Infinite loop because of condition
 do
-   echo $a
-   a=`expr $a + 1`
+  echo $a
+  a=`expr $a + 1`
 done
 
 ######################## Functions #############################################

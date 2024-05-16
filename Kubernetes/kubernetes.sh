@@ -31,6 +31,10 @@ kubectl -n NAMESPACE delete pods --field-selector=status.phase=Failed
 kubectl config set-context --current --namespace=NAMESPACE
 kubectl config view | grep namespace
 
+tee -a ~/.bashrc <<EOF
+alias kns="kubectl config set-context --current --namespace"
+EOF
+
 
 ##### Kubens - tool to easily switch namespaces
 https://github.com/ahmetb/kubectx

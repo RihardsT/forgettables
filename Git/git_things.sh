@@ -8,6 +8,7 @@ echo "IdentityFile ~/.ssh/KEYNAME" >> ~/.ssh/config
 git config --global user.email "EMAIL"
 git config --global user.name "NAME SURNAME"
 git config --global core.editor vim
+git config --global init.defaultBranch main
 # git config --global credential.helper 'cache --timeout=604,800'
 git config --global credential.helper store
 git config --local --list

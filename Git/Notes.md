@@ -15,12 +15,16 @@ https://blog.gitbutler.com/git-tips-1-theres-a-git-config-for-that/
 ~.gitconfig
 ```
 [includeIf "gitdir:~/Code/cloud_project"]
-  path = ~/.gitconfig-cloud_project
+  path = ~/.gitconfig_cloud_project
+```
+~/.gitconfig_cloud_project
+```
 [user]
 	email = EMAIL
 	name = NAME
 [core]
 	editor = vim
+  sshCommand = "ssh -i ~/.ssh/cloud_project_key"
 ```
 For automatic merge conflict resolution, if multiple reoccuring conflicts
 ```

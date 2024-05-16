@@ -21,6 +21,7 @@ ansible-playbook -i ./Inventory -e 'ansible_python_interpreter=/usr/bin/python3'
 
 # Run setup to get a list of all available ansible variables, like ansible_architecture
 ansible -i Inventory -m setup HOSTS
+ansible -i IP_HERE, -m setup all > ansible_vars
 
 # ansible-pull - Set nodes to periodically pull and apply config from repository
 https://github.com/ansible/ansible-examples/blob/master/language_features/ansible_pull.yml
