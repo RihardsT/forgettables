@@ -1,7 +1,14 @@
-pyenv local 2.7.13 # Because ansible and molecule work better with python2
-pip install -U packaging; pip install -U ansible
-which ansible
+###
+# Easy install
+sudo apt install ansible-core
 
+# Harder install
+sudo apt update
+sudo apt install -y python3-pip
+python3 -m pip install -U --user ansible
+echo 'PATH="$PATH:`python3 -m site --user-base`/bin"' >> ~/.profile
+
+### Roles
 ansible-galaxy install --roles-path ./roles ANSIBLE_GALAXY_ROLE
 ansible-galaxy install --roles-path ./roles -r requirements.yml #Or put required roles in requirements
 
@@ -50,3 +57,9 @@ molecule --help
 ### Run with docker hopefully
 docker run -ti --rm williamyeh/ansible:alpine3-onbuild sh
 apk add --no-cache openssh-client
+
+
+### Deprecated
+pyenv local 2.7.13 # Because ansible and molecule work better with python2
+pip install -U packaging; pip install -U ansible
+which ansible
