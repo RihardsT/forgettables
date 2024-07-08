@@ -6,11 +6,14 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/
 sudo apt-get update
 sudo apt-get install -y kubectl
 
-# General
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+# With package
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
+##### Kubectl completion
+echo "source <(kubectl completion bash)" >> ~/.bashrc
 
 ##### Copy files
 kubectl cp NAMESPACE/POD_NAME:/FOLDER/FILE_NAME ./FILE_NAME
@@ -31,7 +34,7 @@ kubectl -n NAMESPACE delete pods --field-selector=status.phase=Failed
 kubectl config set-context --current --namespace=NAMESPACE
 kubectl config view | grep namespace
 
-tee -a ~/.bashrc <<EOF
+tee -a ~/.bash_aliases <<EOF
 alias kns="kubectl config set-context --current --namespace"
 EOF
 
