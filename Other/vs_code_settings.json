@@ -3,7 +3,8 @@
     "editor.rulers": [80],
     "editor.wordWrap": "on",
     "files.insertFinalNewline": true,
-    "window.zoomLevel": -1,
+    // "window.zoomLevel": 0,
+    "editor.detectIndentation": false,
     "editor.tabSize": 2,
     "files.eol": "\n",
 }
