@@ -212,3 +212,13 @@ mv /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi /boot/efi/EFI/Microsoft/Boot/bootmg
 sed -i 's#/EFI/Microsoft/Boot/bootmgfw.efi#/EFI/Microsoft/Boot/bootmgfw_windows.efi#g' /boot/grub/grub.cfg
 # That should work.
 # After Linux kernel updates sed command is enough. After windows updates do all 3 of them.
+
+
+
+##### Rsync copy files from one place to another:
+rsync -axHAX PLACE_FROM PLACE_TO
+# -a archive mode
+# -x don't cross file system boundaries
+# -H preserve hard links
+# -A preserve ACLs
+# -X preserve extended attributes
