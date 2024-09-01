@@ -50,3 +50,17 @@ https://github.com/cykerway/complete-alias # A general one. Try this
 alias kns="kubectl config set-context --current --namespace"
 # this to show potential namespaces, but looks like even the plain version
 # doesn't offer that. Eh.
+
+##### Secrets
+# Get
+k get secrets nextcloud-password --template={{.data.db_password}} | sed 's/ /\n/g' | base64 -d
+k get secrets nextcloud-password -o jsonpath="{.data.*}" | sed 's/ /\n/g' | base64 -d
+k get secrets nextcloud-password -o json | jq '.data | map_values(@base64d)'
+
+### Create
+# This one creates with \n in the end, because the file saved with \n in the end
+kubectl create secret generic nextcloud-password --from-file=Secrets/db_password --from-file=Secrets/nc_admin_password
+# You can confirm that the secret is incorrect with this:
+k get secrets nextcloud-password -o json | jq '.data | map_values(@base64d)'
+# Thus create secret from literal by outputting the file:
+kubectl create secret generic nextcloud-password --from-literal=db_password=$(cat Secrets/db_password) --from-literal=nc_admin_password=$(cat Secrets/nc_admin_password)
