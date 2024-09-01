@@ -36,8 +36,17 @@ kubectl config view | grep namespace
 
 tee -a ~/.bash_aliases <<EOF
 alias kns="kubectl config set-context --current --namespace"
+alias kcg="kubectl config get-contexts"
+alias k=kubectl
+complete -o default -F __start_kubectl k
 EOF
 
-
-##### Kubens - tool to easily switch namespaces
+##### Things to check about Kubernetes aliases, etc
 https://github.com/ahmetb/kubectx
+https://github.com/bhakta0007/kube-alias
+https://github.com/cykerway/complete-alias # A general one. Try this
+
+# What I want is for example:
+alias kns="kubectl config set-context --current --namespace"
+# this to show potential namespaces, but looks like even the plain version
+# doesn't offer that. Eh.

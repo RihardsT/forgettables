@@ -1,5 +1,5 @@
 ### WSL provision, install some basic tools I like
-sudo apt install -y tmux jq
+sudo apt install -y tmux jq wget
 
 # Add Docker
 sudo apt-get update
