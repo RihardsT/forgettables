@@ -120,3 +120,21 @@ awk -F'.' '{print $1}'
 # Then in each record $0, newline and spaces are replaced with +,
 # so each entry takes single line in OUTPUT_FILE
 VARIABLE=($(awk -v RS= '{gsub(/\n| /,"+",$0); print $0 > "OUTPUT_FILE"}' INPUT_FILE))
+
+### Replace block in file with ex
+# https://unix.stackexchange.com/questions/303644/how-can-i-use-sed-or-ex-to-replace-a-block-multi-line-code-with-new-block-of-t
+# This is very nice, because it also executes subcommands in shell
+# Used it for creating aliases using terraform outputs
+# First create the markers
+# Then replace between the markers. Make sure to keep the markers in there
+echo -e "#MARKER_START\n#MARKER_END" >> file
+
+ex file << EOF
+/#MARKER_START/,/#MARKER_END/c
+#MARKER_START
+Output from command: $(echo "200")
+#MARKER_END
+.
+w!
+q
+EOF

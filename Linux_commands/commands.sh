@@ -78,7 +78,7 @@ star -x -f=FILENAME.tar FILE #Optional file, to extract specific file
 truncate -s 0 FILE
 
 # find all files with that extension
-find $PWD -name *.json
+find $PWD -name "*.json"
 find $PWD -iname "EXPRESSION"
 # Find folders
 find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*"
