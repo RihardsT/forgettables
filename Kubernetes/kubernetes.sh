@@ -27,6 +27,9 @@ kubectl scale deployment NAME --replicas=0 -n NAMESPACE
 kubectl rollout restart deployment NAME -n NAMESPACE
 
 
+##### Do command on multiple pods with grep
+kubectl delete pod $(kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep PODS)
+
 ##### Remove failed/evicted containers
 kubectl -n NAMESPACE delete pods --field-selector=status.phase=Failed
 
@@ -34,6 +37,7 @@ kubectl -n NAMESPACE delete pods --field-selector=status.phase=Failed
 kubectl config set-context --current --namespace=NAMESPACE
 kubectl config view | grep namespace
 
+##### Aliases
 tee -a ~/.bash_aliases <<EOF
 alias kns="kubectl config set-context --current --namespace"
 alias kcg="kubectl config get-contexts"

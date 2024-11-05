@@ -69,6 +69,15 @@ git rebase --continue
 # Quicker option, if commit messages don't have to be changed.
 git commit --amend --author "NAME SURNAME <EMAIL>" --no-edit && git rebase --continue
 
+# Some old rebase script. Haven't tested.
+#!/bin/bash
+# Get current branch name
+CURRENT_HEAD="$(git rev-parse --abbrev-ref HEAD)"
+# Find merge-base hash
+MERGE_BASE="$(git merge-base "${CURRENT_HEAD}" origin/master)"
+# Do rebase
+git rebase -i "${MERGE_BASE}"
+
 # Change author of single commit. Either of these 2 will do I guess
 git -c user.name="NAME SURNAME" -c user.email=EMAIL commit --amend --reset-author
 git commit --amend --author "NAME SURNAME <EMAIL>"
