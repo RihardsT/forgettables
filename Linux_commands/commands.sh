@@ -196,9 +196,14 @@ openssl s_client -connect $ENDPOINT:443 -servername $ENDPOINT < /dev/null 2>&1 |
 openssl x509 -enddate -noout -in FILE_NAME
 ### Show other stuff too
 openssl x509 -text -in FILE_NAME
+openssl x509 -text -inform PEM -in FILE_NAME # Should be same as above
+openssl x509 -text -inform DER -in FILE_NAME # I guess this is Base64 encoded x509 cert
 
 # p12 cert stuff
 openssl pkcs12 -nokeys -in FILE_NAME | openssl x509 -text
+
+# Convert pem to p12, pfx
+openssl pkcs12 -inkey FILE_NAME.pem -in FILE_NAME.crt -export -out FILE_NAME.pfx
 
 ### Show CSR stuff
 openssl req -noout -text -in FILE_NAME
@@ -292,6 +297,7 @@ EOM
 cat > FILE <<\EOM
 FILE_CONTENTS_GO_RIGHT_HERE_WITH_QUOTES_OR_WHATEVER
 EOM
+\EOM # Fix colors in VS Code.
 
 ##### Shutdown, reboot
 # Shutdown in 5 minutes
