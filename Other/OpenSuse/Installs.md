@@ -43,3 +43,20 @@ And then apply the playbook
 sudo zypper install ansible
 ansible-playbook ./laptop.yaml --diff
 ```
+
+
+
+
+### Printer
+Drivers.
+https://www.canon-europe.com/support/consumer/products/printers/pixma/mg-series/pixma-mg3650s.html?type=drivers&language=EN&os=Linux%20(64-bit)
+```
+tar -xvf cnijfilter2-5.20-1-rpm.tar.gz
+cd cnijfilter2-5.20-1-rpm
+./install.sh
+```
+Then at least works with USB. Still have to figure out how to connect through Wifi
+
+Check CUPS? http://localhost:631
+
+https://en.opensuse.org/SDB:Printing_via_TCP/IP_network

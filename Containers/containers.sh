@@ -27,8 +27,9 @@ https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md
 crictl
 
 ### Easier with downloaded buildctl
-wget https://github.com/moby/buildkit/releases/download/v0.12.1/buildkit-v0.12.1.linux-amd64.tar.gz
-tar -xvzf buildkit-v0.12.1.linux-amd64.tar.gz bin/buildctl
+buildctl_version=$(curl --silent "https://api.github.com/repos/moby/buildkit/releases/latest" | grep -Po "(?<=\"tag_name\": \").*(?=\")")
+wget https://github.com/moby/buildkit/releases/download/${buildctl_version}/buildkit-${buildctl_version}.linux-amd64.tar.gz
+tar -xvzf buildkit-${buildctl_version}.linux-amd64.tar.gz bin/buildctl
 sudo cp bin/buildctl /usr/bin/buildctl
 
 nerdctl run -d --name buildkitd --privileged moby/buildkit:latest
