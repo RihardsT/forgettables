@@ -90,7 +90,6 @@ find FOLDER -mtime +1 -exec rm -Rf -- {} \;
 ### Delete files older than days
 find FOLDER -type f -mtime +1
 find FOLDER -name "EXPRESSION" -type f -mtime +1
-
 find FOLDER -type f -mtime +1 -delete
 ### Find changed files - less than + greater than time
 find FOLDER -cmin -5

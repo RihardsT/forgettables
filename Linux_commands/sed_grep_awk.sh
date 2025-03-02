@@ -21,10 +21,12 @@ sed -i -e '/PATTERN/,+2d' FILE
 grep "^s[0-9].*" FILE
 # grep with OR \|. or statement | || I needed to find this once and I didn't find it easily
 grep "^s[0-9].*\|wave.*" actionLabel.txt
+# case insesitive search
+grep -i "PATTERN" FILE
 # inverse grep. Match anything that doesn't match a pattern
 grep -v "PATTERN" FILE
 # show 2 lines before and 2 lines after match
-grep -B 2 -A 2 'PATTERN' FILE
+grep -B 2 -A 2 "PATTERN" FILE
 # Output only after match. -o output only match, -P user perl, \K lookbehind.
 grep -oP "PATTERN_BEFORE\KPATTERN_TO_MATCH"
 # Output between matches.
@@ -33,7 +35,6 @@ grep -oP "(?<=PATTERN_BEFORE)PATTERN(?=PATTERN_AFTER)"
 # (?=PATTER) look ahead
 
 # Not greedy match. ? to match the pattern only once. I was using it so: .+?
-#
 grep -oP "(?<=PATTERN_BEFORE)PATTERN?(?=PATTERN_AFTER)"
 
 # Repetition

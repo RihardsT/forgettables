@@ -184,16 +184,25 @@ do
   echo $i
 done
 
-arrayName=($(COMMAND_WITH_OUTPUT_HERE))
-for i in "${arrayName[@]}"
-do
+array=($(COMMAND_WITH_OUTPUT_HERE))
+array=(1 2 3 4 5)
+for i in "${array[@]}"; do
   echo $i
 done
 
 echo "Array items:"
-for item in ${array[*]}
-do
+for item in ${array[*]}; do
   printf "   %s\n" $item
+done
+
+### Seems like these two ^^ behave the same, but when second one is in quotes
+# it treats the array as a single string
+# Check examples:
+for item in ${array[*]}; do
+  echo "${item} and this"
+done
+for item in "${array[*]}"; do
+  echo "${item} and this"
 done
 
 echo "Array indexes:"

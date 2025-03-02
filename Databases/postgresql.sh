@@ -45,3 +45,17 @@ select pg_database_size('DB_NAME');
 pg_dumpall -U USERNAME > DUMP_FILE
 # Upgrade to new version and then restore the dump
 psql -U USERNAME -d postgres -f DUMP_FILE
+
+### pgpass, to read password from file.
+# This is for pg_dump and I guess other pg_* commands
+echo '
+HOST:PORT:DB_NAME:USER:PASSWORD
+localhost:5432:DB_NAME:postgres:PASSWORD
+' > ~/.pgpass
+chmod 0600 ~/.pgpass
+# This ^^ then should just make pg_dump, etc work
+# Or export env variable, if you use another path/file
+export PGPASSFILE=~/.pgpass
+
+# psql doesn't take PW from pgpass, but from variable
+export PGPASSWORD="PASSWORD"

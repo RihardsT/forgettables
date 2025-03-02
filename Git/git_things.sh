@@ -120,6 +120,8 @@ source /etc/bash_completion.d/git
 source /usr/share/bash-completion/completions/git
 # make it permanent
 echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
+# And if the completion files are not there, get it from repo
+# https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/completion/git-completion.bash
 
 ### Use LF line endings
 git config --global core.autocrlf false
