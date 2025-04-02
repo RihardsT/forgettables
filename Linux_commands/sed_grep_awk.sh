@@ -50,7 +50,9 @@ ps aux | grep "[p]ython3"
 
 
 # Remove newlines in file
-tr -d "\n\r" < input_filename
+tr -d '\n\r' < input_filename
+# Replace newlines, this one works with pipes too
+tr '\n' ' '
 # Replace <LF> with \\n
 sed ':a;N;$!ba;s/\n/\\n/g' file
 # Replace <CR><LF> with \n

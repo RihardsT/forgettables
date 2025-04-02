@@ -204,6 +204,9 @@ openssl pkcs12 -nokeys -in FILE_NAME | openssl x509 -text
 # Convert pem to p12, pfx
 openssl pkcs12 -inkey FILE_NAME.pem -in FILE_NAME.crt -export -out FILE_NAME.pfx
 
+# Convert p12 to pem
+openssl pkcs12 -in FILE_NAME.pfx -out FILE_NAME.pem -nodes
+
 ### Show CSR stuff
 openssl req -noout -text -in FILE_NAME
 
