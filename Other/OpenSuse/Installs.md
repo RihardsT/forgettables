@@ -34,7 +34,7 @@ sudo zypper install brave-browser
 Kubectl:
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
 
-OpenTofu:
+### OpenTofu:
 https://opentofu.org/docs/intro/install/rpm/
 
 ### Install Ansible
@@ -44,7 +44,12 @@ sudo zypper install ansible
 ansible-playbook ./laptop.yaml --diff
 ```
 
-
+### Signal
+```
+sudo zypper addrepo https://download.opensuse.org/repositories/network:im:signal/openSUSE_Tumbleweed/network:im:signal.repo
+sudo zypper refresh
+sudo zypper install signal-desktop
+```
 
 
 ### Printer

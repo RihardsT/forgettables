@@ -161,6 +161,10 @@ nohup COMMAND & # One option. Very good. This will keep the process running even
 # Also logs by default in nohup.out file. Great!
 screen # Check this out
 tmux # Also check this out. Multiple terminals from one screen
+# With disown
+COMMAND &>/dev/null & disown;
+# To check if it's running, use ps and grep what you ran
+ps aux | grep COMMAND
 
 COMMAND & # & should be enough for running in background. Alive while terminal is alive?
 jobs # check what's running in background

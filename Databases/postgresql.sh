@@ -34,7 +34,7 @@ psql -f DUMP_FILE postgres
 ### Show DB sizes
 # Show size for all db's
 \l+
-# Show size for specific DB \l+ is gread, because it's human readable
+# Show size for specific DB \l+ is great, because it's human readable
 \l+ DB_NAME
 select pg_database_size('DB_NAME');
 
