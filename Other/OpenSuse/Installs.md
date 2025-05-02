@@ -2,8 +2,14 @@
 ```
 sudo zypper refresh # refresh all repositories
 sudo zypper update
+sudo zypper dup # Upgrade
 ```
 
+```
+sudo zypper in git
+git clone https://github.com/RihardsT/forgettables.git
+git clone https://github.com/RihardsT/cloud_project_ansible.git
+```
 
 ### Cinnamon setup
 https://en.opensuse.org/Portal:Cinnamon
@@ -65,3 +71,15 @@ Then at least works with USB. Still have to figure out how to connect through Wi
 Check CUPS? http://localhost:631
 
 https://en.opensuse.org/SDB:Printing_via_TCP/IP_network
+
+
+
+### Running Gparted
+```
+# This needed to be done once
+sudo xauth merge ~rihards/.Xauthority
+# Then when you want to run GParted, run these
+sudo su
+export DISPLAY=:0.0
+gparted
+```
