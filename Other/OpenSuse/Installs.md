@@ -83,3 +83,9 @@ sudo su
 export DISPLAY=:0.0
 gparted
 ```
+
+
+
+### Psensor
+I still like Psensor the best.  
+Take community package from https://software.opensuse.org/package/psensor

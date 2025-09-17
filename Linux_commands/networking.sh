@@ -13,6 +13,9 @@ netstat
 ss -a # show established connections
 ip -s # on Centos only?
 
+# Show server IPs
+ip addr
+
 
 ls /sys/class/net # list network devices
 nmcli dev status # network control manager. dev = device
