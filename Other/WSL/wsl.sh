@@ -21,6 +21,7 @@ hostname = HOSTNAME
 [interop]
 appendWindowsPath = false' | sudo tee -a /etc/wsl.conf
 # Then restart WSL
+wsl --terminate DISTRIBUTION
 
 # With generateResolvConf = false, set nameservers in /etc/resolv.conf
 echo 'nameserver 1.1.1.1

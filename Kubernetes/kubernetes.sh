@@ -41,6 +41,7 @@ kubectl config view | grep namespace
 tee -a ~/.bash_aliases <<EOF
 alias kns="kubectl config set-context --current --namespace"
 alias kcg="kubectl config get-contexts"
+source <(kubectl completion bash)
 alias k=kubectl
 complete -o default -F __start_kubectl k
 EOF
