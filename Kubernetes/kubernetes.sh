@@ -15,6 +15,14 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ##### Kubectl completion
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 
+##### Kubeconfig
+# Multiple kubeconfig files
+export KUBECONFIG=~/.kube/config:ANOTHER_CONFIG_PATH
+# Put multiple kubeconfig files in the default one
+KUBECONFIG=~/.kube/config1:~/.kube/config2 kubectl config view --flatten > ~/.kube/config
+# All the config files in ~/.kube. Can also put this line in ~/.bashrc
+export KUBECONFIG=$((echo; ls ~/.kube/config*) | cat | sed -z 's#\n#:#g' | cut -c 2- | sed -r 's/:+$//g')
+
 ##### Copy files
 kubectl cp NAMESPACE/POD_NAME:/FOLDER/FILE_NAME ./FILE_NAME
 

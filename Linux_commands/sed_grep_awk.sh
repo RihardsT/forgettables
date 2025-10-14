@@ -1,3 +1,6 @@
+# ^ - symbol for start of line
+# $ - symbol for end of line
+
 # Return portion after match
 sed -n -e 's/FROM //p' Dockerfile
 # Replace something in file. sed can take different delimiters. Here it's #. g for global, everywhere where the expression is found
@@ -15,6 +18,8 @@ sed '/PATTERN/ d' FILE
 sed -i 's/^/test /' FILE
 # Remove line with pattern and number of lines after it
 sed -i -e '/PATTERN/,+2d' FILE
+# Remove last char from the line
+sed -r 's/.$//g'
 
 
 # Return the line with the match
@@ -44,6 +49,13 @@ grep -oP "PATTERN?" # Match at most once.
 grep -oP "PATTERN{n}" # match at least n times
 grep -oP "PATTERN{n,m}" # match n to m times. {n,} to match n to inf
 
+### grep array items in a file - https://stackoverflow.com/questions/2295361/is-it-possible-to-do-a-grep-with-keywords-stored-in-the-array
+ARRAY=(item1 item2)
+grep ${ARRAY[@]/#/-e } FILE
+# So just takes the array items and adds | between them
+ARRAY=(item1 item2)
+PATTERN=$(echo ${ARRAY[@]}|tr " " "|")
+grep -E "$PATTERN" FILE
 
 # grep ps aux without grep showing in results. Use [] lel
 ps aux | grep "[p]ython3"

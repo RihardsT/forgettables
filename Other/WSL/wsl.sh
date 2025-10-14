@@ -26,3 +26,12 @@ wsl --terminate DISTRIBUTION
 # With generateResolvConf = false, set nameservers in /etc/resolv.conf
 echo 'nameserver 1.1.1.1
 nameserver 1.0.0.1' | sudo tee /etc/resolv.conf
+
+# Sometimes it might be helpful, to have the Windows nameserver and search too
+Get-DnsClientServerAddress -AddressFamily IPv4 | Select-Object -ExpandProperty ServerAddresses
+Get-DnsClientGlobalSetting | Select-Object -ExpandProperty SuffixSearchList
+# Add the outputs in places below
+echo 'nameserver 1.1.1.1
+nameserver 1.0.0.1
+nameserver HERE
+search HERE' | sudo tee /etc/resolv.conf
