@@ -41,3 +41,16 @@ systemctl list-units | grep network.target
 systemctl list-dependencies multi-user.target | grep network
 less /etc/sysconfig/network-scripts/ifcfg-ens3
 # Do the nmcli con mod to set autoconnect
+
+
+### iptables
+# To show everything currently set up.
+# Table names start with * in the file. Main ones are filter (default) and nat tables
+iptables-save > iptables
+# List items in a table
+iptables -t nat -L -nv
+# Redirect port
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
+sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 6443
+# To delete, do the same command, just change -A to -D
+iptables -t nat -D PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 6443

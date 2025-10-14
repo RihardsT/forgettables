@@ -76,6 +76,12 @@ https://en.opensuse.org/SDB:Printing_via_TCP/IP_network
 
 ### Running Gparted
 ```
+# This worked too
+sudo DISPLAY=:0.0 gparted
+
+echo 'alias gparted="sudo DISPLAY=:0.0 gparted"' | tee -a ~/.bash_aliases
+echo 'alias gparted="sudo DISPLAY=:0.0 gparted"' | tee -a ~/.config/fish/conf.d/bash_aliases.fish
+
 # This needed to be done once
 sudo xauth merge ~rihards/.Xauthority
 # Then when you want to run GParted, run these
