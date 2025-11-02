@@ -77,3 +77,9 @@ kubectl create secret generic nextcloud-password --from-file=Secrets/db_password
 k get secrets nextcloud-password -o json | jq '.data | map_values(@base64d)'
 # Thus create secret from literal by outputting the file:
 kubectl create secret generic nextcloud-password --from-literal=db_password=$(cat Secrets/db_password) --from-literal=nc_admin_password=$(cat Secrets/nc_admin_password)
+
+### Safely remove node from Kuburnetes for upgrades, etc
+kubectl cordon NODE # To make node not schedulable
+kubectl drain NODE # Will cordon if not already
+# After the work is done, let node be schedulable again
+kubectl uncordon NODE

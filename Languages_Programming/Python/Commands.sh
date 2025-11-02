@@ -29,6 +29,12 @@ pip install -U PACKAGE
 deactivate
 
 
+##### Install non system pip packages now.
+mkdir ~/venvs
+VIRTUALENV=HERE
+python3 -m venv ~/venvs/${VIRTUALENV}
+~/venvs/${VIRTUALENV}/bin/pip install
+
 
 ### Install pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py

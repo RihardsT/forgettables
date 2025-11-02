@@ -20,6 +20,10 @@ sed -i 's/^/test /' FILE
 sed -i -e '/PATTERN/,+2d' FILE
 # Remove last char from the line
 sed -r 's/.$//g'
+### Replace after match group, first match before, then second \(.*\) will match rest
+# \1 to make sure to add after first match. Output the matches with \1, \2, etc
+echo 'PATTERN_ONE_and_more' | sed 's/\(PATTERN_ONE\)\(.*\)/\1REPLACE_WITH/'
+echo 'PATTERN_ONE_and_more' | sed 's#\(PATTERN_ONE\)\(.*\)#\1REPLACE_WITH \2 \1#'
 
 
 # Return the line with the match

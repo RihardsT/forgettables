@@ -24,6 +24,13 @@ $d = Get-Date
 $d.GetType()
 $d | Select-Object *
 
+# Like grep
+Select-String -Pattern 'PATTERN' -All
+# grep -o # Only the matched string
+| ForEach-Object { $_.Matches.Value }
+# Get the first char
+| ForEach-Object {$_.Substring(0,1)}
+
 COMMAND | Where-Object { $_.PROPERTY -match "REGEX" }
 
 New-Item -Path "FILENAME" -ItemType File

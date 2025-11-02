@@ -260,6 +260,17 @@ do
   a=`expr $a + 1`
 done
 
+### Dictionary, hash array, whatever
+declare -A dict
+dict=( ["key1"]="value1" ["key2"]="value2" )
+# Single line
+declare -A dict=( ["key1"]="value1" ["key2"]="value2" )
+for key in "${!dict[@]}"; do
+  echo "Key: $key Value: ${dict[$key]}"
+done
+
+
+
 ######################## Functions #############################################
 function FUNCTION_NAME {
    # code
