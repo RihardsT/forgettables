@@ -24,7 +24,14 @@ sed -r 's/.$//g'
 # \1 to make sure to add after first match. Output the matches with \1, \2, etc
 echo 'PATTERN_ONE_and_more' | sed 's/\(PATTERN_ONE\)\(.*\)/\1REPLACE_WITH/'
 echo 'PATTERN_ONE_and_more' | sed 's#\(PATTERN_ONE\)\(.*\)#\1REPLACE_WITH \2 \1#'
-
+# Append at the end of line that matches
+sed '/PATTERN/ s/$/APPEND_THIS/'
+sed 's/PATTERN/&APPEND_THIS/' # & symbol for the matched
+sed '/PATTERN/{s/"$/this"/}' # This can replace also some of the last chars
+### Output specific line
+# output line 100. q means the script will stop processing what comes after ;
+# d will delete all other lines
+sed '100q;d'
 
 # Return the line with the match
 grep "^s[0-9].*" FILE

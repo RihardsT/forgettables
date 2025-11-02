@@ -22,6 +22,8 @@ export KUBECONFIG=~/.kube/config:ANOTHER_CONFIG_PATH
 KUBECONFIG=~/.kube/config1:~/.kube/config2 kubectl config view --flatten > ~/.kube/config
 # All the config files in ~/.kube. Can also put this line in ~/.bashrc
 export KUBECONFIG=$((echo; ls ~/.kube/config*) | cat | sed -z 's#\n#:#g' | cut -c 2- | sed -r 's/:+$//g')
+# For fish, in ~/.config/fish/config.fish, set -x for export
+set -x KUBECONFIG $(ls ~/.kube/config* | cat | sed -z 's#\n#:#g' | cut -c 1- | sed -r 's/:+$//g')
 
 ##### Copy files
 kubectl cp NAMESPACE/POD_NAME:/FOLDER/FILE_NAME ./FILE_NAME
