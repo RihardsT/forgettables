@@ -40,6 +40,8 @@ Set-WinDefaultInputMethodOverride -InputTip '0426:00010426'
 $KEY_PATH = "HKCU:\Keyboard Layout\Preload"
 $KEYBOARD_LAYOUT_KEY = Get-ItemProperty -Path $KEY_PATH | Select-String -Pattern '.=00000426' -All | ForEach-Object { $_.Matches.Value } | ForEach-Object {$_.Substring(0,1)}
 Get-ItemProperty -Path "HKCU:\Keyboard Layout\Preload" -Name $KEYBOARD_LAYOUT_KEY
+#If ($_ -match '^([0-9]{1})=') { Write-Host $Matches[1] } Else { Write-Host "Not Matched!" }
+
 Remove-ItemProperty -Path "HKCU:\Keyboard Layout\Preload" -Name $KEYBOARD_LAYOUT_KEY
 # Still the layout is shown.
 

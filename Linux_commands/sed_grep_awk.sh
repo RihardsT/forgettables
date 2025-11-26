@@ -141,6 +141,9 @@ awk '{print $(NF)}'
 awk '{print $(NF-2)}'
 # awk delimiter. Here a .
 awk -F'.' '{print $1}'
+# Print till end, starting from column
+awk '{$1=$2=$3="";print $0}' # nullify first 3 and print rest
+
 
 # First the RS= in awk separates records by the empty lines.
 # Then in each record $0, newline and spaces are replaced with +,

@@ -9,6 +9,11 @@ tmux
 # Detach
 Ctrl+b d
 
+# Reattach
+tmux ls
+tmux attach
+
+
 ## New named session
 tmux new -s NAME
 

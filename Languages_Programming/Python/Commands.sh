@@ -33,7 +33,8 @@ deactivate
 mkdir ~/venvs
 VIRTUALENV=HERE
 python3 -m venv ~/venvs/${VIRTUALENV}
-~/venvs/${VIRTUALENV}/bin/pip install
+~/venvs/${VIRTUALENV}/bin/pip install PACKAGE_HERE
+~/venvs/${VIRTUALENV}/bin/python SCRIPT_HERE
 
 
 ### Install pip
