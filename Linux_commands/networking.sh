@@ -53,4 +53,8 @@ iptables -t nat -L -nv
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
 sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 6443
 # To delete, do the same command, just change -A to -D
-iptables -t nat -D PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 6443
+sudo iptables -t nat -D PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 6443
+
+# If ^^ that redirect doesn't work, see if any REJECT rules is blocking
+# Get list of commands to remove all REJECT rules
+sudo iptables-save > iptables_save; cat iptables_save | grep REJECT | sed 's/-A/sudo iptables -D/g'
