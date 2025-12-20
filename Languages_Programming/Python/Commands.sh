@@ -18,6 +18,7 @@ export PATH="${PATH}:$(python3 -c 'import site; print(site.USER_BASE)')/bin"
 
 ##### Virtual environment
 sudo pip install -U virtualenv
+sudo apt install python3-virtualenv
 
 # Create a python virtual environment in current dir?
 virtualenv .venv
