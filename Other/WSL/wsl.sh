@@ -8,6 +8,9 @@ wsl --export Ubuntu-18.04 d:\Other\WSL.tar
 wsl --unregister Ubuntu-18.04
 wsl --import Ubuntu-18.04 d:\Other\PC\WSL d:\Other\WSL.tar
 
+# Show available distributions
+wsl --list --online
+wsl --install DIST_NAME --name NAME
 
 ##### Init WSL in most cases
 ### Useful WSL.conf settings
@@ -23,6 +26,10 @@ appendWindowsPath = false' | sudo tee -a /etc/wsl.conf
 # Then restart WSL
 wsl --terminate DISTRIBUTION
 
+# If you don't want to mount windows disks
+[automount]
+enabled=false
+
 # With generateResolvConf = false, set nameservers in /etc/resolv.conf
 echo 'nameserver 1.1.1.1
 nameserver 1.0.0.1' | sudo tee /etc/resolv.conf
@@ -35,3 +42,10 @@ echo 'nameserver 1.1.1.1
 nameserver 1.0.0.1
 nameserver HERE
 search HERE' | sudo tee /etc/resolv.conf
+
+### If the /etc/resolv.conf is managed by systemd, then
+# Set nameservers in /etc/systemd/resolved.conf.d/
+sudo mkdir /etc/systemd/resolved.conf.d/
+echo "[Resolve]
+DNS=1.1.1.1
+FallbackDNS=1.0.0.1" | sudo tee /etc/systemd/resolved.conf.d/resolv.conf
