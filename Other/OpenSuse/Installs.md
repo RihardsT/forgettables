@@ -1,11 +1,19 @@
 ### Quick reference
-```
+https://doc.opensuse.org/documentation/tumbleweed/updating_upgrading_reverting/
+```shell
 sudo zypper refresh # refresh all repositories
 sudo zypper update
 sudo zypper dup # Upgrade
+
+# Some repos are not in auto update list, then can do
+sudo zypper ref && sudo zypper dup
+
+# List repos:
+zypper lr
+sudo zypper modifyrepo --refresh REPO_NUMBER
 ```
 
-```
+```shell
 sudo zypper in git
 git clone https://github.com/RihardsT/forgettables.git
 git clone https://github.com/RihardsT/cloud_project_ansible.git
@@ -13,14 +21,14 @@ git clone https://github.com/RihardsT/cloud_project_ansible.git
 
 ### Cinnamon setup
 https://en.opensuse.org/Portal:Cinnamon
-```
+```shell
 sudo zypper ref
 sudo zypper in -t pattern cinnamon
 ```
 
 Install editor:
 Nice that OpenSuse has VSCode OSS version https://en.opensuse.org/Visual_Studio_Code
-```
+```shell
 sudo zypper ar -cf https://download.opensuse.org/repositories/devel:/tools:/ide:/vscode/openSUSE_Tumbleweed devel_tools_ide_vscode
 sudo zypper in code
 
@@ -32,7 +40,7 @@ sudo zypper in zed
 ```
 
 Brave browser
-```
+```shell
 sudo zypper addrepo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 sudo zypper install brave-browser
 ```
@@ -45,13 +53,13 @@ https://opentofu.org/docs/intro/install/rpm/
 
 ### Install Ansible
 And then apply the playbook
-```
+```shell
 sudo zypper install ansible
 ansible-playbook ./laptop.yaml --diff
 ```
 
 ### Signal
-```
+```shell
 sudo zypper addrepo https://download.opensuse.org/repositories/network:im:signal/openSUSE_Tumbleweed/network:im:signal.repo
 sudo zypper refresh
 sudo zypper install signal-desktop
@@ -61,7 +69,7 @@ sudo zypper install signal-desktop
 ### Printer
 Drivers.
 https://www.canon-europe.com/support/consumer/products/printers/pixma/mg-series/pixma-mg3650s.html?type=drivers&language=EN&os=Linux%20(64-bit)
-```
+```shell
 tar -xvf cnijfilter2-5.20-1-rpm.tar.gz
 cd cnijfilter2-5.20-1-rpm
 ./install.sh
@@ -75,7 +83,7 @@ https://en.opensuse.org/SDB:Printing_via_TCP/IP_network
 
 
 ### Running Gparted
-```
+```shell
 # This worked too
 sudo DISPLAY=:0.0 gparted
 
