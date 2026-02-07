@@ -11,6 +11,8 @@ sudo zypper ref && sudo zypper dup
 # List repos:
 zypper lr
 sudo zypper modifyrepo --refresh REPO_NUMBER
+sudo zypper modifyrepo --enable REPO_NAME
+sudo zypper modifyrepo --disable REPO_NAME
 ```
 
 ```shell
@@ -87,8 +89,8 @@ https://en.opensuse.org/SDB:Printing_via_TCP/IP_network
 # This worked too
 sudo DISPLAY=:0.0 gparted
 
-echo 'alias gparted="sudo DISPLAY=:0.0 gparted"' | tee -a ~/.bash_aliases
-echo 'alias gparted="sudo DISPLAY=:0.0 gparted"' | tee -a ~/.config/fish/conf.d/bash_aliases.fish
+echo 'alias gparted="sudo xauth merge ~rihards/.Xauthority; sudo DISPLAY=:0.0 gparted"' | tee -a ~/.bash_aliases
+echo 'alias gparted="sudo xauth merge ~rihards/.Xauthority; sudo DISPLAY=:0.0 gparted"' | tee -a ~/.config/fish/conf.d/bash_aliases.fish
 
 # This needed to be done once
 sudo xauth merge ~rihards/.Xauthority
