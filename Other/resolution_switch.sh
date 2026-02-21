@@ -11,8 +11,8 @@ Modeline "960x1080_60.00"  86.94  960 1024 1128 1296  1080 1081 1084 1118  -HSyn
 xrandr --newmode "960x1080_60.00"  86.94  960 1024 1128 1296  1080 1081 1084 1118  -HSync +Vsync
 xrandr --addmode HDMI-1 "960x1080_60.00"
 xrandr --output HDMI-1 --mode "960x1080_60.00"
-# Nicer dual picture.
-gtf 1280 1440 59.95
+# Nicer dual picture. 1280x1440
+gtf 1280 1440 59.95 # Copy the Modeline to the next command below
 xrandr --newmode "1280x1440_59.95"  155.78  1280 1376 1512 1744  1440 1441 1444 1490  -HSync +Vsync
 xrandr --addmode HDMI-1 "1280x1440_59.95"
 xrandr --output HDMI-1 --mode "1280x1440_59.95"
@@ -20,3 +20,13 @@ xrandr --output HDMI-1 --mode "1280x1440_59.95"
 ### Change
 xrandr --output HDMI-1 --mode 1920x1080; pactl set-card-profile 0 output:analog-stereo
 xrandr --output HDMI-1 --mode 2560x1440; pactl set-card-profile 0 output:hdmi-stereo
+
+##### Stac
+### Add the mode
+gtf 2560 1440 59.95 | grep -oP "Modeline \K.*" # Copy the Modeline to the next command below
+xrandr --newmode "2560x1440_59.95"  311.57  2560 2744 3024 3488  1440 1441 1444 1490  -HSync +Vsync
+xrandr --addmode DisplayPort-1 "2560x1440_59.95"
+xrandr --output DisplayPort-1 --mode "2560x1440_59.95"
+
+### Back to 1080p
+xrandr --output DisplayPort-1 --mode 1920x1080

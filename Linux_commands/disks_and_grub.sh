@@ -222,3 +222,6 @@ rsync -axHAX PLACE_FROM PLACE_TO
 # -H preserve hard links
 # -A preserve ACLs
 # -X preserve extended attributes
+### Also try getting progress output. See if it works without verbose output
+# --progress
+# --info=progress2
