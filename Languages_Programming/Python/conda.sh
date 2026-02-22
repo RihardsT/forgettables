@@ -21,7 +21,10 @@ conda activate NAME
 
 conda deactivate
 
-# Uninstall
+### Uninstall
 rm -rf ~/conda
 conda init --reverse --all
 rm -rf ~/.condarc ~/.conda ~/.continuum
+# Miniconda
+conda deactivate
+~/miniconda3/uninstall.sh
