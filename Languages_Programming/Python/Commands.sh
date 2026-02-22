@@ -31,6 +31,7 @@ deactivate
 
 
 ##### Install non system pip packages now.
+sudo apt install python3-venv
 mkdir ~/venvs
 VIRTUALENV=HERE
 python3 -m venv ~/venvs/${VIRTUALENV}

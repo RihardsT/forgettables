@@ -157,7 +157,7 @@ if $var; then echo "Hello"; fi # will not output, as it's false.
 if [ ${MYIP} != ${LASTIP} ] || [${MYWLANIP} != ${LASTIP}]
 then
   echo "yes"
-elif [ -z ${MYWLANIP} ]
+elif [ -z ${MYWLANIP} ]; then
   echo "Oh hey. An elif example."
 else
   echo "nay"

@@ -17,3 +17,9 @@ for item in $(helm list --no-headers | awk '{print $1}'); do
   helm get manifest ${item} > helm_manifest_${item}.yaml
   helm get all ${item} > helm_all_${item}.yaml
 done
+
+
+
+### Rollback
+helm history RELEASE
+helm rollback RELEASE REVISION

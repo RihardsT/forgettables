@@ -38,6 +38,15 @@ psql -f DUMP_FILE postgres
 \l+ DB_NAME
 select pg_database_size('DB_NAME');
 
+### General commands
+select * from TABLE_NAME;
+select * from TABLE_NAME where COLUMN_HERE like '%PATTERN%';
+# Usually specific DB words written in uppercase, thus writing here all variables in lowercase
+UPDATE table_name SET column_name = 'value' WHERE other_column_name = 'matching_value';
+INSERT INTO table_name (column, column) VALUES (value_1, value_2);
+### Insert with subquery. First value you set directly, second taken from other table.
+INSERT INTO table_name (column, column) SELECT value, table_name_2.column_name FROM table_name_2 WHERE column_name = 'value';
+
 
 ######### Upgrade
 ### Nice and simple:

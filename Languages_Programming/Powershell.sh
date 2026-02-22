@@ -34,7 +34,7 @@ Select-String -Pattern 'PATTERN' -All
 COMMAND | Where-Object { $_.PROPERTY -match "REGEX" }
 
 New-Item -Path "FILENAME" -ItemType File
-Remore-Item "FILENAME"
+Remove-Item "FILENAME"
 Test-Path "FILENAME"
 
 ##### Variable types
@@ -107,3 +107,9 @@ while ($i -gt 0){
 Get-ExecutionPolicy -List
 # As admin?
 Set-ExecutionPolicy -ExectionPolicy RemoteSigned -Scope CurrentUser
+
+
+### Replace, remove from string
+$(whoami) -replace "dir\\", ""
+### Echo to file with Out-File
+"Hello World" | Out-File "c:\Users\$($(whoami) -replace 'dir\\', '')\testfile"

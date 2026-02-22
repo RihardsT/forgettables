@@ -7,3 +7,10 @@ tee -a .bashrc <<EOF
 alias dps="docker ps -a --format 'table {{.ID}}\t{{.Status}}\t{{.Names}}'"
 alias dsp="docker system prune"
 EOF
+
+
+### Watch - expand other aliases.
+# https://askubuntu.com/questions/1386210/why-doesnt-the-watch-command-work-on-an-alias#1386212
+tee -a ~/.bash_aliases <<EOF
+alias watch="watch "
+EOF

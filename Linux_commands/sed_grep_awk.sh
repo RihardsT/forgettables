@@ -32,6 +32,8 @@ sed '/PATTERN/{s/"$/this"/}' # This can replace also some of the last chars
 # output line 100. q means the script will stop processing what comes after ;
 # d will delete all other lines
 sed '100q;d'
+### Insert text on first line
+sed -i '1i TEXT_HERE' FILE
 
 # Return the line with the match
 grep "^s[0-9].*" FILE

@@ -49,3 +49,16 @@ sudo mkdir /etc/systemd/resolved.conf.d/
 echo "[Resolve]
 DNS=1.1.1.1
 FallbackDNS=1.0.0.1" | sudo tee /etc/systemd/resolved.conf.d/resolv.conf
+
+##### Mirrored networkingMode
+# https://learn.microsoft.com/en-us/windows/wsl/networking#mirrored-mode-networking  
+# https://superuser.com/questions/1929757/mirrored-networking-mode-stopped-working-with-my-wsl2
+# Add this to c:\Users\USERNAME\.wslconfig
+[wsl2]
+networkingMode=mirrored
+### Create it directly with Powershell
+"[wsl2]
+networkingMode=mirrored" | Out-File "c:\Users\$($(whoami) -replace 'dir\\', '')\.wslconfig"
+
+Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -DefaultInboundAction Allow
+DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
