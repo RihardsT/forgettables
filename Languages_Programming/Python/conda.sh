@@ -9,7 +9,9 @@ ln -s /media/nvme/miniconda3 ~/miniconda3
 
 #
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -u # -u to be able to install the symlink
+bash Miniconda3-latest-Linux-x86_64.sh -b -u
+# -u to be able to install the symlink
+# -b to run automated, accept lincenses
 
 eval "$(~/miniconda3/bin/conda shell.bash hook)"
 
