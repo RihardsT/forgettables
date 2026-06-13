@@ -82,6 +82,8 @@ find $PWD -name "*.json"
 find $PWD -iname "EXPRESSION"
 # Find folders
 find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*"
+# Find files with extension and move
+find $PWD -name "*.EXT" -exec mv {} PATH \;
 # https://unix.stackexchange.com/questions/89925/how-to-delete-directories-based-on-find-output
 # Delete the found folders. I like this because you can see what gets deleted
 find PATH_TO_SEARCH -type d -iname "*REGULAR_EXPRESSION*" -exec rm -r "{}" \;

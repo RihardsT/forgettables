@@ -225,3 +225,6 @@ rsync -axHAX PLACE_FROM PLACE_TO
 ### Also try getting progress output. See if it works without verbose output
 # --progress
 # --info=progress2
+#  --dry-run
+
+rsync -axHAX --progress --itemize-changes --ignore-existing FROM TO

@@ -4,6 +4,7 @@ https://doc.opensuse.org/documentation/tumbleweed/updating_upgrading_reverting/
 sudo zypper refresh # refresh all repositories
 sudo zypper update
 sudo zypper dup # Upgrade
+# --allow-vendor-change
 
 # Some repos are not in auto update list, then can do
 sudo zypper ref && sudo zypper dup
