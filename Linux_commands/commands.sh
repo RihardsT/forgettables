@@ -25,6 +25,9 @@ scp -r -P 22 USER@SOURCE:/SOURCE_FILE_OR_DIR TARGET
 # Disk usage
 sudo du -sch | sort -h
 sudo du -sch --inodes
+sudo du -sch .[^.]* # Show hidden files
+sudo du -sch ~/.[^.]* ~/* # Show all the files
+sudo du -sch $(ls -A) # Show all the files
 df -h
 df -ih # show inode usage
 
