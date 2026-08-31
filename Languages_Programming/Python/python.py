@@ -27,7 +27,7 @@ print a, b
 #Python 3.* style
 print('{0} and {1}'.format('var1', 'var2'))
 # Python 3.6 String interpolation
-f'can_put_text_here {variable}'
+print(f'can_put_text_here {variable}')
 f'variable in brackets {{ {variable} }}'
 # print array contents without brackets
 print(*array, sep=', ')
